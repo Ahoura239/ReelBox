@@ -2,7 +2,7 @@
 
 An independent, Android-first Flutter app for films, series and a device-local library. No accounts, registration or subscriptions. This is not an official client and it is **not a full-parity replacement** for the original inspected application.
 
-**[Download the signed ARM64 APK](https://reelbox.dartty.top/downloads/reelbox-0.2.0-arm64.apk)** · **[Website](https://reelbox.dartty.top/)** · [Verification](docs/VERIFICATION.md) · [Known limitations](docs/KNOWN_LIMITATIONS.md)
+**[Download the signed ARM64 APK](https://reelbox.dartty.top:8443/downloads/reelbox-0.2.0-arm64.apk)** · **[Website](https://reelbox.dartty.top:8443/)** · [Verification](docs/VERIFICATION.md) · [Known limitations](docs/KNOWN_LIMITATIONS.md)
 
 ## License
 

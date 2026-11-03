@@ -1,14 +1,16 @@
 # Website deployment
 
-Live hostname: **https://reelbox.dartty.top/** (confirmed after discovering that the originally supplied `reel.dartty.top` had no DNS record). The existing certificate is in `/etc/letsencrypt/live/reelbox.dartty.top/`; `/etc/letsencyrpt/` did not exist.
+Live hostname: **https://reelbox.dartty.top:8443/** (confirmed after discovering that the originally supplied `reel.dartty.top` had no DNS record). The existing certificate is in `/etc/letsencrypt/live/reelbox.dartty.top/`; `/etc/letsencyrpt/` did not exist.
 
 ## Layout
 
 - Public files: `/var/www/reelbox/releases/<release>/`, selected by the atomic `current` symlink
 - Standalone nginx configuration: `/etc/reelbox/nginx.conf` and `security-headers.conf`
-- Service: `reelbox-web.service`, enabled at boot, HTTPS port **443** only
+- Service: `reelbox-web.service`, enabled at boot, HTTPS port **8443** only
 - Logs: `/var/log/reelbox/error.log`; access logging is disabled
 - Certificate hook: `/etc/letsencrypt/renewal-hooks/deploy/reelbox-web`
+
+Public TCP/UDP port 443 has a pre-existing ctunnel DNAT forward. The user explicitly chose **8443** rather than modifying or multiplexing that tunnel. Its firewall rules remain unchanged.
 
 This is a **separate nginx instance**, not a modification of the existing `madmail-web.service` on port 8843. It does not touch the existing mail, proxy or tunnel configurations. Port 80 remains free for the existing Certbot standalone renewer.
 
