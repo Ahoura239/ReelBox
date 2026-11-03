@@ -14,10 +14,7 @@ Reelbox's original code is licensed under **GNU GPL version 3 only** (`GPL-3.0-o
 - Public catalog, source discovery and recommendations use operator-supplied build-time service keys. These are shared service credentials, not personal account credentials, and are intentionally absent from this repository.
 - Saved titles, collections, history, search history and preferences stay on the device unless you explicitly export/share a backup.
 - Read-only film/series comments do not enable posting, rating submission or private server lists. Live channels and public playlists are removed; private local collections and episode queues remain.
-- Original-service support/community/news/Telegram/promotional/updater surfaces are excluded. App sharing sends independent Reelbox information, not an invented installation URL.
-- A returned URL does not establish permission to download or redistribute a work. Use content you are entitled to access. Server authentication, authorization, DRM and playback denials are not bypassed.
-- No original executable was run to extract the catalog. The export is a reconstructed API snapshot, not the server's physical database.
-
+- 
 ## Development
 
 The checked toolchain is Flutter 3.47.9 / Dart 3.13.7. Dependencies are locked in `pubspec.lock`. Android package: `org.reelbox.app`.
