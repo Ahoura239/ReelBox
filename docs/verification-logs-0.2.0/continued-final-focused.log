@@ -1,0 +1,97 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/api_config_recovery_test.dart
+00:00 +0: /root/reelbox/test/api_config_recovery_test.dart: verified cache is restored by a fresh instance without contacting discovery
+00:00 +1: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: 
+00:00 +2: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: untrusted.example
+00:00 +3: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +4: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +5: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +6: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +7: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: 127.0.0.1
+00:00 +8: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +9: /root/reelbox/test/api_config_recovery_test.dart: discovery outage keeps last trusted cache and an invalid schema is not cached
+00:01 +10: /root/reelbox/test/api_config_recovery_test.dart: read-only transport failure recovers once without a discovery storm
+00:01 +11: /root/reelbox/test/api_config_recovery_test.dart: persistent transport failure is bounded to two GET attempts
+00:01 +12: /root/reelbox/test/api_config_recovery_test.dart: HTTP 401 is preserved without automatic retry
+00:01 +13: /root/reelbox/test/api_config_recovery_test.dart: HTTP 403 is preserved without automatic retry
+00:01 +14: /root/reelbox/test/api_config_recovery_test.dart: HTTP 404 is preserved without automatic retry
+00:01 +15: /root/reelbox/test/api_config_recovery_test.dart: HTTP 429 is preserved without automatic retry
+00:01 +16: /root/reelbox/test/api_config_recovery_test.dart: HTTP 500 is preserved without automatic retry
+00:01 +17: /root/reelbox/test/api_config_recovery_test.dart: DioExceptionType.cancel is never retried
+00:01 +18: /root/reelbox/test/api_config_recovery_test.dart: DioExceptionType.badCertificate is never retried
+00:01 +19: /root/reelbox/test/api_config_recovery_test.dart: POST transport failure is not replayed
+00:01 +20: /root/reelbox/test/api_config_recovery_test.dart: concurrent failed GETs share cache loading and each retry only once
+00:01 +21: /root/reelbox/test/api_config_recovery_test.dart: production default persists only a schema-verified trusted base
+00:01 +22: loading /root/reelbox/test/api_service_test.dart
+00:04 +22: /root/reelbox/test/api_service_test.dart: observed search IDs take precedence over unrelated posted_id values
+00:04 +23: /root/reelbox/test/api_service_test.dart: search, recommendation, trending and actors use observed queries; removed public lists never request
+00:04 +24: /root/reelbox/test/api_service_test.dart: real curated parallel arrays flatten and rewrite allowlisted legacy links safely
+00:04 +25: /root/reelbox/test/api_service_test.dart: public catalog endpoints preserve original routes and zero-based pages
+00:04 +26: /root/reelbox/test/api_service_test.dart: invalid catalog kinds and subtitle kinds cannot inject routes
+00:05 +27: /root/reelbox/test/api_service_test.dart: rejects untrusted, insecure and ambiguous routes before transport
+00:05 +28: /root/reelbox/test/api_service_test.dart: rewrites only allowlisted legacy public links to HTTPS current host
+00:05 +29: /root/reelbox/test/api_service_test.dart: base updates are atomic, allow HTTPS service and local HTTP tests only
+00:05 +30: /root/reelbox/test/api_service_test.dart: generic POST is form encoded and never follows credential redirects
+00:05 +31: /root/reelbox/test/api_service_test.dart: discovery upgrades advertised HTTP but rejects unsigned unknown hosts
+00:05 +32: /root/reelbox/test/api_service_test.dart: HTML, malformed JSON, timeout and HTTP denials produce safe errors
+00:05 +33: /root/reelbox/test/api_service_test.dart: HTTPS relative route uses timeouts, correct shared key and JSON decoding
+00:05 +34: loading /root/reelbox/test/api_content_policy_test.dart
+00:07 +34: /root/reelbox/test/api_content_policy_test.dart: all title decoders reject channels and promotional catalog entries
+00:07 +35: /root/reelbox/test/api_content_policy_test.dart: home exposes only film discovery, never updater/support/public feeds
+00:07 +36: /root/reelbox/test/api_content_policy_test.dart: removed API wrappers cannot issue public-playlist/live-channel requests
+00:07 +37: /root/reelbox/test/api_content_policy_test.dart: generic paths and query maps cannot bypass removed endpoint policy
+00:07 +38: /root/reelbox/test/api_content_policy_test.dart: a raw page containing only hidden items still has a continuation
+00:07 +39: /root/reelbox/test/api_content_policy_test.dart: stored model round trips cannot retain hidden promotional metadata
+00:08 +40: loading /root/reelbox/test/player_engine_dispatch_next_test.dart
+00:52 +40: /root/reelbox/test/player_engine_dispatch_next_test.dart: persisted Stretch dispatches actual fill geometry instead of contain
+00:55 +41: /root/reelbox/test/player_engine_dispatch_next_test.dart: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+01:06 +42: /root/reelbox/test/player_engine_dispatch_next_test.dart: offline player explicitly hands Cast a sharing lease and revokes it on exit (variant: TargetPlatform.android)
+01:07 +43: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual quality change (variant: TargetPlatform.android)
+01:09 +44: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual episode change (variant: TargetPlatform.android)
+01:11 +45: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual subtitles change (variant: TargetPlatform.android)
+01:12 +46: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual stop change (variant: TargetPlatform.android)
+01:15 +47: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual new owner change (variant: TargetPlatform.android)
+01:19 +48: /root/reelbox/test/player_engine_dispatch_next_test.dart: real player controls dispatch to engine and persist fit/subtitle options
+01:21 +49: /root/reelbox/test/player_engine_dispatch_next_test.dart: resume retains history, rewinds dispatch, and next updates episode context
+01:21 +50: loading /root/reelbox/test/player_native_session_test.dart
+01:40 +50: /root/reelbox/test/player_native_session_test.dart: media actions dispatch actual local controls and reject unknown actions
+01:40 +51: /root/reelbox/test/player_native_session_test.dart: Cast transfer pauses decoder and routes controls remotely until disconnect
+01:40 +52: /root/reelbox/test/player_native_session_test.dart: failed Cast load restores local playback and leaves no remote mode
+01:41 +53: /root/reelbox/test/player_native_session_test.dart: failed Cast load is not retried by repeated connected polls
+01:41 +54: /root/reelbox/test/player_native_session_test.dart: old owner cannot clear new handler or dispatch pending action
+01:41 +55: /root/reelbox/test/player_native_session_test.dart: disconnect during pending load cannot revive stale Cast mode
+01:41 +56: /root/reelbox/test/player_native_session_test.dart: disconnect during awaited local pause restores latest intent true
+01:41 +57: /root/reelbox/test/player_native_session_test.dart: disconnect during awaited local pause restores latest intent false
+01:41 +58: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after stop
+01:41 +59: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after release
+01:41 +60: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after new owner
+01:41 +61: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after new load
+01:41 +62: /root/reelbox/test/player_native_session_test.dart: Cast rejection preserves newer pause intent
+01:41 +63: /root/reelbox/test/player_native_session_test.dart: Cast throw preserves newer pause intent
+01:41 +64: /root/reelbox/test/player_native_session_test.dart: Cast rejection preserves newer play intent
+01:41 +65: /root/reelbox/test/player_native_session_test.dart: Cast throw preserves newer play intent
+01:41 +66: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after stop
+01:41 +67: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after release
+01:41 +68: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after new owner
+01:42 +69: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after new load
+01:42 +70: /root/reelbox/test/player_native_session_test.dart: notification stop ends background session without automatic restart
+01:42 +71: /root/reelbox/test/player_native_session_test.dart: background bridge starts only by opt-in and updates exact metadata
+01:42 +72: loading /root/reelbox/test/native_cast_preparation_test.dart
+01:52 +72: /root/reelbox/test/native_cast_preparation_test.dart: Cast prepares an owned resource only after an explicit request and revokes on disconnect
+01:52 +73: /root/reelbox/test/native_cast_preparation_test.dart: a newer media request supersedes pending preparation without casting stale media
+01:52 +74: /root/reelbox/test/native_cast_preparation_test.dart: remote stop revokes sharing and connected polls do not restart it
+01:53 +75: loading /root/reelbox/test/next_library_ui_test.dart
+02:07 +75: /root/reelbox/test/next_library_ui_test.dart: fresh app routes through introduction before exposing navigation
+02:11 +76: /root/reelbox/test/next_library_ui_test.dart: counted library tabs remain readable and reachable with large text
+02:12 +77: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in en without an invented install link (variant: TargetPlatform.android)
+02:13 +78: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in fa without an invented install link (variant: TargetPlatform.android)
+02:14 +79: /root/reelbox/test/next_library_ui_test.dart: unavailable app sharing shows a safe error rather than native details (variant: TargetPlatform.android)
+02:14 +80: /root/reelbox/test/next_library_ui_test.dart: first-run skip persists completion without touching library
+02:15 +81: /root/reelbox/test/next_library_ui_test.dart: first-run finish persists completion
+02:15 +82: /root/reelbox/test/next_library_ui_test.dart: more exposes no removed service links and about uses runtime package info
+02:18 +83: /root/reelbox/test/next_library_ui_test.dart: custom ARGB color and opacity save exact RGB without changing background
+02:42 +84: /root/reelbox/test/next_library_ui_test.dart: settings safely displays imported custom values and resets subtitle style only
+02:47 +85: All tests passed!

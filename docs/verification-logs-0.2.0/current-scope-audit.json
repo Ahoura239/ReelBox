@@ -1,0 +1,1325 @@
+{
+  "audit_type": "bounded_read_only_current_source_scope_completion_audit",
+  "repository": "/root/reelbox",
+  "scope_authority": "/root/reelbox-planning/NEXT_RELEASE_CONTRACT.md",
+  "scope_statement": "Incremental 0.2 implementation audit against retained Android/platform-independent original features. No blanket parity or release-readiness claim. Historical ledger status/gap strings are not current findings.",
+  "reviewed_feature_ids": [
+    "F003",
+    "F005",
+    "F006",
+    "F007",
+    "F009",
+    "F010",
+    "F015",
+    "F019",
+    "F020",
+    "F023",
+    "F024",
+    "F025",
+    "F026",
+    "F027",
+    "F028",
+    "F029",
+    "F030",
+    "F035",
+    "F036",
+    "F037",
+    "F038",
+    "F039",
+    "F040",
+    "F041",
+    "F043",
+    "F044",
+    "F045",
+    "F046",
+    "F047",
+    "F048",
+    "F049",
+    "F050",
+    "F051",
+    "F052",
+    "F053",
+    "F054",
+    "F055",
+    "F056",
+    "F057",
+    "F058",
+    "F059",
+    "F060",
+    "F061",
+    "F062",
+    "F086",
+    "F087",
+    "F091",
+    "F092",
+    "F093",
+    "F094",
+    "F095",
+    "F096",
+    "F097",
+    "F098",
+    "F099",
+    "F100",
+    "F101",
+    "F102",
+    "F103",
+    "F104",
+    "F105",
+    "F106",
+    "F107",
+    "F108",
+    "F109",
+    "F110",
+    "F111",
+    "F112",
+    "F113",
+    "F114",
+    "F115",
+    "F116",
+    "F117",
+    "F118",
+    "F119",
+    "F120",
+    "F121",
+    "F123",
+    "F124",
+    "F125",
+    "F126",
+    "F128",
+    "F129",
+    "F130",
+    "F131",
+    "F132",
+    "F133",
+    "F134",
+    "F135",
+    "F136",
+    "F137",
+    "F138",
+    "F140",
+    "F141",
+    "F142",
+    "F144",
+    "F145",
+    "F146",
+    "F147",
+    "F148",
+    "F149",
+    "F150",
+    "F151",
+    "F152",
+    "F154",
+    "F155",
+    "F166",
+    "F177",
+    "F178",
+    "F179",
+    "F180",
+    "F181",
+    "F182",
+    "F183",
+    "F184",
+    "F185",
+    "F186",
+    "F187",
+    "F188",
+    "F189",
+    "F190",
+    "F191",
+    "F192",
+    "F193",
+    "F194",
+    "F195",
+    "F196",
+    "F197",
+    "F198",
+    "F199",
+    "F200",
+    "F201",
+    "F202",
+    "F203",
+    "F204",
+    "F205",
+    "F206",
+    "F207",
+    "F208",
+    "F222",
+    "F223",
+    "F224"
+  ],
+  "coverage": {
+    "inventory_rows_screened": 229,
+    "grouped_static_review_feature_count": 142,
+    "ledger_total": 229,
+    "all_229_individually_verified": false,
+    "meaning_of_reviewed": "Current grouped source paths and relevant tests inspected at the evidence granularity shown below; not exhaustive execution or every original sub-behavior. Cast carries prior review only as explicitly marked.",
+    "historical_partial_or_missing_retained_ids": [
+      "F003",
+      "F005",
+      "F007",
+      "F009",
+      "F010",
+      "F020",
+      "F024",
+      "F028",
+      "F029",
+      "F030",
+      "F035",
+      "F037",
+      "F048",
+      "F049",
+      "F051",
+      "F055",
+      "F059",
+      "F060",
+      "F061",
+      "F087",
+      "F091",
+      "F092",
+      "F093",
+      "F094",
+      "F095",
+      "F096",
+      "F097",
+      "F098",
+      "F099",
+      "F100",
+      "F104",
+      "F105",
+      "F108",
+      "F110",
+      "F111",
+      "F112",
+      "F113",
+      "F114",
+      "F115",
+      "F116",
+      "F117",
+      "F119",
+      "F120",
+      "F121",
+      "F123",
+      "F124",
+      "F125",
+      "F126",
+      "F135",
+      "F136",
+      "F140",
+      "F141",
+      "F142",
+      "F144",
+      "F145",
+      "F147",
+      "F148",
+      "F151",
+      "F154",
+      "F155",
+      "F179",
+      "F183",
+      "F184",
+      "F188",
+      "F189",
+      "F190",
+      "F191",
+      "F192",
+      "F193",
+      "F194",
+      "F195",
+      "F196",
+      "F197",
+      "F198",
+      "F199",
+      "F200",
+      "F202",
+      "F204",
+      "F205",
+      "F206",
+      "F207",
+      "F222",
+      "F223",
+      "F224"
+    ],
+    "historical_priority_ids_covered_by_grouped_review": [
+      "F003",
+      "F005",
+      "F007",
+      "F009",
+      "F010",
+      "F020",
+      "F024",
+      "F028",
+      "F029",
+      "F030",
+      "F035",
+      "F037",
+      "F048",
+      "F049",
+      "F051",
+      "F055",
+      "F059",
+      "F060",
+      "F061",
+      "F087",
+      "F091",
+      "F092",
+      "F093",
+      "F094",
+      "F095",
+      "F096",
+      "F097",
+      "F098",
+      "F099",
+      "F100",
+      "F104",
+      "F105",
+      "F108",
+      "F110",
+      "F111",
+      "F112",
+      "F113",
+      "F114",
+      "F115",
+      "F116",
+      "F117",
+      "F119",
+      "F120",
+      "F121",
+      "F123",
+      "F124",
+      "F125",
+      "F126",
+      "F135",
+      "F136",
+      "F140",
+      "F141",
+      "F142",
+      "F144",
+      "F145",
+      "F147",
+      "F148",
+      "F151",
+      "F154",
+      "F155",
+      "F179",
+      "F183",
+      "F184",
+      "F188",
+      "F189",
+      "F190",
+      "F191",
+      "F192",
+      "F193",
+      "F194",
+      "F195",
+      "F196",
+      "F197",
+      "F198",
+      "F199",
+      "F200",
+      "F202",
+      "F204",
+      "F205",
+      "F206",
+      "F207",
+      "F222",
+      "F223",
+      "F224"
+    ],
+    "historical_priority_ids_not_in_grouped_review": [],
+    "retained_ids_not_in_grouped_review": [
+      "F001",
+      "F002",
+      "F004",
+      "F011",
+      "F012",
+      "F013",
+      "F014",
+      "F016",
+      "F017",
+      "F018",
+      "F021",
+      "F022",
+      "F031",
+      "F032",
+      "F033",
+      "F034",
+      "F042",
+      "F088",
+      "F139",
+      "F143",
+      "F167",
+      "F209"
+    ],
+    "inventory_ids_not_in_grouped_review": [
+      "F001",
+      "F002",
+      "F004",
+      "F008",
+      "F011",
+      "F012",
+      "F013",
+      "F014",
+      "F016",
+      "F017",
+      "F018",
+      "F021",
+      "F022",
+      "F031",
+      "F032",
+      "F033",
+      "F034",
+      "F042",
+      "F063",
+      "F064",
+      "F065",
+      "F066",
+      "F067",
+      "F068",
+      "F069",
+      "F070",
+      "F071",
+      "F072",
+      "F073",
+      "F074",
+      "F075",
+      "F076",
+      "F077",
+      "F078",
+      "F079",
+      "F080",
+      "F081",
+      "F082",
+      "F083",
+      "F084",
+      "F085",
+      "F088",
+      "F089",
+      "F090",
+      "F122",
+      "F127",
+      "F139",
+      "F143",
+      "F153",
+      "F156",
+      "F157",
+      "F158",
+      "F159",
+      "F160",
+      "F161",
+      "F162",
+      "F163",
+      "F164",
+      "F165",
+      "F167",
+      "F168",
+      "F169",
+      "F170",
+      "F171",
+      "F172",
+      "F173",
+      "F174",
+      "F175",
+      "F176",
+      "F209",
+      "F210",
+      "F211",
+      "F212",
+      "F213",
+      "F214",
+      "F215",
+      "F216",
+      "F217",
+      "F218",
+      "F219",
+      "F220",
+      "F221",
+      "F225",
+      "F226",
+      "F227",
+      "F228",
+      "F229"
+    ]
+  },
+  "known_cast_blockers": [
+    {
+      "id": "CAST-FIX-01",
+      "feature_ids": [
+        "F192",
+        "F193"
+      ],
+      "severity": "high",
+      "title": "An initial pending Cast preparation survives a source change and loads the old source",
+      "source_locations_from_prior_review": [
+        "lib/media/player_page.dart:93-111",
+        "lib/media/player_page.dart:291-339",
+        "lib/media/player_page.dart:876-896",
+        "lib/media/media_platform.dart:213-243"
+      ],
+      "failure_path": "_prepareCastMedia snapshots the old payload and subtitle text before awaiting the factory. During this initial preparation casting is still false. _open changes _source/_episode but neither revokes the pending share nor increments the native Cast revision; its loadCast call is guarded by _casting. When the old factory completes, mounted/ownsSystem/shareGeneration still pass, so its lease is retained and the old payload is sent to castLoad. The decoder for the newly selected source is paused and the receiver loads the previous source. The equivalent stale snapshot occurs if subtitles are disabled during initial preparation: _setSubtitles does not invalidate/reload while _casting is false.",
+      "status": "known_blocker_owned_by_other_worker_pending_parent_reverification",
+      "evidence_report": "/root/reelbox-planning/resume-cast-fix-review.json",
+      "independently_reverified_by_this_audit": false
+    },
+    {
+      "id": "CAST-FIX-02",
+      "feature_ids": [
+        "F192",
+        "F193"
+      ],
+      "severity": "medium",
+      "title": "Disconnect while the local pause is pending leaves previously playing local media paused",
+      "source_locations_from_prior_review": [
+        "lib/media/media_platform.dart:165-175",
+        "lib/media/media_platform.dart:226-230",
+        "lib/media/media_platform.dart:234-239",
+        "lib/media/player_page.dart:955-963"
+      ],
+      "failure_path": "After preparation, _runCastLoad awaits local('pause'). A disconnect during that await increments _castRevision and revokes, but does not resume because casting has not yet become true. When pause completes, the stale-revision branch at lines 228-230 revokes and returns without restoring local playback. The disconnect restoration later in the post-castLoad branch is never reached. No castLoad needs to be sent for this failure.",
+      "status": "known_blocker_owned_by_other_worker_pending_parent_reverification",
+      "evidence_report": "/root/reelbox-planning/resume-cast-fix-review.json",
+      "independently_reverified_by_this_audit": false
+    },
+    {
+      "id": "CAST-FIX-03",
+      "feature_ids": [
+        "F192",
+        "F193"
+      ],
+      "severity": "medium",
+      "title": "A failed asynchronous Cast load overrides a newer user pause",
+      "source_locations_from_prior_review": [
+        "lib/media/media_platform.dart:216-217",
+        "lib/media/media_platform.dart:254-263",
+        "lib/media/media_platform.dart:280-283",
+        "lib/media/media_platform.dart:301-310"
+      ],
+      "failure_path": "The load captures wasPlaying before preparation and native loading. A user pause during the pending load correctly updates _loadPlayState=false and pauses the local decoder because casting is not true yet. If castLoad then rejects or throws, the catch path restores from the old wasPlaying value instead of _loadPlayState, issuing local play against the user's newer pause. The inverse case also discards a newer play request when the attempt began paused.",
+      "status": "known_blocker_owned_by_other_worker_pending_parent_reverification",
+      "evidence_report": "/root/reelbox-planning/resume-cast-fix-review.json",
+      "independently_reverified_by_this_audit": false
+    },
+    {
+      "id": "CAST-FIX-04",
+      "feature_ids": [
+        "F192",
+        "F193"
+      ],
+      "severity": "medium",
+      "title": "Selecting an existing subtitle track leaves the previous external text selected for Cast",
+      "source_locations_from_prior_review": [
+        "lib/media/player_page.dart:93-96",
+        "lib/media/player_page.dart:1258-1274",
+        "lib/media/player_page.dart:1568-1575",
+        "lib/media/player_page.dart:1814-1824"
+      ],
+      "failure_path": "File/service subtitle loaders record their decoded text in _subtitleText. The actual existing-track selection handler only calls _player.setSubtitleTrack(track); it neither updates/clears _subtitleText and _subtitleUrl nor refreshes Cast. Selecting an embedded/different/no track therefore leaves the old external subtitle text in the Cast payload. On a subsequent Cast request, _prepareCastMedia converts and shares that old text even though it is no longer the selected local track. During an active Cast session, the selection does not alter remote subtitles at all.",
+      "status": "known_blocker_owned_by_other_worker_pending_parent_reverification",
+      "evidence_report": "/root/reelbox-planning/resume-cast-fix-review.json",
+      "independently_reverified_by_this_audit": false
+    }
+  ],
+  "other_confirmed_missing_or_broken": [
+    {
+      "audit_id": "SCOPE-01",
+      "feature_id": "F126",
+      "related_feature_ids": [],
+      "severity": "medium",
+      "classification": "missing_retained_function",
+      "summary": "Share-the-app action is absent; title/source sharing does not provide it.",
+      "symbol_or_failure_path": "MorePage and _AboutReelboxPage provide no share-app action; the only Dart ShareParams call is catalog.dart::_share for titles/sources.",
+      "source_evidence": [
+        "lib/ui/library.dart:460-557::MorePage complete action list",
+        "lib/ui/library.dart:1272-1380::_AboutReelboxPage complete action list",
+        "lib/ui/catalog.dart:2228-2258::_shareTitle/_share"
+      ],
+      "original_evidence": [
+        {
+          "feature_id": "F126",
+          "source_symbol": "MainActivity.java:onNavigationItemSelected app sharing branch",
+          "lines": "450-461",
+          "observation": "Original launches native ACTION_SEND with app download text; adjacent Telegram branch is separately excluded."
+        }
+      ],
+      "actionable_acceptance": "Expose independently branded native app sharing without restoring Telegram/vendor links. Do not invent a public release/install URL; share factual app text or an explicitly supplied distribution destination.",
+      "verification": "Whole current production Dart/native share callsites searched; static absence only, no tests run."
+    },
+    {
+      "audit_id": "SCOPE-02",
+      "feature_id": "F119",
+      "related_feature_ids": [
+        "F179"
+      ],
+      "severity": "medium",
+      "classification": "confirmed_setting_dispatch_defect",
+      "summary": "Persisted Stretch video-fit option is accepted and exposed, but playback renders it as contain.",
+      "symbol_or_failure_path": "SettingsPage saves videoFit=fill; _PlayerPageState._applyOptions sets _fill only for cover; Video.fit is _fill ? BoxFit.cover : BoxFit.contain, so fill can never become BoxFit.fill.",
+      "source_evidence": [
+        "lib/ui/library.dart:743-747::SettingsPage Video fit exposes contain/cover/fill",
+        "lib/state/app_state.dart:305::AppSettings.fromJson accepts fill",
+        "lib/media/player_page.dart:934-938::_applyOptions collapses fit to cover boolean",
+        "lib/media/player_page.dart:510-515::Video.fit only cover/contain"
+      ],
+      "actionable_acceptance": "Preserve the selected fit mode through the real Video rendering dispatch, or remove the unsupported offered mode explicitly; verify persisted fill does not silently behave as contain.",
+      "verification": "Direct static value-flow proof. Existing fit engine test covers cover/contain, not the offered fill branch; no execution performed."
+    },
+    {
+      "audit_id": "SCOPE-03",
+      "feature_id": "F092",
+      "related_feature_ids": [
+        "F091"
+      ],
+      "severity": "medium",
+      "classification": "retained_original_recovery_function_incomplete",
+      "summary": "Automatic last-known trusted configuration fallback/request recovery is not implemented; current code only keeps an in-memory default/base and offers manual retry.",
+      "symbol_or_failure_path": "ApiService.initialize catches discovery failure and returns; _request immediately converts network/timeouts into ApiException with no bounded recovery path; AppState persists the private library/settings but no last-known verified API base.",
+      "source_evidence": [
+        "lib/data/api_service.dart:123-160::setBaseUrl/initialize",
+        "lib/data/api_service.dart:439-501::_request transport/error path",
+        "lib/state/app_state.dart:672-696::_load/initialize",
+        "lib/ui/library.dart:1104-1150::_CatalogConnectionTile manual optional discovery check"
+      ],
+      "original_evidence": [
+        {
+          "feature_id": "F092",
+          "source_symbol": "desktop-source/out/main/index.js::resolveDomain",
+          "lines": "167-199",
+          "observation": "Original checks saved reachable base, downloads config, then falls back to saved/default and records reachability/source."
+        }
+      ],
+      "actionable_acceptance": "Either retain this as an explicitly documented constrained-policy divergence, or implement bounded recovery using only already-trusted verified configuration. Do not add guessed domains, weaken trust validation or retry authorization denials.",
+      "verification": "Confirmed static absence of saved-base/fallback orchestration and transport retry. No server outage or live domain probes attempted; this is not an assertion that the current trusted server is unavailable."
+    }
+  ],
+  "code_present_groups": [
+    {
+      "group": "Recoverable bootstrap, dismissible status, genuine first run",
+      "feature_ids": [
+        "F003",
+        "F005",
+        "F123"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/main.dart:18-39::ReelboxBootstrap initializer guards MediaKit and local state initialization",
+        "lib/bootstrap.dart::_ReelboxBootstrapState._start/build, generation-guarded retry and progress",
+        "lib/ui/common.dart::toast, showCloseIcon",
+        "lib/app.dart:103-105::introCompleted root routing",
+        "lib/ui/library.dart::FirstRunIntroPage._finish"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/bootstrap_test.dart",
+          "evidence": "progress, recoverable failure, disposed completion",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "fresh app introduction, skip and finish persistence",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": []
+    },
+    {
+      "group": "Home discovery and pre-search suggestions",
+      "feature_ids": [
+        "F006",
+        "F007",
+        "F009",
+        "F010",
+        "F028"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/ui/catalog.dart:228-258::DiscoverPage server rails, _DiscoveryHomeShelves and _ContinueWatchingShelf",
+        "lib/ui/catalog_extras.dart:111-215::_DiscoveryHomeShelvesState, actors and country-chip navigation",
+        "lib/ui/catalog_extras.dart:759-857::_ContinueWatchingShelf / _continueCurrentHistory resolves fresh poster/seasons and selected episode",
+        "lib/ui/catalog.dart:1272-1294::_SearchPageState suggestion result",
+        "lib/data/catalog_discovery.dart::CatalogDiscovery.suggestions"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "home actor/country shelves, no live features; empty-search suggestions; fresh-source continuation",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_widget_test.dart",
+          "evidence": "Discover server rail remains stable on rebuild",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Actors/countries are loaded from dedicated public endpoints, not a guarantee of the original home response ordering.",
+        "Continuation shelf filters positions below five seconds and deduplicates by title; it does not remove completed entries. Resume itself resets completed playback via resumePosition."
+      ]
+    },
+    {
+      "group": "Directory families, miniseries, sitcom and observed year/shared routes",
+      "feature_ids": [
+        "F015",
+        "F019",
+        "F023",
+        "F043",
+        "F044",
+        "F045",
+        "F046",
+        "F086",
+        "F087",
+        "F124",
+        "F125",
+        "F128",
+        "F129",
+        "F130",
+        "F131",
+        "F132",
+        "F133",
+        "F134",
+        "F135",
+        "F136",
+        "F137",
+        "F138",
+        "F140",
+        "F141",
+        "F142",
+        "F144",
+        "F146",
+        "F150",
+        "F151"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/ui/catalog_extras.dart::DiscoveryDirectoryPage presets and miniseries/sitcom SearchPage initialQuery",
+        "lib/ui/catalog_extras.dart::CountriesPage, ActorsPage, ActorTitlesPage with portrait/role/bio",
+        "lib/ui/catalog_extras.dart::SubjectDirectoryPage, SharedTitlesPage, CuratedPage/_CuratedContents",
+        "lib/data/catalog_discovery.dart::CatalogDiscovery.directory/sharedTitles, ActorFilmography.load and actorMetadata",
+        "lib/ui/catalog.dart::BrowsePage and RecommendationsPage"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_discovery_test.dart",
+          "evidence": "distinct theme/franchise routes; ordered shared-ID hydration; actor name fallback and nested metadata",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "directory shortcuts and removal of public playlists",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_discovery_regression_test.dart",
+          "evidence": "observed discovery preset route/order constants",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "No live endpoint availability, completeness, rankings or top-250 cardinality established here.",
+        "Theme directory is intentionally terminal: next_catalog_discovery_test documents that the observed live mazmon endpoint ignores paging. This is not inferred to be a missing pager.",
+        "Original apiRest.java::lastmovie_create/lastseryal_create uses year ordering, so the new year presets are not missing an original year selector.",
+        "Original MainActivity.java:352-365 miniseries/sitcom are title searches, matching current shortcuts."
+      ]
+    },
+    {
+      "group": "Search filters/help/history and resilient catalog pagination",
+      "feature_ids": [
+        "F020",
+        "F024",
+        "F025",
+        "F026",
+        "F027",
+        "F029",
+        "F030",
+        "F145",
+        "F147",
+        "F148",
+        "F149"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/ui/catalog.dart::_SearchPageState.build, explicit help toggle and ExpansionTile filters",
+        "lib/data/catalog_discovery.dart::DiscoverySearchFilter / CatalogDiscovery.search retains unfiltered nextPage",
+        "lib/ui/catalog.dart::_PagedTitlesState._nearEnd/_load/_refresh, raw continuation, preserved failed cursor, loaded-count heading",
+        "lib/ui/common.dart::PosterGrid compact row preference",
+        "lib/state/app_state.dart::rememberSearch/removeSearch/clearSearchHistory"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_policy_ui_test.dart",
+          "evidence": "help/advanced filters in small viewport",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "individual history deletion, help, compact rows and counts",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_paging_regression_test.dart",
+          "evidence": "retry cursor, filter staleness, duplicate-only pages, opposite-kind country pages",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_discovery_test.dart",
+          "evidence": "local filters preserve server continuation",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Filters operate on loaded pages, not undocumented advanced server query parameters. Counts correctly describe loaded matches, not total server hits.",
+        "Exact English uses a toggle instead of a redundant separate screen."
+      ]
+    },
+    {
+      "group": "Quality choice and external/internal/embed playback dispatch",
+      "feature_ids": [
+        "F036",
+        "F037",
+        "F038",
+        "F039",
+        "F040",
+        "F041",
+        "F052",
+        "F166",
+        "F177",
+        "F194",
+        "F195",
+        "F196"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/ui/catalog.dart::_SourceList Play preferred source and cancellable source-quality dialog",
+        "lib/ui/catalog.dart:2053-2162::_play honors external preference/package, handles embeds via openEmbedded, otherwise opens PlayerPage",
+        "lib/ui/catalog.dart::_copy/_shareTitle/_share",
+        "lib/media/player_page.dart::_externalPlayer package/Android chooser with position and selected remote subtitle URL",
+        "lib/media/media_platform.dart::MediaPlatform.openExternal",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/NativeFileIntents.kt::openExternal/launch scoped grants and chooser fallback"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/catalog_playback_preferences_test.dart",
+          "evidence": "ask/cancel quality, preferred quality and real method-channel external dispatch",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_policy_ui_test.dart",
+          "evidence": "generic embed dispatch and plain independent title sharing",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_widget_test.dart",
+          "evidence": "movie/episode public sources",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Original desktop native-helper method modal is not reproduced verbatim. Android choice exists through preference plus the in-player external chooser; no missing desktop helper binary is requested.",
+        "KM/GOM/TV are not named shortcuts, but Android chooser accepts compatible installed players. Package-specific compatibility not proven.",
+        "Title sharing is plain title text rather than an original-service share link; no Reelbox distribution URL was supplied."
+      ]
+    },
+    {
+      "group": "Private local library, episode watched markers and fresh history continuation",
+      "feature_ids": [
+        "F035",
+        "F047",
+        "F048",
+        "F049",
+        "F050",
+        "F051",
+        "F152",
+        "F154",
+        "F155"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/state/app_state.dart::recordWatch/resumeSeconds/removeHistory use library namespace plus episode",
+        "lib/state/app_state.dart:914-945::isEpisodeWatched/setEpisodeWatched independent persisted markers",
+        "lib/state/app_state.dart::createCollection/deleteCollection/toggleCollectionTitle/importLibrary/exportLibrary",
+        "lib/state/app_state.dart:966-1010::resolveHistory refetches poster/seasons and supplies playlist/alternatives",
+        "lib/ui/library.dart::LibraryPage counted tabs and Resume action",
+        "lib/ui/catalog.dart::_EpisodeTile watched action and progress",
+        "lib/media/player_page.dart::_open/_save use PlaybackCheckpoint and resumeRewindSeconds",
+        "lib/media/media_helpers.dart::resumePosition"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_library_state_test.dart",
+          "evidence": "independent watched markers, atomic migration/import and fresh-source history",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "actual episode marker action and fresh home continuation",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "real engine resume, rewind and next episode",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/app_state_test.dart",
+          "evidence": "persistence, exact episode resume, private collections and import/export",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/library_identity_regression_test.dart",
+          "evidence": "namespace isolation and blocked legacy content",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": []
+    },
+    {
+      "group": "Subtitle style persistence, reset, variants and decoding",
+      "feature_ids": [
+        "F093",
+        "F094",
+        "F095",
+        "F096",
+        "F097",
+        "F108",
+        "F110",
+        "F112",
+        "F113",
+        "F119",
+        "F120",
+        "F188",
+        "F189",
+        "F190",
+        "F191",
+        "F208"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/state/app_state.dart::AppSettings persisted style fields and resetSubtitleStyle",
+        "lib/ui/library.dart::SettingsPage / _ColorDialog arbitrary ARGB/opacity and subtitle-only reset",
+        "lib/media/player_page.dart::build SubtitleViewConfiguration, _settings font/color controls, _reset, _remoteSubtitles/_loadRemoteSubtitle/_externalSubtitle",
+        "lib/media/media_helpers.dart::subtitleGroups/decodeSubtitle/resetSubtitleSettings/resetPlayerSettings",
+        "lib/media/media_helpers.dart:191-210::UTF-8/BOM, UTF-16 and Windows-1256 fallback"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "exact custom ARGB, opacity and subtitle-only reset",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_settings_test.dart",
+          "evidence": "font resolution and settings import/roundtrip",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_subtitle_encoding_test.dart",
+          "evidence": "Persian Windows-1256 fixture and BOM/UTF-16",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_controls_next_test.dart",
+          "evidence": "grouped variants and unsafe-source rejection",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_preferences_next_test.dart",
+          "evidence": "isolated reset and preserved non-subtitle options",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "F119 includes a confirmed ignored fill/stretch setting, recorded separately below.",
+        "Subtitle visibility and manually selected variants exist; automatic selection of the first service-provided external subtitle was not established.",
+        "In-player palette is narrower than global arbitrary-color editor. No cosmetic/range difference promoted to substantive missing feature."
+      ]
+    },
+    {
+      "group": "Player controls, sizing gestures, completion and system ownership",
+      "feature_ids": [
+        "F100",
+        "F101",
+        "F102",
+        "F103",
+        "F104",
+        "F105",
+        "F106",
+        "F107",
+        "F109",
+        "F111",
+        "F114",
+        "F115",
+        "F117",
+        "F118",
+        "F179",
+        "F180",
+        "F181",
+        "F182",
+        "F183",
+        "F184",
+        "F185",
+        "F186",
+        "F187"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/media/player_page.dart::PlayerSurfaceGestures pinch fit/cover and double-tap fullscreen",
+        "lib/media/player_page.dart::PlayerInteraction keyboard/media shortcuts and hover/cursor control",
+        "lib/media/player_page.dart::_action/_setVolume/_toggleMute/_setFullscreen/_completed/_settings",
+        "lib/media/player_page.dart::build centered pause overlay, error/retry, subtitle and audio track selection",
+        "lib/media/media_platform.dart::PlayerSystemControls.capture/restore",
+        "lib/media/media_helpers.dart::PlaybackLifecycle and PlaybackCheckpoint",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt::getVolume/getEffectiveBrightness/setBrightness/setVolume"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_controls_next_test.dart",
+          "evidence": "keyboard dispatch, lock and double-click fullscreen",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "real injected engine controls and fit/subtitle persistence",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_preferences_next_test.dart",
+          "evidence": "rate/audio startup without unsolicited system-volume overwrite",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_brightness_handoff_test.dart",
+          "evidence": "pre-player brightness survives owner handoff",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_system_controls_test.dart",
+          "evidence": "mock native capture/restore",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_lifecycle_regression_test.dart",
+          "evidence": "ownership/lifecycle regression tests",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "No real native decoder, display, audio route, PiP or device interaction executed.",
+        "Current Android native decoder is media_kit/libmpv, not an exact recreation of original ExoPlayer. This is a platform engine substitution, not proof that ExoPlayer exists."
+      ]
+    },
+    {
+      "group": "Audio-only and opt-in foreground media bridge",
+      "feature_ids": [
+        "F197",
+        "F198"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/media/player_page.dart::_setAudioOnly/_syncBackground/_background; pause outside PiP unless backgroundAudio opt-in",
+        "lib/media/media_platform.dart::PlayerNativeSession.background/stopBackground and mediaAction dispatch",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/BackgroundPlaybackService.kt::start/onStartCommand/updateSession/updateFocus/notification, no second decoder",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt::backgroundPlayback methods",
+        "android/app/src/main/AndroidManifest.xml::mediaPlayback foreground service and permissions"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_native_session_test.dart",
+          "evidence": "media action dispatch, opt-in metadata bridge and notification stop without restart",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_preferences_next_test.dart",
+          "evidence": "audio-only engine dispatch",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Foreground-service lifecycle/audio focus/notification delivery and screen-off continuity are device-unverified. No hardware gap asserted as a confirmed code omission."
+      ]
+    },
+    {
+      "group": "Download queue, real multipart and bounded segmented offline packages",
+      "feature_ids": [
+        "F053",
+        "F054",
+        "F055",
+        "F056",
+        "F057",
+        "F058",
+        "F060",
+        "F061",
+        "F062",
+        "F201",
+        "F202",
+        "F203",
+        "F206"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/media/download_service.dart::createDirectDownloadTask creates real ParallelDownloadTask with chunks/allowPause",
+        "lib/media/download_service.dart::enqueue/retry/pause/resume/cancel/remove/refresh and readDownloadEntries",
+        "lib/media/downloads_page.dart::DownloadsPage queue controls, refresh reads persistent service state",
+        "lib/media/segmented_download.dart::SegmentedDownload.prepare/run/recover/validate/stop/export, rewritten local HLS/static DASH packages",
+        "lib/media/segmented_download.dart::explicit DRM/live/dynamic/unsupported addressing refusal"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/download_queue_next_test.dart",
+          "evidence": "real multipart task metadata, excluded-task retirement and safe replacement retry",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/download_multipart_http_test.dart",
+          "evidence": "actual local-HTTP multipart exact bytes/hash and interrupted transfer regressions; read, not rerun",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/segmented_download_test.dart",
+          "evidence": "HLS ranges, separate audio, AES-128, static DASH, validated restart, redirects and denials",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/download_refresh_test.dart",
+          "evidence": "refresh waits for durable records",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/download_notifications_test.dart",
+          "evidence": "notification opt-out removes stale templates",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Packages are local segmented manifests/resources, not universal single-file muxing. Static finite supported HLS/DASH only; protected/live/unbounded unsupported forms are intentional refusals.",
+        "Empty download library has no pull-to-refresh gesture; nonempty refresh is implemented. Not escalated as a substantive missing backend capability.",
+        "Host fixtures are not Android background execution/reboot/storage proof."
+      ]
+    },
+    {
+      "group": "External downloaders, scoped reveal/export and explicit Wi-Fi serving",
+      "feature_ids": [
+        "F059",
+        "F199",
+        "F200",
+        "F204",
+        "F205"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/media/downloads_page.dart::ADM/IDM/Android chooser and reveal/export actions on queue entries",
+        "lib/media/download_service.dart::externalDownloader/reveal/offlinePath",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/NativeFileIntents.kt::openDownloader maps ADM/IDM, revealFile scoped ACTION_SEND content grants",
+        "lib/media/local_media_server.dart::LocalMediaServer.start/close, explicit registered files, session capability token, GET/HEAD/ranges",
+        "lib/media/player_page.dart::_prepareCastMedia/_revokeCastMedia integrates sharing lease"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/download_queue_next_test.dart",
+          "evidence": "queue/source metadata contracts",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/local_media_server_test.dart",
+          "evidence": "ranges/HEAD, explicit manifest allowlist, symlink swap, methods and close",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/cast_media_share_test.dart",
+          "evidence": "media lease/subtitle and package sharing cases",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "External downloader handoff is reached from an existing queue record, not a pre-enqueue source chooser. Capability is present; workflow differs.",
+        "Android reveal uses explicit file export/share rather than unrestricted app-private directory browsing, as required by the scoped contract.",
+        "No device file-manager/export target or installed ADM/IDM acceptance was exercised."
+      ]
+    },
+    {
+      "group": "Disposable cache, runtime About and guarded connection refresh",
+      "feature_ids": [
+        "F091",
+        "F098",
+        "F207"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/state/cache_service.dart::CacheService.measure/clear restricts deletion to disposable regular files, no symlink traversal",
+        "lib/ui/library.dart::_CacheTile, _AboutReelboxPage PackageInfo/platform/runtime and licenses",
+        "lib/ui/library.dart::_CatalogConnectionTile._refresh explicitly says connectivity success was not verified",
+        "lib/data/api_service.dart::initialize retains trusted base on optional discovery failure"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_library_cache_test.dart",
+          "evidence": "measurement and clearing preserve completed downloads, library and symlink target",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "runtime About and no removed links",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/library_settings_regression_test.dart",
+          "evidence": "truthful retained-trust discovery message",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "No device cache-size/storage observation. Connection result does not expose a reachable/unreachable probe state. F092 remains incomplete as described separately."
+      ]
+    },
+    {
+      "group": "Restricted generic embed browser, fullscreen/file chooser/download confirmation",
+      "feature_ids": [
+        "F222",
+        "F223",
+        "F224"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/ui/catalog.dart::_play routes embed/YouTube to native openEmbedded",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt::onCreate Back/Home/Refresh/Close, connectivity callback, error handling",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt::WebChromeClient.onShowCustomView/onHideCustomView/onShowFileChooser and onActivityResult",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt::DownloadListener confirmation then ADM/IDM/chooser",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/RestrictedResourceFetcher.kt controlled redirect/resource transport wired through both interceptors"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_policy_ui_test.dart",
+          "evidence": "generic media embed native dispatch with title",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "android/app/src/test/kotlin/org/reelbox/reelbox/RestrictedResourceFetchTest.kt",
+          "evidence": "redirect/resource policy fixture coverage; this audit read existing companion report, not rerun",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "android/app/src/test/kotlin/org/reelbox/reelbox/NativePolicyTest.kt",
+          "evidence": "policy test source exists; current run not performed",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Fullscreen/file-picker/download-dialog Android execution is unverified; source presence is not interaction proof.",
+        "Resource helper supports public GET/HEAD without credentials. Authentication, prohibited destinations and DRM remain refused.",
+        "Redirect effective-document/base-URL/CORS behavior needs actual WebView verification; inherited unresolved boundary from resume-webview-fix.json, not a confirmed failure."
+      ]
+    },
+    {
+      "group": "Cast capability exists, with externally owned unresolved logic findings",
+      "feature_ids": [
+        "F192",
+        "F193"
+      ],
+      "assessment": "code_present_static_review_not_execution",
+      "code_evidence": [
+        "lib/media/player_page.dart::_prepareCastMedia/_castControls",
+        "lib/media/media_platform.dart::PlayerNativeSession load/commands/state ownership",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt::cast* method dispatch",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/ReelboxCast.kt referenced by inspected native dispatch",
+        "lib/media/cast_media_share.dart and lib/media/subtitle_webvtt.dart are prior-review evidence, not independently re-reviewed in this audit"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_native_session_test.dart",
+          "evidence": "local/remote dispatch and ownership test names inspected",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/native_cast_preparation_test.dart",
+          "evidence": "prior Cast audit test reference",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "actual page injected-engine lease integration",
+          "executed_by_this_audit": false
+        }
+      ],
+      "boundaries": [
+        "Four known blockers are carried from the assigned Cast review; another worker is changing these files concurrently. No duplicate patch or independent closure claim."
+      ]
+    }
+  ],
+  "excluded_or_platform_adapted_notes": [
+    {
+      "feature_ids": [
+        "F099",
+        "F121"
+      ],
+      "note": "Desktop helper windows/binaries and macOS/JavaFX/VLC/MPV helper-process packaging excluded by current contract. Existing Android integrated player/external chooser is the relevant platform adaptation; do not create desktop targets to clear historical partial strings."
+    },
+    {
+      "feature_ids": [
+        "F116"
+      ],
+      "note": "Live-channel-specific timeline semantics excluded with live channels; do not re-add live UI."
+    },
+    {
+      "feature_ids": [
+        "F126"
+      ],
+      "note": "Split feature: Telegram/community/vendor destination excluded; independent app sharing retained and currently missing."
+    },
+    {
+      "feature_ids": [
+        "F154",
+        "F157",
+        "F159",
+        "F162",
+        "F163"
+      ],
+      "note": "Server/account playlist mutation is excluded. Explicit episode watched markers and private device-local collection membership remain retained; current local collection/state implementations were inspected. This is not server playlist parity."
+    },
+    {
+      "feature_ids": [
+        "F178"
+      ],
+      "note": "User-reported original delivered video playback is not current-build hardware verification. Current code uses media_kit/libmpv; exact ExoPlayer implementation is not claimed."
+    },
+    {
+      "feature_ids": [
+        "F059",
+        "F204"
+      ],
+      "note": "Scoped content-URI export/share is the required Android adaptation for app-private downloaded-file reveal."
+    },
+    {
+      "feature_ids": [
+        "F222",
+        "F223",
+        "F224"
+      ],
+      "note": "Only generic media embeds retained, not vendor shop/support/news/updater browser destinations."
+    }
+  ],
+  "unverified_boundaries": [
+    "No compilers, app tests, builds, network requests, emulators or hardware checks were run in this audit. Tests listed are source evidence, not newly passing tests.",
+    "No Android hardware attached. Cast receiver discovery/remote playback, real subtitles, PiP, installed external apps, scoped storage/export, WebView interaction and foreground service/audio focus remain device-unverified, not automatically missing.",
+    "Cast worker is concurrently fixing four known findings. Prior locations may shift. Parent must use that worker handoff and actual regressions to close them; this audit does not re-open or close them.",
+    "Current native compilation/full-host baseline results belong to parent and were not inferred from old logs.",
+    "Source-quality selection and current player chooser exist, but the original unified per-source internal/VLC method modal is not reproduced verbatim; treated as distributed Android workflow, not an absent desktop helper.",
+    "Service subtitle auto-first-track behavior was not established; no new omission finding based solely on absent eager fetch.",
+    "Download external-manager action currently requires an existing queue entry. No claim of a direct pre-enqueue external-manager chooser.",
+    "Actual server payload availability, pagination completeness/ranking, source authorization and stale-link behavior are outside this offline audit. Never invent endpoints or bypass denial to fill a ledger row.",
+    "Source/tests/ledger/original evidence left unchanged; only this planning JSON was created. No credentials, runtime endpoint URLs or signing-file contents are included."
+  ],
+  "verification": {
+    "mode": "source_and_test_inspection_only",
+    "tests_executed": false,
+    "compilers_executed": false,
+    "network_used": false,
+    "app_files_modified": [],
+    "test_files_modified": [],
+    "build_files_modified": [],
+    "ledger_modified": false,
+    "original_evidence_modified": false
+  },
+  "summary": {
+    "confirmed_non_cast_findings": 3,
+    "known_cast_findings_carried": 4,
+    "code_present_group_count": 14,
+    "conclusion": "Most historically absent priority groups now have concrete 0.2 code/test evidence. Independent share-app remains absent, offered fill/stretch is ignored by rendering, and trusted configuration fallback/recovery remains incomplete. This is not full parity."
+  }
+}

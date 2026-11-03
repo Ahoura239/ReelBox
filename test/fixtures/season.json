@@ -1,0 +1,40 @@
+{
+  "id": 4263,
+  "title": "فصل اول 480 زیرنویس",
+  "episodes": [
+    {
+      "id": 72819,
+      "title": "1",
+      "description": "",
+      "duration": "",
+      "downloadas": "2",
+      "playas": "1",
+      "image": "https://ninwinios.info/uploads/cache/episode_thumb/uploads/jpg/1003.jpg",
+      "sources": [
+        {
+          "id": 83260,
+          "quality": "",
+          "type": "",
+          "url": "http://uplink.tci2.giftmond.ir/tv/The%20I-Land/FASL1480/The.I-Land.S01E01.480p.WEB-DL.EasyTV.mkv"
+        }
+      ]
+    },
+    {
+      "id": 72820,
+      "title": "2",
+      "description": "",
+      "duration": "",
+      "downloadas": "2",
+      "playas": "1",
+      "image": "https://ninwinios.info/uploads/cache/episode_thumb/uploads/jpg/1003.jpg",
+      "sources": [
+        {
+          "id": 83261,
+          "quality": "",
+          "type": "",
+          "url": "http://uplink.tci2.giftmond.ir/tv/The%20I-Land/FASL1480/The.I-Land.S01E02.480p.WEB-DL.EasyTV.mkv"
+        }
+      ]
+    }
+  ]
+}

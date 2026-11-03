@@ -1,0 +1,92 @@
+{
+  "scope": "Read-only final review of R001 in re-review.json against the frozen current lifecycle helper, ownership regression test, and narrow production restore/capture call sites.",
+  "corrected": true,
+  "conclusion": "R001's stale teardown overwriting a newer player's setup is corrected by the shared queue and owner-guarded restoration. One adjacent brightness-baseline handoff defect remains; this is not an unconditional approval of all restoration semantics.",
+  "evidence": [
+    {
+      "path": "/root/reelbox/lib/media/media_helpers.dart",
+      "lines": [11, 29],
+      "detail": "The platform tail and current owner are static. Setup waits on the shared tail, rejects inactive instances before claiming ownership, and awaits each step. Its recovered tail lets subsequent queued work proceed after errors."
+    },
+    {
+      "path": "/root/reelbox/lib/media/media_helpers.dart",
+      "lines": [45, 55],
+      "detail": "Dispose invalidates local work synchronously, appends restoration to the same shared tail, and restores only if this lifecycle is still the owner. If old disposal is enqueued first, its complete restoration precedes new setup. If new setup is enqueued first, it claims ownership and old restoration is skipped. A restore already in progress is also awaited before subsequent setup."
+    },
+    {
+      "path": "/root/reelbox/lib/media/player_page.dart",
+      "lines": [154, 175],
+      "additional_lines": [355, 367],
+      "detail": "Production capture, active-state, immersive UI and orientation setup use lifecycle.setup. Brightness, inactive-state, unrestricted orientation and edge-to-edge restoration are returned and awaited within the lifecycle.dispose callback."
+    },
+    {
+      "path": "/root/reelbox/test/player_global_ownership_test.dart",
+      "lines": [7, 48],
+      "detail": "Both disposal-before-new-setup and new-setup-before-disposal orderings hold an old setup future, invalidate the old lifecycle, release the future, and assert that new-active is the final write. Both also verify the new owner's eventual restore executes."
+    },
+    {
+      "path": "/root/reelbox-planning/global-ownership-red.log",
+      "lines": [5, 38],
+      "detail": "Saved pre-fix output shows both orderings failing with actual old-restore instead of expected new-active."
+    },
+    {
+      "path": "/root/reelbox-planning/global-ownership-green.log",
+      "lines": [5, 17],
+      "detail": "Saved post-fix output includes both ownership orderings, the existing lifecycle regressions and the player widget test, ending +9: All tests passed! Exit 0 was reported by the parent; this reviewer did not independently execute or observe the test process exit."
+    }
+  ],
+  "remaining_issues": [
+    {
+      "id": "R002",
+      "severity": "medium",
+      "title": "Skipping the superseded owner's restore loses the original activity brightness baseline",
+      "description": "The guard prevents old writes over the new owner, but does not transfer the old owner's captured pre-player brightness to the new owner. Consider an activity initially using system brightness (-1): A captures -1, then the user sets A's brightness to 0.8. B.setup is enqueued before A.dispose, the explicitly supported new-setup-first ordering. B captures the current activity override 0.8 as its own original brightness, then A's entire restore callback is skipped because B owns the controls. When B is eventually disposed, B restores 0.8 rather than the pre-player -1. The activity remains pinned to the old player override after playback ends. This is a source-established handoff/restoration defect in this narrow fix, not a device reproduction or a general parity finding.",
+      "evidence": [
+        {
+          "path": "/root/reelbox/lib/media/media_helpers.dart",
+          "lines": [19, 24],
+          "additional_lines": [49, 52],
+          "detail": "A newer setup replaces the owner; a superseded dispose skips its entire callback. No original-state handoff exists."
+        },
+        {
+          "path": "/root/reelbox/lib/media/media_platform.dart",
+          "lines": [9, 29],
+          "detail": "Each PlayerSystemControls stores the current getBrightness result as its private original, and restore writes only that private value."
+        },
+        {
+          "path": "/root/reelbox/lib/media/player_page.dart",
+          "lines": [44, 44],
+          "additional_lines": [154, 169],
+          "restore_lines": [355, 364],
+          "brightness_write_lines": [1010, 1022],
+          "detail": "Controls are per-page; setup captures before activation, the slider writes an activity brightness override, and restoration of the original snapshot exists only inside the callback skipped for a superseded owner."
+        },
+        {
+          "path": "/root/reelbox/android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt",
+          "lines": [46, 59],
+          "detail": "getBrightness returns window.attributes.screenBrightness; setBrightness writes that activity-level override, with negative values restoring the system default."
+        }
+      ],
+      "recommendation": "Preserve the pre-player brightness snapshot across ownership handoff, such as through a shared control-session baseline retained until the final owner restores it. Do not solve this by allowing the old teardown to overwrite the new active owner. Add a regression with distinct initial, old-player and new-player brightness values that checks the final owner's exit restores the initial baseline in both handoff orderings.",
+      "confidence": "confirmed_static_state_transition",
+      "runtime_reproduced_by_this_review": false
+    }
+  ],
+  "limitations": [
+    "No Flutter, Dart, Gradle, compiler, analyzer, test, build or packaging commands were run. The packaging pipeline's .tooling.lock was not acquired or changed.",
+    "No production or test source was edited, and no credentials or signing material were read. Only this requested report was written.",
+    "The RED/GREEN logs are existing evidence; they contain no exact-source checksums, so this review cannot independently bind their runs to these source bytes. Current source hashes are recorded below.",
+    "The ownership tests use event callbacks, not PlayerSystemControls brightness capture/restore or native Android state; they do not cover the baseline handoff defect.",
+    "No device/emulator verification or native platform cancellation behavior was exercised. Queue ordering depends on dispatched futures completing and representing completion of their platform effects.",
+    "The checkout has no commits and its source files are untracked, so git diff provided no historical baseline; conclusions are grounded in the supplied R001 description, current source and saved logs, not a commit diff.",
+    "Review is restricted to cross-player setup/restoration ownership. Other earlier findings and general application parity were not reassessed."
+  ],
+  "current_sha256": {
+    "/root/reelbox/lib/media/media_helpers.dart": "a1dc4f4f5e04924a67690d454bdfdbaaca4e4f5f1dfc2fbd855bc02c55382da3",
+    "/root/reelbox/lib/media/player_page.dart": "e5ff6d178f540a80e2427c53dc99d05fed1d41385ae5dd8d17bdaf2409c32898",
+    "/root/reelbox/lib/media/media_platform.dart": "cec0e98bd122783ef3c19aec8ac9ba471fea7d26faf9fbd270d6c85ed0645022",
+    "/root/reelbox/test/player_global_ownership_test.dart": "fdf888695b56ba559d1b07513e440d7f35079f636252d7532761347092cb461b",
+    "/root/reelbox-planning/global-ownership-red.log": "dba8694a098d0a589f1fef65da7ef45a7ac8e86b0a92ed8ffa4373f30a978472",
+    "/root/reelbox-planning/global-ownership-green.log": "64d063d7450b8bd1a75b28ba7f131f44f07ec8ba18652de11a56788a1245c386"
+  }
+}

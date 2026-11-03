@@ -1,0 +1,8 @@
+# Keep upstream code, license texts and raw evidence byte-for-byte.
+# Whitespace checking remains enabled for first-party source and website code.
+third_party/background_downloader/** -whitespace
+third_party/licenses/** -whitespace
+docs/verification-logs-0.2.0/** -whitespace
+docs/verification-publication/** -whitespace
+LICENSE -whitespace
+android/gradlew.bat whitespace=cr-at-eol

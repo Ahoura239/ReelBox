@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Reelbox Local Release, OU=Independent Client, O=Reelbox
+Signer #1 certificate SHA-256 digest: 907cfd2ce8c0f96594660b2d92538e1037af6cbcab57c26817f9fcb628886e86
+Signer #1 certificate SHA-1 digest: 974710ae197a5dd480732be29aeadd2443197d01
+Signer #1 certificate MD5 digest: 42531b40df46fa922afe84d24a53c3af
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: 9589c78de7c322d85e14db5c16f0e8ef7cd145a4f01641afeacdfe7b83918d31
+Signer #1 public key SHA-1 digest: 33863832acc9efadb56e51262ccdd326ae08155f
+Signer #1 public key MD5 digest: a5a58e93751ee2b816400ac0239f4752

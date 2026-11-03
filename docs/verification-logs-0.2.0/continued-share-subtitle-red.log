@@ -1,0 +1,160 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/next_library_ui_test.dart
+00:00 +0: /root/reelbox/test/next_library_ui_test.dart: fresh app routes through introduction before exposing navigation
+00:04 +1: /root/reelbox/test/next_library_ui_test.dart: counted library tabs remain readable and reachable with large text
+00:05 +2: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in en without an invented install link (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///root/reelbox/test/next_library_ui_test.dart:112:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  More shares independent app information in en without an invented install link (variant:
+  TargetPlatform.android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +2 -1: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in en without an invented install link (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: More shares independent app information in en without an invented install link (variant: TargetPlatform.android)
+  
+00:09 +2 -1: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in fa without an invented install link (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///root/reelbox/test/next_library_ui_test.dart:112:7)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  More shares independent app information in fa without an invented install link (variant:
+  TargetPlatform.android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:12 +2 -2: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in fa without an invented install link (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: More shares independent app information in fa without an invented install link (variant: TargetPlatform.android)
+  
+00:12 +2 -2: /root/reelbox/test/next_library_ui_test.dart: unavailable app sharing shows a safe error rather than native details (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///root/reelbox/test/next_library_ui_test.dart:137:5)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  unavailable app sharing shows a safe error rather than native details (variant:
+  TargetPlatform.android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:14 +2 -3: /root/reelbox/test/next_library_ui_test.dart: unavailable app sharing shows a safe error rather than native details (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: unavailable app sharing shows a safe error rather than native details (variant: TargetPlatform.android)
+  
+00:14 +2 -3: /root/reelbox/test/next_library_ui_test.dart: first-run skip persists completion without touching library
+00:14 +3 -3: /root/reelbox/test/next_library_ui_test.dart: first-run finish persists completion
+00:15 +4 -3: /root/reelbox/test/next_library_ui_test.dart: more exposes no removed service links and about uses runtime package info
+00:15 +5 -3: /root/reelbox/test/next_library_ui_test.dart: custom ARGB color and opacity save exact RGB without changing background
+00:18 +6 -3: /root/reelbox/test/next_library_ui_test.dart: settings safely displays imported custom values and resets subtitle style only
+00:20 +7 -3: loading /root/reelbox/test/player_engine_dispatch_next_test.dart
+00:23 +7 -3: /root/reelbox/test/player_engine_dispatch_next_test.dart: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: [
+            '1\n'
+              '00:00:00,000 --> 00:00:01,000\n'
+              'External A'
+          ]
+  Actual: [null]
+   Which: at location [0] is <null> instead of '1\n'
+            '00:00:00,000 --> 00:00:01,000\n'
+            'External A'
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///root/reelbox/test/player_engine_dispatch_next_test.dart:146:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///root/reelbox/test/player_engine_dispatch_next_test.dart line 146
+The test description was:
+  actual subtitle track picker updates active Cast text and clears stale external data (variant:
+  TargetPlatform.android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:32 +7 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+  
+00:33 +7 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: offline player explicitly hands Cast a sharing lease and revokes it on exit (variant: TargetPlatform.android)
+00:34 +8 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual quality change (variant: TargetPlatform.android)
+00:37 +9 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual episode change (variant: TargetPlatform.android)
+00:40 +10 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual subtitles change (variant: TargetPlatform.android)
+00:43 +11 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual stop change (variant: TargetPlatform.android)
+00:44 +12 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual new owner change (variant: TargetPlatform.android)
+00:47 +13 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: real player controls dispatch to engine and persist fit/subtitle options
+00:49 +14 -4: /root/reelbox/test/player_engine_dispatch_next_test.dart: resume retains history, rewinds dispatch, and next updates episode context
+00:50 +15 -4: Some tests failed.
+
+Failing tests:
+  /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in en without an invented install link (variant: TargetPlatform.android)
+  /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in fa without an invented install link (variant: TargetPlatform.android)
+  /root/reelbox/test/next_library_ui_test.dart: unavailable app sharing shows a safe error rather than native details (variant: TargetPlatform.android)
+  /root/reelbox/test/player_engine_dispatch_next_test.dart: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)

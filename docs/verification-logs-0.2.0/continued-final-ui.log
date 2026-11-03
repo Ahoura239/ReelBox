@@ -1,0 +1,7 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/tool/ui_capture_test.dart
+00:00 +0: mobile local-library and settings UI renders in English and Persian
+00:11 +1: All tests passed!

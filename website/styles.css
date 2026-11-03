@@ -1,0 +1,47 @@
+:root{color-scheme:dark;--bg:#0d0e11;--surface:#111216;--border:#303034;--ink:#f0e7e5;--secondary:#b8aeac;--muted:#99918f;--accent:#ff8075;--on-accent:#261312}
+*{box-sizing:border-box}
+html{min-width:320px;background:var(--bg);scroll-behavior:auto}
+body{margin:0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;transition:color 140ms ease,background-color 140ms ease,border-color 140ms ease}
+a:hover{color:var(--ink)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:4px}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.page{width:min(1184px,100%);margin:0 auto;padding:0 32px;min-height:100svh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:104px;border-bottom:1px solid var(--border)}
+.wordmark{font-size:28px;font-weight:500;line-height:36px;letter-spacing:-.6px}
+.source-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--secondary)}
+main{flex:1;display:flex;align-items:center}
+.hero{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 320px;align-items:center;gap:80px;padding:56px 0 64px}
+.copy{max-width:640px}
+p,h1,figure{margin:0}
+.eyebrow{font-size:14px;line-height:20px;color:var(--secondary);margin-bottom:24px}
+h1{font-size:clamp(48px,5.2vw,72px);line-height:1.06;letter-spacing:-2.4px;font-weight:400;text-wrap:balance}
+.description{max-width:460px;font-size:18px;line-height:28px;color:var(--secondary);margin-top:28px}
+.actions{display:flex;align-items:center;gap:16px;margin-top:36px}
+.download{display:inline-flex;justify-content:center;align-items:center;gap:12px;min-height:52px;padding:12px 24px;border:1px solid transparent;border-radius:8px;background:var(--accent);color:var(--on-accent);font-weight:500;font-size:16px;line-height:24px}
+.download:hover{color:var(--on-accent);background:#ff958c}
+.download:active{background:#f47268}
+.release{margin-top:16px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;line-height:20px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.release span{padding:0 4px}
+.private-note{display:flex;align-items:center;gap:12px;margin-top:36px;color:var(--secondary);font-size:14px;line-height:20px}
+.private-note svg{color:var(--muted)}
+.product{width:320px}
+.screen{padding:12px;border:1px solid var(--border);border-radius:24px;background:var(--surface);box-shadow:0 16px 40px #0003;height:444px;overflow:hidden}
+.screen img{display:block;width:100%;height:auto;border-radius:12px}
+figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;font-size:12px;line-height:20px;color:var(--muted)}
+figcaption span{color:var(--secondary)}
+footer{border-top:1px solid var(--border);padding:24px 0 28px;display:grid;grid-template-columns:1fr auto;gap:16px 32px;font-size:12px;line-height:20px;color:var(--muted)}
+.credit{font-size:14px;color:var(--ink)}
+.fine-print{margin-top:4px}
+.footer-links{display:flex;align-items:flex-start;gap:24px;padding-top:4px;color:var(--secondary)}
+.footnote{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;font-size:11px;line-height:16px}
+.footnote a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--border)}
+.skip{position:absolute;left:16px;top:-80px;padding:12px 16px;background:var(--ink);color:var(--bg);z-index:10}
+.skip:focus{top:16px}
+@media(min-width:1600px){.hero{gap:112px;padding-top:80px;padding-bottom:80px}}
+@media(max-width:960px){.hero{grid-template-columns:minmax(0,1fr) 280px;gap:40px}h1{font-size:56px;letter-spacing:-1.6px}.product{width:280px}.screen{height:392px;border-radius:24px}.description{font-size:16px;line-height:24px}.release span{padding:0 2px}}
+@media(max-width:720px){.page{padding:0 24px}header{min-height:80px}.wordmark{font-size:24px;line-height:32px}.source-link{font-size:12px}.hero{grid-template-columns:1fr;gap:48px;padding:48px 0}.copy{max-width:520px}h1{font-size:48px;line-height:52px;letter-spacing:-1.6px}.eyebrow{margin-bottom:20px}.description{margin-top:24px;max-width:400px}.actions{margin-top:28px}.release{font-size:11px;line-height:20px}.private-note{margin-top:28px;font-size:12px}.product{width:min(320px,100%);justify-self:center}.screen{height:444px}.footer-links{gap:20px;flex-wrap:wrap}footer{grid-template-columns:1fr;gap:20px}.footnote{grid-column:auto;display:grid;gap:12px}.footnote span{display:block}}
+@media(max-width:380px){.page{padding:0 20px}.source-link{gap:4px}h1{font-size:40px;line-height:44px;letter-spacing:-1.2px}.download{padding:12px 20px;font-size:14px}.product{width:280px}.screen{height:392px}}
+@media(prefers-reduced-motion:reduce){a{transition:none}}
+/* Design process: Unslop by Damir Sokolovsky (@heydamir), CC BY 4.0.
+   https://heydamir.design/unslop — original Reelbox implementation. */

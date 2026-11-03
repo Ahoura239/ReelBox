@@ -1,0 +1,43 @@
+{
+  "area": "Trusted configuration persistence and bounded recovery",
+  "issues": [
+    "SCOPE-03/F092"
+  ],
+  "status": "fixed_with_regression_evidence",
+  "parent_completed_after_worker_rate_limit": true,
+  "evidence": [
+    {
+      "path": "/root/reelbox-planning/config-recovery-red-persist.log",
+      "exists": false,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/continued-config-cache-green.log",
+      "exists": true,
+      "successful_test_summary": true
+    },
+    {
+      "path": "/root/reelbox-planning/continued-config-retry-red.log",
+      "exists": true,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/continued-final-focused.log",
+      "exists": true,
+      "successful_test_summary": true
+    }
+  ],
+  "full_host_verification": {
+    "passed": true,
+    "passed_test_count": 339,
+    "test_file_count": 49,
+    "report": "/root/reelbox-planning/continued-full/verification.json"
+  },
+  "independent_post_fix_approval": false,
+  "android_device_execution": false,
+  "limits": [
+    "No physical Android/Cast receiver attached",
+    "Disk JSON transfer rehydration is not process kill/restart evidence",
+    "Original failed review is preserved as history, not replaced by a fabricated independent approval"
+  ]
+}

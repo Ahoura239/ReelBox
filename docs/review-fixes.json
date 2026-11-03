@@ -1,0 +1,159 @@
+{
+  "scope": [
+    "L001",
+    "L002",
+    "L003",
+    "L004"
+  ],
+  "status": "fixed_and_focused_tests_passed",
+  "production_files_modified": [
+    "lib/media/download_service.dart",
+    "lib/media/downloads_page.dart",
+    "lib/media/media_helpers.dart",
+    "lib/media/player_page.dart",
+    "lib/ui/common.dart"
+  ],
+  "test_files_created": [
+    "test/download_recovery_policy_test.dart",
+    "test/download_identity_recovery_test.dart",
+    "test/player_lifecycle_regression_test.dart",
+    "test/playback_dispatch_preference_test.dart",
+    "test/artwork_data_saver_test.dart"
+  ],
+  "unchanged_owned_file": "lib/media/media_platform.dart",
+  "fixes": {
+    "L001": {
+      "status": "fixed",
+      "changes": [
+        "Persist original downloadNotifications in task metadata; new task templates use the same captured preference.",
+        "Deserialize original policy and register running/completion/error/paused templates using configureNotificationForTask before Dart-side resume.",
+        "Off-policy tasks register no templates; current preference is not consulted on resume."
+      ],
+      "legacy_fallback": "If metadata lacks a policy, preserve a present in-memory task config; otherwise stay silent rather than applying the current preference.",
+      "pinned_protocol_checked": [
+        "background_downloader-9.6.5 task serialization",
+        "FileDownloader.configureNotificationForTask",
+        "BaseDownloader.registerTaskNotificationConfig",
+        "NativeDownloader.resume"
+      ],
+      "test": "Serialization into a fresh notification registry plus resume dispatch; both original on/current off and original off/current on."
+    },
+    "L002": {
+      "status": "fixed",
+      "changes": [
+        "Persist original titleKind in task metadata.",
+        "Offline playback and retry both use DownloadEntry.restoredTitle, retaining title kind and library namespace."
+      ],
+      "legacy_fallback": "Records lacking titleKind remain movie when no episode is present and serie when an episode is present; unknown legacy channel identity cannot be recovered.",
+      "test": "JSON task round trips preserve channel/movie/serie/series kind and library key; legacy movie/episode fallbacks verified."
+    },
+    "L003": {
+      "status": "fixed",
+      "changes": [
+        "PlaybackLifecycle captures open generation before save, validates ownership/mounted after await, and invalidates synchronously on every dispose.",
+        "Setup is a guarded serialized platform-work sequence; final restoration is queued after any already-dispatched platform write.",
+        "PlayerPage uses the helper before global UI changes and media dispatch; open follow-up rate/delay/UI work rechecks ownership after awaits."
+      ],
+      "test": "Completer-controlled setup/save cancellation, final restoration order, newest-open-wins ordering, and rejection of work after dispose; no source-string assertions."
+    },
+    "L004": {
+      "status": "fixed",
+      "changes": [
+        "Every internal remote/offline open explicitly dispatches play equal to the autoplay preference; false means open paused.",
+        "MediaArtwork observes dataSaver and builds the existing sized placeholder instead of any network Image when enabled."
+      ],
+      "test": "Dispatched Media/play options asserted for autoplay true/false, remote/offline URIs and resume position; widget test asserts no Image widgets, placeholder icon and dimensions."
+    }
+  },
+  "verification": {
+    "red": {
+      "actual_log": "/root/reelbox-planning/tests-final.log",
+      "description": "Parent locked single-concurrency suite picked up new tests before fixes; reviewed actual assertion failures, not hypothetical output.",
+      "evidence_lines": {
+        "L001": [
+          54,
+          82
+        ],
+        "L002": [
+          174,
+          217
+        ],
+        "L003": [
+          259,
+          311
+        ],
+        "L004_artwork": [
+          13,
+          43
+        ],
+        "L004_autoplay": [
+          231,
+          239
+        ]
+      },
+      "redundant_queued_red_runs": "Own redundant queued processes were canceled after parent supplied actual RED evidence; their exit 143 logs are not claimed as assertion RED evidence."
+    },
+    "initial_green_attempt": {
+      "log": "/root/reelbox-planning/review-fixes-green-initial.log",
+      "process_handle": "proc_e879d1af6d13",
+      "exit_code": 1,
+      "finding": "Pinned plugin asserts that at least one notification template is present; an empty opt-out config is invalid. Corrected recovery to skip registration for off-policy tasks. The test now uses the pinned pure registry resolver to avoid native downloader/connectivity initialization and its teardown noise."
+    },
+    "green": {
+      "log": "/root/reelbox-planning/review-fixes-green.log",
+      "exit_code": 0,
+      "passed_tests": 29,
+      "test_files": [
+        "test/download_recovery_policy_test.dart",
+        "test/download_identity_recovery_test.dart",
+        "test/player_lifecycle_regression_test.dart",
+        "test/playback_dispatch_preference_test.dart",
+        "test/artwork_data_saver_test.dart",
+        "test/download_notifications_test.dart",
+        "test/download_refresh_test.dart",
+        "test/media_helpers_test.dart",
+        "test/playback_checkpoint_test.dart",
+        "test/player_system_controls_test.dart",
+        "test/player_widget_test.dart"
+      ],
+      "test_file_count": 11,
+      "new_regression_tests": 16,
+      "process_handle": "proc_bea24eba47ed",
+      "process_status": "exited",
+      "command": "flock /root/reelbox/.tooling.lock /root/developer-tools/flutter/bin/flutter test --concurrency=1 --reporter expanded test/download_recovery_policy_test.dart test/download_identity_recovery_test.dart test/player_lifecycle_regression_test.dart test/playback_dispatch_preference_test.dart test/artwork_data_saver_test.dart test/download_notifications_test.dart test/download_refresh_test.dart test/media_helpers_test.dart test/playback_checkpoint_test.dart test/player_system_controls_test.dart test/player_widget_test.dart > /root/reelbox-planning/review-fixes-green.log 2>&1",
+      "exit_verified_via": "process_manage wait returned status=exited, exit_code=0 and output Review fixes final GREEN exit=0",
+      "flutter_flags": [
+        "--concurrency=1",
+        "--reporter expanded"
+      ],
+      "lock": "/root/reelbox/.tooling.lock",
+      "result": "All tests passed; only Flutter root-execution startup warning remained."
+    },
+    "format_logs": [
+      "/root/reelbox-planning/review-fixes-format.log",
+      "/root/reelbox-planning/review-fixes-format-final.log"
+    ],
+    "source_and_test_sha256": {
+      "lib/media/download_service.dart": "bb81aa6024b7e862fc5569c5bc19bb008bcd017dd47a3b68ba820215eb23fe36",
+      "lib/media/downloads_page.dart": "ccade65a0d6e8e4353cc78e9339309e0b0724fb7274096dc5b23b65f87e74540",
+      "lib/media/media_helpers.dart": "bf59bb67c3d70528571e29026055862d8e622a3218eef10736c65c4228308eb3",
+      "lib/media/player_page.dart": "e5ff6d178f540a80e2427c53dc99d05fed1d41385ae5dd8d17bdaf2409c32898",
+      "lib/ui/common.dart": "c3d360b336accef4fdf55b156696005d0fdaec97a6975ad06609291ff2217d10",
+      "test/download_recovery_policy_test.dart": "e2be0bdb4017a167577769368ed2af135f805be82814504d1dbd34429b548c43",
+      "test/download_identity_recovery_test.dart": "ad2da65c61e56ba1668311259cd7ae8b299098263c79044b6bb2e096634b78bf",
+      "test/player_lifecycle_regression_test.dart": "5ec4f71e85ae1d6a8a7a0bc0f5eec758bca258a7e4dc6184b683fae88f03e083",
+      "test/playback_dispatch_preference_test.dart": "0c09311e3adc46e0738f8972fcbc4850925c10a680827c871bf9d6383036b86d",
+      "test/artwork_data_saver_test.dart": "d3b23f92ba158b0988d2777df9e4c8bfcefe7abe17bc5e05b14290caef5d7f3d"
+    },
+    "build_or_analyzer_run_by_this_subagent": false,
+    "accounts_added": false,
+    "signing_secrets_inspected": false
+  },
+  "remaining_gaps": [
+    "No Android device/emulator process-death, notification UI or byte-range resume exercise; recovery is covered at the serialized-task/registry/resume-dispatch seam.",
+    "Lifecycle ordering is deterministically tested in the helper used by PlayerPage, not on physical Android system UI.",
+    "Autoplay dispatch and absence of artwork Image widgets are verified; native decoding/rendering is not exercised.",
+    "No full suite rerun by this subagent; the focused regression suite passed. Parent baseline suite also had an unrelated catalog_discovery_regression_test Editor picks failure outside this subagent ownership.",
+    "No APK, signing or packaging verification performed here; parent owns packaging."
+  ]
+}

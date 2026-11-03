@@ -1,0 +1,8 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/tool/api_smoke_test.dart
+00:00 +0: live read-only catalog contracts and source availability
+Shell: {"api_base":"https://ninwinios.info/api/","home_sections":5,"movie_page_count":29,"series_page_count":30,"movie_detail_id":35758,"movie_details_checked":[{"id":35758,"source_count":4}],"movie_source_count":4,"series_detail_id":35754,"season_count":1,"episode_source_count":9,"english_search_results":5,"recommendations":40,"account_used":false,"media_downloaded":false}
+00:04 +1: All tests passed!

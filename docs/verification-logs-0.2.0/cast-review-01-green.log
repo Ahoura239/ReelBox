@@ -1,0 +1,14 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/player_engine_dispatch_next_test.dart
+00:00 +0: offline player explicitly hands Cast a sharing lease and revokes it on exit (variant: TargetPlatform.android)
+00:04 +1: pending page Cast lease is invalidated by actual quality change (variant: TargetPlatform.android)
+00:07 +2: pending page Cast lease is invalidated by actual episode change (variant: TargetPlatform.android)
+00:10 +3: pending page Cast lease is invalidated by actual subtitles change (variant: TargetPlatform.android)
+00:11 +4: pending page Cast lease is invalidated by actual stop change (variant: TargetPlatform.android)
+00:12 +5: pending page Cast lease is invalidated by actual new owner change (variant: TargetPlatform.android)
+00:13 +6: real player controls dispatch to engine and persist fit/subtitle options
+00:14 +7: resume retains history, rewinds dispatch, and next updates episode context
+00:15 +8: All tests passed!

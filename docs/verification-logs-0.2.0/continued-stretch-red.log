@@ -1,0 +1,77 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/player_engine_dispatch_next_test.dart
+00:00 +0: persisted Stretch dispatches actual fill geometry instead of contain
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: BoxFit:<BoxFit.fill>
+  Actual: BoxFit:<BoxFit.contain>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///root/reelbox/test/player_engine_dispatch_next_test.dart:118:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///root/reelbox/test/player_engine_dispatch_next_test.dart line 118
+The test description was:
+  persisted Stretch dispatches actual fill geometry instead of contain
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:08 +0 -1: persisted Stretch dispatches actual fill geometry instead of contain [E]
+  Test failed. See exception logs above.
+  The test description was: persisted Stretch dispatches actual fill geometry instead of contain
+  
+00:08 +0 -1: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      Iterable.isEmpty (dart:core/iterable.dart:560:33)
+#4      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2478:52)
+#7      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#8      WidgetController.dragUntilVisible (package:flutter_test/src/controller.dart:2476:27)
+#9      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:13)
+#12     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#13     WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2427:27)
+#14     main.<anonymous closure>.choose (file:///root/reelbox/test/player_engine_dispatch_next_test.dart:155:20)
+<asynchronous suspension>
+#15     main.<anonymous closure> (file:///root/reelbox/test/player_engine_dispatch_next_test.dart:159:5)
+<asynchronous suspension>
+#16     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#17     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 6 frames from dart:async, dart:async-patch, and package:stack_trace)
+
+The test description was:
+  actual subtitle track picker updates active Cast text and clears stale external data (variant:
+  TargetPlatform.android)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:14 +0 -2: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android) [E]
+  Test failed. See exception logs above.
+  The test description was: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+  
+00:14 +0 -2: offline player explicitly hands Cast a sharing lease and revokes it on exit (variant: TargetPlatform.android)
+00:15 +1 -2: pending page Cast lease is invalidated by actual quality change (variant: TargetPlatform.android)
+00:16 +2 -2: pending page Cast lease is invalidated by actual episode change (variant: TargetPlatform.android)
+00:18 +3 -2: pending page Cast lease is invalidated by actual subtitles change (variant: TargetPlatform.android)
+00:19 +4 -2: pending page Cast lease is invalidated by actual stop change (variant: TargetPlatform.android)
+00:20 +5 -2: pending page Cast lease is invalidated by actual new owner change (variant: TargetPlatform.android)
+00:20 +6 -2: real player controls dispatch to engine and persist fit/subtitle options
+00:22 +7 -2: resume retains history, rewinds dispatch, and next updates episode context
+00:22 +8 -2: Some tests failed.
+
+Failing tests:
+  /root/reelbox/test/player_engine_dispatch_next_test.dart: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+  /root/reelbox/test/player_engine_dispatch_next_test.dart: persisted Stretch dispatches actual fill geometry instead of contain

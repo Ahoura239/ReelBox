@@ -1,0 +1,77 @@
+{
+  "area": "Cast review and real player integration",
+  "issues": [
+    "CAST-FIX-01",
+    "CAST-FIX-02",
+    "CAST-FIX-03",
+    "CAST-FIX-04",
+    "SCOPE-02/F119"
+  ],
+  "status": "fixed_with_regression_evidence",
+  "parent_completed_after_worker_rate_limit": true,
+  "evidence": [
+    {
+      "path": "/root/reelbox-planning/cast-review-01-red.log",
+      "exists": true,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/cast-review-01-green.log",
+      "exists": true,
+      "successful_test_summary": true
+    },
+    {
+      "path": "/root/reelbox-planning/cast-review-02-red.log",
+      "exists": true,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/cast-review-02-green.log",
+      "exists": true,
+      "successful_test_summary": true
+    },
+    {
+      "path": "/root/reelbox-planning/cast-review-03-red.log",
+      "exists": true,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/cast-review-03-green.log",
+      "exists": true,
+      "successful_test_summary": true
+    },
+    {
+      "path": "/root/reelbox-planning/continued-share-subtitle-red.log",
+      "exists": true,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/continued-stretch-red.log",
+      "exists": true,
+      "successful_test_summary": false
+    },
+    {
+      "path": "/root/reelbox-planning/continued-cast-share-stretch-green.log",
+      "exists": true,
+      "successful_test_summary": true
+    },
+    {
+      "path": "/root/reelbox-planning/continued-final-focused.log",
+      "exists": true,
+      "successful_test_summary": true
+    }
+  ],
+  "full_host_verification": {
+    "passed": true,
+    "passed_test_count": 339,
+    "test_file_count": 49,
+    "report": "/root/reelbox-planning/continued-full/verification.json"
+  },
+  "independent_post_fix_approval": false,
+  "android_device_execution": false,
+  "limits": [
+    "No physical Android/Cast receiver attached",
+    "Disk JSON transfer rehydration is not process kill/restart evidence",
+    "Original failed review is preserved as history, not replaced by a fabricated independent approval"
+  ]
+}

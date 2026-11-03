@@ -1,0 +1,50 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/api_config_recovery_test.dart
+00:00 +0: verified cache is restored by a fresh instance without contacting discovery
+00:00 +1: invalid cached configuration cannot change the trusted destination: 
+00:00 +2: invalid cached configuration cannot change the trusted destination: untrusted.example
+00:00 +3: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +4: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +5: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +6: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +7: invalid cached configuration cannot change the trusted destination: 127.0.0.1
+00:00 +8: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +9: discovery outage keeps last trusted cache and an invalid schema is not cached
+00:00 +10: read-only transport failure recovers once without a discovery storm
+00:00 +10 -1: read-only transport failure recovers once without a discovery storm [E]
+  Unable to connect. Check your connection and retry.
+  package:reelbox/data/api_service.dart 544:7  ApiService._request
+  
+00:00 +10 -1: persistent transport failure is bounded to two GET attempts
+00:00 +10 -2: persistent transport failure is bounded to two GET attempts [E]
+  Expected: an object with length of <2>
+    Actual: [Instance of 'RequestOptions']
+     Which: has length of <1>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/api_config_recovery_test.dart 68:5             main.<fn>
+  
+00:00 +10 -2: HTTP 401 is preserved without automatic retry
+00:00 +11 -2: HTTP 403 is preserved without automatic retry
+00:00 +12 -2: HTTP 404 is preserved without automatic retry
+00:00 +13 -2: HTTP 429 is preserved without automatic retry
+00:00 +14 -2: HTTP 500 is preserved without automatic retry
+00:00 +15 -2: DioExceptionType.cancel is never retried
+00:00 +16 -2: DioExceptionType.badCertificate is never retried
+00:00 +17 -2: POST transport failure is not replayed
+00:00 +18 -2: concurrent failed GETs share cache loading and each retry only once
+00:00 +18 -3: concurrent failed GETs share cache loading and each retry only once [E]
+  Unable to connect. Check your connection and retry.
+  package:reelbox/data/api_service.dart 544:7  ApiService._request
+  
+00:00 +18 -3: production default persists only a schema-verified trusted base
+00:00 +19 -3: Some tests failed.
+
+Failing tests:
+  /root/reelbox/test/api_config_recovery_test.dart: concurrent failed GETs share cache loading and each retry only once
+  /root/reelbox/test/api_config_recovery_test.dart: persistent transport failure is bounded to two GET attempts
+  /root/reelbox/test/api_config_recovery_test.dart: read-only transport failure recovers once without a discovery storm

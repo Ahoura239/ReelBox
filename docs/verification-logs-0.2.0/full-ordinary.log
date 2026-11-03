@@ -1,0 +1,392 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/api_config_recovery_test.dart
+00:00 +0: /root/reelbox/test/api_config_recovery_test.dart: verified cache is restored by a fresh instance without contacting discovery
+00:00 +1: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: 
+00:00 +2: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: untrusted.example
+00:00 +3: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +4: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +5: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +6: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +7: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: 127.0.0.1
+00:00 +8: /root/reelbox/test/api_config_recovery_test.dart: invalid cached configuration cannot change the trusted destination: ninwinios.info
+00:00 +9: /root/reelbox/test/api_config_recovery_test.dart: discovery outage keeps last trusted cache and an invalid schema is not cached
+00:00 +10: /root/reelbox/test/api_config_recovery_test.dart: read-only transport failure recovers once without a discovery storm
+00:00 +11: /root/reelbox/test/api_config_recovery_test.dart: persistent transport failure is bounded to two GET attempts
+00:00 +12: /root/reelbox/test/api_config_recovery_test.dart: HTTP 401 is preserved without automatic retry
+00:00 +13: /root/reelbox/test/api_config_recovery_test.dart: HTTP 403 is preserved without automatic retry
+00:00 +14: /root/reelbox/test/api_config_recovery_test.dart: HTTP 404 is preserved without automatic retry
+00:00 +15: /root/reelbox/test/api_config_recovery_test.dart: HTTP 429 is preserved without automatic retry
+00:00 +16: /root/reelbox/test/api_config_recovery_test.dart: HTTP 500 is preserved without automatic retry
+00:00 +17: /root/reelbox/test/api_config_recovery_test.dart: DioExceptionType.cancel is never retried
+00:00 +18: /root/reelbox/test/api_config_recovery_test.dart: DioExceptionType.badCertificate is never retried
+00:00 +19: /root/reelbox/test/api_config_recovery_test.dart: POST transport failure is not replayed
+00:00 +20: /root/reelbox/test/api_config_recovery_test.dart: concurrent failed GETs share cache loading and each retry only once
+00:00 +21: /root/reelbox/test/api_config_recovery_test.dart: production default persists only a schema-verified trusted base
+00:00 +22: loading /root/reelbox/test/api_content_policy_test.dart
+00:04 +22: /root/reelbox/test/api_content_policy_test.dart: all title decoders reject channels and promotional catalog entries
+00:04 +23: /root/reelbox/test/api_content_policy_test.dart: home exposes only film discovery, never updater/support/public feeds
+00:04 +24: /root/reelbox/test/api_content_policy_test.dart: removed API wrappers cannot issue public-playlist/live-channel requests
+00:04 +25: /root/reelbox/test/api_content_policy_test.dart: generic paths and query maps cannot bypass removed endpoint policy
+00:04 +26: /root/reelbox/test/api_content_policy_test.dart: a raw page containing only hidden items still has a continuation
+00:04 +27: /root/reelbox/test/api_content_policy_test.dart: stored model round trips cannot retain hidden promotional metadata
+00:04 +28: loading /root/reelbox/test/api_service_test.dart
+00:06 +28: /root/reelbox/test/api_service_test.dart: observed search IDs take precedence over unrelated posted_id values
+00:06 +29: /root/reelbox/test/api_service_test.dart: search, recommendation, trending and actors use observed queries; removed public lists never request
+00:06 +30: /root/reelbox/test/api_service_test.dart: real curated parallel arrays flatten and rewrite allowlisted legacy links safely
+00:06 +31: /root/reelbox/test/api_service_test.dart: public catalog endpoints preserve original routes and zero-based pages
+00:07 +32: /root/reelbox/test/api_service_test.dart: invalid catalog kinds and subtitle kinds cannot inject routes
+00:07 +33: /root/reelbox/test/api_service_test.dart: rejects untrusted, insecure and ambiguous routes before transport
+00:07 +34: /root/reelbox/test/api_service_test.dart: rewrites only allowlisted legacy public links to HTTPS current host
+00:07 +35: /root/reelbox/test/api_service_test.dart: base updates are atomic, allow HTTPS service and local HTTP tests only
+00:07 +36: /root/reelbox/test/api_service_test.dart: generic POST is form encoded and never follows credential redirects
+00:07 +37: /root/reelbox/test/api_service_test.dart: discovery upgrades advertised HTTP but rejects unsigned unknown hosts
+00:07 +38: /root/reelbox/test/api_service_test.dart: HTML, malformed JSON, timeout and HTTP denials produce safe errors
+00:07 +39: /root/reelbox/test/api_service_test.dart: HTTPS relative route uses timeouts, correct shared key and JSON decoding
+00:08 +40: loading /root/reelbox/test/app_state_test.dart
+00:11 +40: /root/reelbox/test/app_state_test.dart: watchlist and settings persist locally with exact source metadata
+00:11 +41: /root/reelbox/test/app_state_test.dart: episode resume is isolated, updates reorder and removals are exact
+00:12 +42: /root/reelbox/test/app_state_test.dart: watch progress clamps safely and invalid positions reject without changes
+00:12 +43: /root/reelbox/test/app_state_test.dart: search history trims, deduplicates case-insensitively and caps at 30
+00:12 +44: /root/reelbox/test/app_state_test.dart: local collections have stable IDs and independent title membership
+00:12 +45: /root/reelbox/test/app_state_test.dart: versioned export/import replaces the entire library and persists it
+00:13 +46: /root/reelbox/test/app_state_test.dart: corrupt import is atomic across memory, storage and notifications
+00:13 +47: /root/reelbox/test/app_state_test.dart: import limits history to latest 1000 and normalizes 30 searches
+00:19 +48: /root/reelbox/test/app_state_test.dart: clear resets preferences and all local state without clearing unrelated keys
+00:19 +49: /root/reelbox/test/app_state_test.dart: settings defaults, copyWith and JSON preserve every preference
+00:19 +50: /root/reelbox/test/app_state_test.dart: stored onboarding flag null migrates without losing the library
+00:19 +51: /root/reelbox/test/app_state_test.dart: stored onboarding flag false migrates without losing the library
+00:19 +52: /root/reelbox/test/app_state_test.dart: stored onboarding flag true migrates without losing the library
+00:19 +53: /root/reelbox/test/app_state_test.dart: settings parser defaults invalid fields without type errors
+00:19 +54: loading /root/reelbox/test/artwork_data_saver_test.dart
+00:23 +54: /root/reelbox/test/artwork_data_saver_test.dart: data saver never builds network images and retains artwork placeholder
+00:25 +55: loading /root/reelbox/test/bootstrap_test.dart
+00:28 +55: /root/reelbox/test/bootstrap_test.dart: shows initialization progress before opening the real app
+00:30 +56: /root/reelbox/test/bootstrap_test.dart: initialization failure is recoverable and never displays raw vendor text
+00:31 +57: /root/reelbox/test/bootstrap_test.dart: late initialization completion does not update disposed UI
+00:31 +58: loading /root/reelbox/test/cast_media_share_test.dart
+00:34 +58: /root/reelbox/test/cast_media_share_test.dart: explicit local-file lease serves only the exact file and revokes without deleting media
+00:34 +59: /root/reelbox/test/cast_media_share_test.dart: remote video plus selected text serves actual UTF8 WebVTT only and deletes disposable files
+00:34 +60: /root/reelbox/test/cast_media_share_test.dart: local file and selected text share separate actual VTT and media resources
+00:35 +61: /root/reelbox/test/cast_media_share_test.dart: invalid local selections fail rather than quietly loading the remote fallback
+00:35 +62: /root/reelbox/test/cast_media_share_test.dart: unsupported selected subtitles and failed server preparation leave no temp data
+00:35 +63: /root/reelbox/test/cast_media_share_test.dart: complete indexed package shares only rewritten manifests and validated resources
+00:35 +64: /root/reelbox/test/cast_media_share_test.dart: damaged package is not advertised as Cast-ready
+00:35 +65: /root/reelbox/test/cast_media_share_test.dart: remote-only lease copies payload and never passes through an SRT URL
+00:35 +66: /root/reelbox/test/cast_media_share_test.dart: public injectable lease constructor closes its resource only once
+00:35 +67: loading /root/reelbox/test/catalog_discovery_regression_test.dart
+00:38 +67: /root/reelbox/test/catalog_discovery_regression_test.dart: Best titles uses the original catalog contract
+00:46 +68: /root/reelbox/test/catalog_discovery_regression_test.dart: Newest titles uses the original catalog contract
+00:51 +69: /root/reelbox/test/catalog_discovery_regression_test.dart: Popular titles uses the original catalog contract
+00:55 +70: /root/reelbox/test/catalog_discovery_regression_test.dart: Top 250 movies uses the original catalog contract
+00:57 +71: /root/reelbox/test/catalog_discovery_regression_test.dart: Top 250 series uses the original catalog contract
+00:58 +72: /root/reelbox/test/catalog_discovery_regression_test.dart: Korean series uses the original catalog contract
+01:00 +73: /root/reelbox/test/catalog_discovery_regression_test.dart: Chinese / Japanese series uses the original catalog contract
+01:01 +74: /root/reelbox/test/catalog_discovery_regression_test.dart: Turkish series uses the original catalog contract
+01:01 +75: /root/reelbox/test/catalog_discovery_regression_test.dart: Indian series uses the original catalog contract
+01:02 +76: /root/reelbox/test/catalog_discovery_regression_test.dart: Indian movies uses the original catalog contract
+01:04 +77: /root/reelbox/test/catalog_discovery_regression_test.dart: Most-viewed movies uses the original catalog contract
+01:05 +78: /root/reelbox/test/catalog_discovery_regression_test.dart: Most-viewed series uses the original catalog contract
+01:06 +79: /root/reelbox/test/catalog_discovery_regression_test.dart: Discover reaches Actors
+01:07 +80: /root/reelbox/test/catalog_discovery_regression_test.dart: Discover reaches Editor picks
+01:08 +81: /root/reelbox/test/catalog_discovery_regression_test.dart: Discover reaches Best collections
+01:09 +82: /root/reelbox/test/catalog_discovery_regression_test.dart: Discover reaches Best by year
+01:10 +83: loading /root/reelbox/test/catalog_identity_test.dart
+01:12 +83: /root/reelbox/test/catalog_identity_test.dart: legacy channel detail is blocked without changing a same-ID saved movie
+01:15 +84: /root/reelbox/test/catalog_identity_test.dart: movie detail keeps allowed watchlist identity after a blocked channel mutation
+01:18 +85: /root/reelbox/test/catalog_identity_test.dart: series detail keeps allowed watchlist identity after a blocked channel mutation
+01:19 +86: loading /root/reelbox/test/catalog_paging_regression_test.dart
+01:23 +86: /root/reelbox/test/catalog_paging_regression_test.dart: failed raw page retries the same cursor without losing prior titles
+01:29 +87: /root/reelbox/test/catalog_paging_regression_test.dart: filter changes reject stale raw pages
+01:31 +88: /root/reelbox/test/catalog_paging_regression_test.dart: duplicate-only title pages do not truncate later results
+01:33 +89: /root/reelbox/test/catalog_paging_regression_test.dart: duplicate-only actor directory pages retain server continuation
+01:33 +90: /root/reelbox/test/catalog_paging_regression_test.dart: country movies retain continuation across opposite-kind pages
+01:34 +91: loading /root/reelbox/test/catalog_playback_preferences_test.dart
+01:36 +91: /root/reelbox/test/catalog_playback_preferences_test.dart: ask quality waits for an explicit source choice and supports cancel
+01:41 +92: /root/reelbox/test/catalog_playback_preferences_test.dart: preferred quality is used by the primary play action
+01:42 +93: /root/reelbox/test/catalog_playback_preferences_test.dart: external-player preference dispatches selected media to native player
+01:44 +94: loading /root/reelbox/test/catalog_widget_test.dart
+01:47 +94: /root/reelbox/test/catalog_widget_test.dart: movie detail exposes public quality, local watchlist, read-only decoded comments
+01:51 +95: /root/reelbox/test/catalog_widget_test.dart: series detail uses nested real seasons and episode sources
+01:53 +96: /root/reelbox/test/catalog_widget_test.dart: browse anime preserves mixed genre 3 across automatically loaded pages
+01:54 +97: /root/reelbox/test/catalog_widget_test.dart: search submits Persian query and switches to English endpoint explicitly
+01:57 +98: /root/reelbox/test/catalog_widget_test.dart: Discover displays server rail without refetching on rebuild
+01:58 +99: loading /root/reelbox/test/common_content_and_layout_test.dart
+02:00 +99: /root/reelbox/test/common_content_and_layout_test.dart: shared grids reject removed records even when API parsing is bypassed
+02:02 +100: /root/reelbox/test/common_content_and_layout_test.dart: a directly constructed removed poster never paints its label
+02:02 +101: /root/reelbox/test/common_content_and_layout_test.dart: a promotional rail heading cannot reintroduce vendor content
+02:02 +102: /root/reelbox/test/common_content_and_layout_test.dart: compact preference renders usable rows rather than poster grids
+02:03 +103: /root/reelbox/test/common_content_and_layout_test.dart: status messages have an explicit accessible dismiss action
+02:03 +104: loading /root/reelbox/test/content_policy_test.dart
+02:05 +104: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks ملودی باکس
+02:05 +105: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks ملودي باكس
+02:05 +106: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks مِلودی‌ باکس
+02:05 +107: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks MELODY BOX
+02:05 +108: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks MelodyBox music
+02:05 +109: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks نورتون
+02:05 +110: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks نُورتون
+02:05 +111: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks Norton VPN
+02:05 +112: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks دانلود نسخه جدید برنامه
+02:05 +113: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks آپدیت برنامه سیمبا
+02:05 +114: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks Original app support: https://t.me/original_support
+02:05 +115: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks خبرهای سرویس در تلگرام
+02:05 +116: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface blocks @OriginalSupportAccount
+02:05 +117: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface retains normal film metadata and does not mutate the input
+02:06 +118: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface removes complete promotion records, not merely their labels
+02:06 +119: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface discards original support/news/update/list/channel home payloads
+02:06 +120: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface preserves local collections and episode playback playlists
+02:06 +121: /root/reelbox/test/content_policy_test.dart: removed service promotions cannot reach the interface rejects channel and promotional records
+02:06 +122: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://t.me/original
+02:06 +123: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://www.telegram.me/original
+02:06 +124: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects tg://resolve?domain=original
+02:06 +125: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://telegram.org/original
+02:06 +126: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://cdn.example/release.apk?version=2
+02:06 +127: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://cdn.example/release%2Eapk
+02:06 +128: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://example.com/original-app/support
+02:06 +129: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://www.norton.com/
+02:06 +130: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects https://melodybox.example/
+02:06 +131: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects javascript:alert(1)
+02:06 +132: /root/reelbox/test/content_policy_test.dart: outgoing destination policy rejects intent://example
+02:06 +133: /root/reelbox/test/content_policy_test.dart: outgoing destination policy allows normal artwork, film and subtitle media URLs
+02:06 +134: /root/reelbox/test/content_policy_test.dart: outgoing destination policy blocks removed API families without blocking catalog and episodes
+02:06 +135: loading /root/reelbox/test/download_identity_recovery_test.dart
+02:08 +135: /root/reelbox/test/download_identity_recovery_test.dart: offline and retry reconstruction preserve channel after disk round trip
+02:08 +136: /root/reelbox/test/download_identity_recovery_test.dart: offline and retry reconstruction preserve movie after disk round trip
+02:08 +137: /root/reelbox/test/download_identity_recovery_test.dart: offline and retry reconstruction preserve serie after disk round trip
+02:08 +138: /root/reelbox/test/download_identity_recovery_test.dart: offline and retry reconstruction preserve series after disk round trip
+02:08 +139: /root/reelbox/test/download_identity_recovery_test.dart: legacy records retain the movie/episode fallback without guessing channel
+02:08 +140: loading /root/reelbox/test/download_notifications_test.dart
+02:10 +140: /root/reelbox/test/download_notifications_test.dart: new downloads have no stale notification templates after opt out
+02:10 +141: loading /root/reelbox/test/download_queue_next_test.dart
+02:13 +141: /root/reelbox/test/download_queue_next_test.dart: direct task uses pinned real multipart API and persists current source identity
+02:13 +142: /root/reelbox/test/download_queue_next_test.dart: excluded legacy tasks are canceled without deleting completed files or records
+02:13 +143: /root/reelbox/test/download_queue_next_test.dart: retry retains old failed record until replacement enqueue succeeds
+02:13 +144: loading /root/reelbox/test/download_recovery_policy_test.dart
+02:15 +144: /root/reelbox/test/download_recovery_policy_test.dart: restart resume preserves original notifications=true before dispatch
+02:15 +145: /root/reelbox/test/download_recovery_policy_test.dart: restart resume preserves original notifications=false before dispatch
+02:15 +146: loading /root/reelbox/test/download_refresh_test.dart
+02:19 +146: /root/reelbox/test/download_refresh_test.dart: download refresh awaits durable records rather than repainting old state
+02:19 +147: loading /root/reelbox/test/library_identity_regression_test.dart
+02:21 +147: /root/reelbox/test/library_identity_regression_test.dart: legacy import prunes channels without losing same-ID movies
+02:21 +148: /root/reelbox/test/library_identity_regression_test.dart: legacy storage migration prunes channels without losing same-ID movies
+02:21 +149: /root/reelbox/test/library_identity_regression_test.dart: blocked collection mutations cannot replace a same-ID movie
+02:21 +150: /root/reelbox/test/library_identity_regression_test.dart: blocked history mutations cannot replace same-ID movie progress
+02:21 +151: /root/reelbox/test/library_identity_regression_test.dart: blocked watchlist mutations cannot replace a same-ID movie
+02:21 +152: /root/reelbox/test/library_identity_regression_test.dart: legacy version-one titles without type still load as posters
+02:21 +153: /root/reelbox/test/library_identity_regression_test.dart: movie and series aliases share the poster namespace during mutation
+02:22 +154: /root/reelbox/test/library_identity_regression_test.dart: saved rejects same-namespace duplicate imports atomically
+02:22 +155: /root/reelbox/test/library_identity_regression_test.dart: history rejects same-namespace duplicate imports atomically
+02:22 +156: /root/reelbox/test/library_identity_regression_test.dart: collections rejects same-namespace duplicate imports atomically
+02:22 +157: loading /root/reelbox/test/library_settings_regression_test.dart
+02:26 +157: /root/reelbox/test/library_settings_regression_test.dart: imported non-menu settings remain selected and editable
+02:34 +158: /root/reelbox/test/library_settings_regression_test.dart: discovery check reports retained trust without claiming success
+02:36 +159: /root/reelbox/test/library_settings_regression_test.dart: More opens a factual privacy and local-data explanation
+02:36 +160: /root/reelbox/test/library_settings_regression_test.dart: notifications explain new-task scope and Android requirements
+02:37 +161: /root/reelbox/test/library_settings_regression_test.dart: legacy channel history is pruned while same-ID movie remains removable
+02:38 +162: /root/reelbox/test/library_settings_regression_test.dart: removed channel card has no bookmark action and preserves the same-ID movie
+02:39 +163: loading /root/reelbox/test/local_media_server_test.dart
+02:41 +163: /root/reelbox/test/local_media_server_test.dart: explicit session streams video and HEAD with exact type and length
+02:42 +164: /root/reelbox/test/local_media_server_test.dart: subtitle shares an unguessable independent session token
+02:42 +165: /root/reelbox/test/local_media_server_test.dart: range GET and HEAD expose exact selected bytes and headers
+02:42 +166: /root/reelbox/test/local_media_server_test.dart: invalid and unsupported multiple ranges return 416, not full video
+02:43 +167: /root/reelbox/test/local_media_server_test.dart: manifest extra resources are explicitly registered, with no directory access
+02:43 +168: /root/reelbox/test/local_media_server_test.dart: registered paths cannot follow a symlink replaced after session creation
+02:43 +169: /root/reelbox/test/local_media_server_test.dart: methods are restricted and Cast preflight exposes only registered resources
+02:43 +170: /root/reelbox/test/local_media_server_test.dart: close is idempotent and listening socket no longer accepts requests
+02:43 +171: loading /root/reelbox/test/media_helpers_test.dart
+02:45 +171: /root/reelbox/test/media_helpers_test.dart: sources retain public variants, remove trailers and unusable URLs
+02:45 +172: /root/reelbox/test/media_helpers_test.dart: source preference selects exact quality without inventing an access gate
+02:45 +173: /root/reelbox/test/media_helpers_test.dart: resume ignores completed and invalid positions and keeps exact identity
+02:45 +174: /root/reelbox/test/media_helpers_test.dart: next episode stays ordered and does not silently skip an unavailable episode
+02:45 +175: /root/reelbox/test/media_helpers_test.dart: download names are private-path safe and stream manifests rejected
+02:45 +176: /root/reelbox/test/media_helpers_test.dart: download metadata survives native task serialization with bounded progress
+02:45 +177: loading /root/reelbox/test/models_test.dart
+02:47 +177: /root/reelbox/test/models_test.dart: real series has no sources and retains the serie discriminator
+02:47 +178: /root/reelbox/test/models_test.dart: real season retains episode/source variants and unknown metadata
+02:47 +179: /root/reelbox/test/models_test.dart: real movie preserves source IDs, URLs, countries and entitlement metadata
+02:47 +180: loading /root/reelbox/test/native_cast_preparation_test.dart
+02:49 +180: /root/reelbox/test/native_cast_preparation_test.dart: Cast prepares an owned resource only after an explicit request and revokes on disconnect
+02:49 +181: /root/reelbox/test/native_cast_preparation_test.dart: a newer media request supersedes pending preparation without casting stale media
+02:49 +182: /root/reelbox/test/native_cast_preparation_test.dart: remote stop revokes sharing and connected polls do not restart it
+02:49 +183: loading /root/reelbox/test/next_catalog_discovery_test.dart
+02:51 +183: /root/reelbox/test/next_catalog_discovery_test.dart: thematic and franchise directories use distinct observed PHP routes
+02:51 +184: /root/reelbox/test/next_catalog_discovery_test.dart: most-shared hydrates IDs once in order and keeps raw cursor
+02:51 +185: /root/reelbox/test/next_catalog_discovery_test.dart: search filters apply locally without truncating raw page cursor
+02:51 +186: /root/reelbox/test/next_catalog_discovery_test.dart: actor empty filmography uses paged name search rather than repeating actor request
+02:51 +187: /root/reelbox/test/next_catalog_discovery_test.dart: actor metadata handles nested role actor without using the role ID
+02:52 +188: /root/reelbox/test/next_catalog_discovery_test.dart: continuation selects only current non-trailer source not expired history URL
+02:52 +189: /root/reelbox/test/next_catalog_discovery_test.dart: legacy discovery retains raw continuation even for invisible rows
+02:52 +190: loading /root/reelbox/test/next_catalog_policy_ui_test.dart
+02:54 +190: /root/reelbox/test/next_catalog_policy_ui_test.dart: blocked title names never appear in the header and retry stays handled
+02:56 +191: /root/reelbox/test/next_catalog_policy_ui_test.dart: title sharing contains plain title and no original share destination (variant: TargetPlatform.android)
+02:57 +192: /root/reelbox/test/next_catalog_policy_ui_test.dart: blocked destinations do not render sources or website actions
+02:57 +193: /root/reelbox/test/next_catalog_policy_ui_test.dart: embedded media uses native generic browser with video title (variant: TargetPlatform.android)
+02:58 +194: /root/reelbox/test/next_catalog_policy_ui_test.dart: search help and advanced filters fit a small viewport
+03:01 +195: loading /root/reelbox/test/next_catalog_ui_test.dart
+03:03 +195: /root/reelbox/test/next_catalog_ui_test.dart: explicit episode watched marker is independent of playback progress
+03:06 +196: /root/reelbox/test/next_catalog_ui_test.dart: home continuation fetches current source instead of replaying stale history URL (variant: TargetPlatform.android)
+03:07 +197: /root/reelbox/test/next_catalog_ui_test.dart: home has real actor shelf and country discovery, not live features
+03:09 +198: /root/reelbox/test/next_catalog_ui_test.dart: empty search suggests titles and supports individual history deletion and help
+03:11 +199: /root/reelbox/test/next_catalog_ui_test.dart: automatic pagination follows empty raw pages and retains failed cursor
+03:11 +200: /root/reelbox/test/next_catalog_ui_test.dart: compact catalog preference renders compact rows and count
+03:12 +201: /root/reelbox/test/next_catalog_ui_test.dart: directory removes public playlists and adds observed shortcuts
+03:13 +202: loading /root/reelbox/test/next_library_cache_test.dart
+03:16 +202: /root/reelbox/test/next_library_cache_test.dart: cache size and clear are limited to disposable cache, not downloads/library/symlinks
+03:16 +203: loading /root/reelbox/test/next_library_settings_test.dart
+03:17 +203: /root/reelbox/test/next_library_settings_test.dart: platform fonts resolve generic families and preserve safe custom fonts
+03:18 +204: /root/reelbox/test/next_library_settings_test.dart: new settings validate imports and roundtrip every field
+03:18 +205: /root/reelbox/test/next_library_settings_test.dart: new settings expose next-release defaults, legacy JSON skips intro
+03:18 +206: loading /root/reelbox/test/next_library_state_test.dart
+03:19 +206: /root/reelbox/test/next_library_state_test.dart: legacy migration filters blocked raw records before validation and persists safe state
+03:20 +207: /root/reelbox/test/next_library_state_test.dart: free-form local labels and settings cannot surface excluded promotions
+03:20 +208: /root/reelbox/test/next_library_state_test.dart: malformed backup and failed startup never reset an existing private library
+03:20 +209: /root/reelbox/test/next_library_state_test.dart: episode watched marker persists without fabricating playback checkpoints
+03:20 +210: /root/reelbox/test/next_library_state_test.dart: subtitle reset changes only subtitle fields and preserves local library
+03:20 +211: /root/reelbox/test/next_library_state_test.dart: missing current episode rejects continuation instead of playing an expired checkpoint URL
+03:20 +212: /root/reelbox/test/next_library_state_test.dart: continuation resolves fresh poster and episode sources, never stale URL
+03:20 +213: /root/reelbox/test/next_library_state_test.dart: legacy import retains private collections while removing blocked titles/channels
+03:20 +214: loading /root/reelbox/test/next_library_ui_test.dart
+03:23 +214: /root/reelbox/test/next_library_ui_test.dart: fresh app routes through introduction before exposing navigation
+03:27 +215: /root/reelbox/test/next_library_ui_test.dart: counted library tabs remain readable and reachable with large text
+03:28 +216: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in en without an invented install link (variant: TargetPlatform.android)
+03:29 +217: /root/reelbox/test/next_library_ui_test.dart: More shares independent app information in fa without an invented install link (variant: TargetPlatform.android)
+03:29 +218: /root/reelbox/test/next_library_ui_test.dart: unavailable app sharing shows a safe error rather than native details (variant: TargetPlatform.android)
+03:30 +219: /root/reelbox/test/next_library_ui_test.dart: first-run skip persists completion without touching library
+03:30 +220: /root/reelbox/test/next_library_ui_test.dart: first-run finish persists completion
+03:31 +221: /root/reelbox/test/next_library_ui_test.dart: more exposes no removed service links and about uses runtime package info
+03:31 +222: /root/reelbox/test/next_library_ui_test.dart: custom ARGB color and opacity save exact RGB without changing background
+03:35 +223: /root/reelbox/test/next_library_ui_test.dart: settings safely displays imported custom values and resets subtitle style only
+03:39 +224: loading /root/reelbox/test/playback_checkpoint_test.dart
+03:41 +224: /root/reelbox/test/playback_checkpoint_test.dart: opening a player cannot overwrite an existing resume checkpoint
+03:41 +225: /root/reelbox/test/playback_checkpoint_test.dart: source switches do not attribute previous progress to the new source
+03:41 +226: loading /root/reelbox/test/playback_dispatch_preference_test.dart
+03:43 +226: /root/reelbox/test/playback_dispatch_preference_test.dart: engine open dispatch uses autoplay=true for remote and offline media
+03:43 +227: /root/reelbox/test/playback_dispatch_preference_test.dart: engine open dispatch uses autoplay=false for remote and offline media
+03:43 +228: loading /root/reelbox/test/player_brightness_handoff_test.dart
+03:46 +228: /root/reelbox/test/player_brightness_handoff_test.dart: player handoff retains pre-player brightness rather than an earlier override
+03:46 +229: loading /root/reelbox/test/player_controls_next_test.dart
+03:48 +229: /root/reelbox/test/player_controls_next_test.dart: resume rewinds but completed progress resets without negative positions
+03:48 +230: /root/reelbox/test/player_controls_next_test.dart: grouped subtitle variants inherit language and reject unsafe sources
+03:48 +231: /root/reelbox/test/player_controls_next_test.dart: keyboard media shortcuts dispatch commands; locked rejects input
+03:50 +232: /root/reelbox/test/player_controls_next_test.dart: double click requests fullscreen rather than changing fit
+03:50 +233: loading /root/reelbox/test/player_engine_dispatch_next_test.dart
+03:52 +233: /root/reelbox/test/player_engine_dispatch_next_test.dart: persisted Stretch dispatches actual fill geometry instead of contain
+03:55 +234: /root/reelbox/test/player_engine_dispatch_next_test.dart: actual subtitle track picker updates active Cast text and clears stale external data (variant: TargetPlatform.android)
+04:04 +235: /root/reelbox/test/player_engine_dispatch_next_test.dart: offline player explicitly hands Cast a sharing lease and revokes it on exit (variant: TargetPlatform.android)
+04:05 +236: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual quality change (variant: TargetPlatform.android)
+04:07 +237: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual episode change (variant: TargetPlatform.android)
+04:08 +238: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual subtitles change (variant: TargetPlatform.android)
+04:10 +239: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual stop change (variant: TargetPlatform.android)
+04:10 +240: /root/reelbox/test/player_engine_dispatch_next_test.dart: pending page Cast lease is invalidated by actual new owner change (variant: TargetPlatform.android)
+04:11 +241: /root/reelbox/test/player_engine_dispatch_next_test.dart: real player controls dispatch to engine and persist fit/subtitle options
+04:12 +242: /root/reelbox/test/player_engine_dispatch_next_test.dart: resume retains history, rewinds dispatch, and next updates episode context
+04:13 +243: loading /root/reelbox/test/player_global_ownership_test.dart
+04:15 +243: /root/reelbox/test/player_global_ownership_test.dart: old player teardown cannot overwrite new owner (dispose first=true)
+04:16 +244: /root/reelbox/test/player_global_ownership_test.dart: old player teardown cannot overwrite new owner (dispose first=false)
+04:16 +245: loading /root/reelbox/test/player_lifecycle_regression_test.dart
+04:19 +245: /root/reelbox/test/player_lifecycle_regression_test.dart: dispose during setup step 0 cancels later writes; restore is last
+04:19 +246: /root/reelbox/test/player_lifecycle_regression_test.dart: dispose during setup step 1 cancels later writes; restore is last
+04:19 +247: /root/reelbox/test/player_lifecycle_regression_test.dart: dispose during setup step 2 cancels later writes; restore is last
+04:19 +248: /root/reelbox/test/player_lifecycle_regression_test.dart: dispose during save prevents any player open dispatch
+04:19 +249: /root/reelbox/test/player_lifecycle_regression_test.dart: newer open wins even when an older save completes last
+04:19 +250: /root/reelbox/test/player_lifecycle_regression_test.dart: disposed lifecycle rejects new setup and open work
+04:19 +251: loading /root/reelbox/test/player_native_session_test.dart
+04:22 +251: /root/reelbox/test/player_native_session_test.dart: media actions dispatch actual local controls and reject unknown actions
+04:22 +252: /root/reelbox/test/player_native_session_test.dart: Cast transfer pauses decoder and routes controls remotely until disconnect
+04:22 +253: /root/reelbox/test/player_native_session_test.dart: failed Cast load restores local playback and leaves no remote mode
+04:22 +254: /root/reelbox/test/player_native_session_test.dart: failed Cast load is not retried by repeated connected polls
+04:22 +255: /root/reelbox/test/player_native_session_test.dart: old owner cannot clear new handler or dispatch pending action
+04:22 +256: /root/reelbox/test/player_native_session_test.dart: disconnect during pending load cannot revive stale Cast mode
+04:22 +257: /root/reelbox/test/player_native_session_test.dart: disconnect during awaited local pause restores latest intent true
+04:22 +258: /root/reelbox/test/player_native_session_test.dart: disconnect during awaited local pause restores latest intent false
+04:22 +259: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after stop
+04:23 +260: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after release
+04:23 +261: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after new owner
+04:23 +262: /root/reelbox/test/player_native_session_test.dart: awaited pause cancellation cannot resume after new load
+04:23 +263: /root/reelbox/test/player_native_session_test.dart: Cast rejection preserves newer pause intent
+04:23 +264: /root/reelbox/test/player_native_session_test.dart: Cast throw preserves newer pause intent
+04:23 +265: /root/reelbox/test/player_native_session_test.dart: Cast rejection preserves newer play intent
+04:23 +266: /root/reelbox/test/player_native_session_test.dart: Cast throw preserves newer play intent
+04:23 +267: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after stop
+04:23 +268: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after release
+04:23 +269: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after new owner
+04:23 +270: /root/reelbox/test/player_native_session_test.dart: stale throwing Cast load cannot overwrite state after new load
+04:23 +271: /root/reelbox/test/player_native_session_test.dart: notification stop ends background session without automatic restart
+04:23 +272: /root/reelbox/test/player_native_session_test.dart: background bridge starts only by opt-in and updates exact metadata
+04:23 +273: loading /root/reelbox/test/player_preferences_next_test.dart
+04:25 +273: /root/reelbox/test/player_preferences_next_test.dart: startup dispatch applies rate/audio but does not overwrite system volume by default
+04:25 +274: /root/reelbox/test/player_preferences_next_test.dart: subtitle reset only resets subtitle fields; complete player reset preserves library preferences
+04:25 +275: loading /root/reelbox/test/player_subtitle_encoding_test.dart
+04:27 +275: /root/reelbox/test/player_subtitle_encoding_test.dart: decodes real Windows-1256 Persian SRT fixture without replacement
+04:27 +276: /root/reelbox/test/player_subtitle_encoding_test.dart: UTF8 BOM and UTF16LE preserve subtitle text
+04:28 +277: loading /root/reelbox/test/player_system_controls_test.dart
+04:31 +277: /root/reelbox/test/player_system_controls_test.dart: player reads native control values and restores original window brightness
+04:31 +278: /root/reelbox/test/player_system_controls_test.dart: leaving a player that never initialized does not change brightness
+04:31 +279: loading /root/reelbox/test/player_widget_test.dart
+04:35 +279: /root/reelbox/test/player_widget_test.dart: Untrusted source is rejected before initializing a native player
+04:39 +280: loading /root/reelbox/test/segmented_classification_test.dart
+04:42 +280: /root/reelbox/test/segmented_classification_test.dart: extensionless mpd is not a direct-file or external-downloader source
+04:42 +281: /root/reelbox/test/segmented_classification_test.dart: extensionless  MPD  is not a direct-file or external-downloader source
+04:42 +282: /root/reelbox/test/segmented_classification_test.dart: extensionless hls is not a direct-file or external-downloader source
+04:42 +283: /root/reelbox/test/segmented_classification_test.dart: extensionless  HLS  is not a direct-file or external-downloader source
+04:42 +284: /root/reelbox/test/segmented_classification_test.dart: extensionless m3u8 is not a direct-file or external-downloader source
+04:42 +285: /root/reelbox/test/segmented_classification_test.dart: extensionless M3U8 is not a direct-file or external-downloader source
+04:42 +286: /root/reelbox/test/segmented_classification_test.dart: extensionless dash is not a direct-file or external-downloader source
+04:42 +287: /root/reelbox/test/segmented_classification_test.dart: extensionless  DASH  is not a direct-file or external-downloader source
+04:42 +288: /root/reelbox/test/segmented_classification_test.dart: extensionless application/dash+xml is not a direct-file or external-downloader source
+04:42 +289: /root/reelbox/test/segmented_classification_test.dart: extensionless application/vnd.apple.mpegurl is not a direct-file or external-downloader source
+04:42 +290: /root/reelbox/test/segmented_classification_test.dart: extensionless application/x-mpegURL; charset=UTF-8 is not a direct-file or external-downloader source
+04:42 +291: /root/reelbox/test/segmented_classification_test.dart: manifest URL extensions override direct type hints
+04:42 +292: /root/reelbox/test/segmented_classification_test.dart: direct MP4 remains eligible for direct and external download
+04:42 +293: loading /root/reelbox/test/segmented_download_test.dart
+04:44 +293: /root/reelbox/test/segmented_download_test.dart: HLS master downloads bounded parallel ranges and publishes fully local validated package
+04:45 +294: /root/reelbox/test/segmented_download_test.dart: redirected HLS master and children use effective URIs for all resources
+04:45 +295: /root/reelbox/test/segmented_download_test.dart: resource redirects validate each hop before fetching excluded targets
+04:45 +296: /root/reelbox/test/segmented_download_test.dart: redirected extensionless DASH resolves nested BaseURLs at the effective URI
+04:46 +297: /root/reelbox/test/segmented_download_test.dart: manifest HTTP 301 resolves relative Location against each hop
+04:46 +298: /root/reelbox/test/segmented_download_test.dart: manifest HTTP 302 resolves relative Location against each hop
+04:46 +299: /root/reelbox/test/segmented_download_test.dart: manifest HTTP 303 resolves relative Location against each hop
+04:46 +300: /root/reelbox/test/segmented_download_test.dart: manifest HTTP 307 resolves relative Location against each hop
+04:46 +301: /root/reelbox/test/segmented_download_test.dart: manifest HTTP 308 resolves relative Location against each hop
+04:46 +302: /root/reelbox/test/segmented_download_test.dart: manifest redirects validate intermediate targets before requesting them
+04:46 +303: /root/reelbox/test/segmented_download_test.dart: manifest redirects reject unauthorized target file:///private/media
+04:46 +304: /root/reelbox/test/segmented_download_test.dart: manifest redirects reject unauthorized target http://user:secret@127.0.0.1/media
+04:46 +305: /root/reelbox/test/segmented_download_test.dart: manifest redirects reject unauthorized target /moviebox/%73upport/media
+04:46 +306: /root/reelbox/test/segmented_download_test.dart: manifest and resource redirect loops stop after five hops
+04:46 +307: /root/reelbox/test/segmented_download_test.dart: manifest and resource redirects without Location fail closed
+04:47 +308: /root/reelbox/test/segmented_download_test.dart: resource redirects preserve Range and identity headers on every hop
+04:47 +309: /root/reelbox/test/segmented_download_test.dart: redirected resource still rejects ignored byte range responses
+04:47 +310: /root/reelbox/test/segmented_download_test.dart: redirected resource still rejects incorrect byte range responses
+04:47 +311: /root/reelbox/test/segmented_download_test.dart: redirected manifests and resources retain HTTP 401 denials
+04:47 +312: /root/reelbox/test/segmented_download_test.dart: redirected manifests and resources retain HTTP 403 denials
+04:47 +313: /root/reelbox/test/segmented_download_test.dart: HLS refuses encrypted init maps without explicit IV before creating a package
+04:47 +314: /root/reelbox/test/segmented_download_test.dart: cancel/restart reuses only hash-validated complete segments and never publishes incomplete manifests
+04:47 +315: /root/reelbox/test/segmented_download_test.dart: denied resource is failed, retains validated progress, and retry repairs it
+04:48 +316: /root/reelbox/test/segmented_download_test.dart: AES-128 identity keys and separate default audio are packaged locally
+04:48 +317: /root/reelbox/test/segmented_download_test.dart: reject DRM, live manifests, dynamic DASH and unbounded timelines
+04:48 +318: /root/reelbox/test/segmented_download_test.dart: clear static DASH template packages audio and video with local SegmentLists
+04:48 +319: loading /root/reelbox/test/subtitle_webvtt_test.dart
+04:50 +319: /root/reelbox/test/subtitle_webvtt_test.dart: WebVTT drops metadata, STYLE, REGION, NOTE, cue settings and unsafe markup
+04:50 +320: /root/reelbox/test/subtitle_webvtt_test.dart: SRT cue payload is sanitized, not simply relabelled
+04:50 +321: /root/reelbox/test/subtitle_webvtt_test.dart: rejects invalid cue timing 00:61:00,000 --> 01:02:00,000
+04:50 +322: /root/reelbox/test/subtitle_webvtt_test.dart: rejects invalid cue timing 00:00:61,000 --> 00:02:00,000
+04:50 +323: /root/reelbox/test/subtitle_webvtt_test.dart: rejects invalid cue timing 00:00:03,000 --> 00:00:01,000
+04:50 +324: /root/reelbox/test/subtitle_webvtt_test.dart: rejects invalid cue timing 00:00:01,000 --> 00:00:01,000
+04:50 +325: /root/reelbox/test/subtitle_webvtt_test.dart: rejects invalid cue timing -00:00:01,000 --> 00:00:02,000
+04:50 +326: /root/reelbox/test/subtitle_webvtt_test.dart: rejects decreasing cue starts but permits overlapping cues
+04:50 +327: /root/reelbox/test/subtitle_webvtt_test.dart: rejects empty/unsupported input honestly: 
+04:50 +328: /root/reelbox/test/subtitle_webvtt_test.dart: rejects empty/unsupported input honestly: <tt><body>TTML is not supported</body></tt>
+04:50 +329: /root/reelbox/test/subtitle_webvtt_test.dart: rejects empty/unsupported input honestly: plain arbitrary text
+04:50 +330: /root/reelbox/test/subtitle_webvtt_test.dart: rejects empty/unsupported input honestly: WEBVTT
+
+STYLE
+::cue {color:red}
+04:50 +331: /root/reelbox/test/subtitle_webvtt_test.dart: rejects invalid ASS time and drawing-mode dialogue
+04:50 +332: /root/reelbox/test/subtitle_webvtt_test.dart: synthetic ASS uses Events format and dialogue, never styles/fonts
+04:50 +333: /root/reelbox/test/subtitle_webvtt_test.dart: synthetic SSA uses Events format and dialogue, never styles/fonts
+04:50 +334: /root/reelbox/test/subtitle_webvtt_test.dart: synthetic SRT becomes actual WebVTT while preserving Persian text
+04:51 +335: loading /root/reelbox/test/widget_test.dart
+04:54 +335: /root/reelbox/test/widget_test.dart: Account-free app exposes its five core destinations
+04:59 +336: All tests passed!

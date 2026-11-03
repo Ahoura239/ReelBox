@@ -1,0 +1,12 @@
+Native URL policy and playback snapshots: 35 assertions passed
+PASS blocked_redirect
+PASS allowed_redirect_metadata
+PASS redirect_boundaries
+PASS range_head_and_headers
+PASS cross_origin_headers
+PASS tls_downgrade_and_stream_ownership
+PASS android_status_and_transport_failures
+PASS access_denial_passthrough
+PASS excluded_redirect_destinations
+Restricted resource fetch: 9 cases passed
+WebView interceptor source wiring: passed (not a device test)

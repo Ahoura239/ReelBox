@@ -1,0 +1,92 @@
+{
+  "finding": "RM007",
+  "outcome": "Controlled redirect fetching implemented and JVM regressions pass; Android hardware behavior remains unverified.",
+  "source_changes": {
+    "EmbeddedVideoActivity.kt": [
+      "Both WebView HTTP request interceptor overloads return controlled responses rather than null/unchecked WebView networking.",
+      "Modern interceptor forwards the requested GET/HEAD method and public request headers to RestrictedResourceFetcher.",
+      "HTTPS page subresources are subject to an explicit secure-context guard; existing MIXED_CONTENT_NEVER_ALLOW and SSL handler cancellation remain.",
+      "Invalid Android WebResourceResponse metadata closes the controlled stream and returns an empty 502, never an unchecked network fallback."
+    ],
+    "RestrictedResourceFetcher.kt": [
+      "Initial URL and every redirect destination are checked before opening a connection; automatic redirects are disabled. Five redirects/six requests maximum.",
+      "Connect timeout is 10000 ms and read timeout is 15000 ms per connection; no TLS verifier/trust-manager overrides or authorization retry path were added.",
+      "HTTPS downgrade redirects and HTTP subresources in an HTTPS context fail closed before requesting the destination.",
+      "NativeUrlPolicy remains the base policy. Additional resource-only filtering rejects obvious live/channel/public-list route families and removed public-list action aliases, while retaining private collections and episode playlists.",
+      "Only GET/HEAD and a small public request-header allowlist are supported. Authorization, Cookie, Proxy-Authorization and arbitrary private headers are not copied. Origin/Referer are stripped after crossing scheme/host/port and are never restored later in the chain.",
+      "Body remains streaming and owns/disconnects its connection when closed. MIME/charset, final HTTP status, content length/range, CORS and non-hop response metadata are retained. Set-Cookie and hop-by-hop response headers are removed.",
+      "Malformed/missing redirects and transport failures produce empty 502; exhausted redirects produce 508; blocked policy/mixed-content destinations produce 403. Unexpected 3xx/invalid statuses cannot escape to Android. Reason phrases are nonblank printable ASCII."
+    ]
+  },
+  "verification": {
+    "command": "python tool/native_resource_fetch_test.py",
+    "exit_code": 0,
+    "log": "/root/reelbox-planning/resume-webview-tests.log",
+    "serialization": "Runner acquires /root/reelbox/.tooling.lock internally; no outer flock was used.",
+    "compiler": "Offline cached Kotlin 2.2.21 compiler, JVM target 17, 256 MB heap/192 MB metaspace; no Gradle or APK build.",
+    "native_policy_assertions_passed": 35,
+    "resource_fixture_cases_passed": 9,
+    "resource_fixture_cases": [
+      "blocked_redirect",
+      "allowed_redirect_metadata",
+      "redirect_boundaries",
+      "range_head_and_headers",
+      "cross_origin_headers",
+      "tls_downgrade_and_stream_ownership",
+      "android_status_and_transport_failures",
+      "access_denial_passthrough",
+      "excluded_redirect_destinations"
+    ],
+    "actual_local_http_evidence": [
+      "Server hit counters show blocked redirect targets were not contacted for GET or HEAD, including news/support/updater/APK/vendor/Telegram/live/channel/public-list destinations.",
+      "Allowed relative redirect returns exact public script body/MIME/charset/CORS metadata; private collection and episode-playlist paths remain permitted.",
+      "GET and HEAD survive a safe 307 redirect with Range/If-Range and exact 206 Content-Range/Content-Length metadata; GET body is exact and HEAD body empty.",
+      "Cross-host loopback redirects (127.0.0.1 -> localhost -> 127.0.0.1) strip sensitive context and never restore it; credential/private headers are absent at every fixture server.",
+      "401/403/451/404/416 statuses and bodies pass through without retries; unsupported methods do not contact the server."
+    ],
+    "deterministic_connection_seam_evidence": [
+      "Connections have finite connect/read timeout settings and redirects disabled before reading status.",
+      "HTTPS downgrade/mixed-content targets are not opened; injected SSLHandshakeException/IOException/SocketTimeoutException fail closed with connection cleanup.",
+      "Streaming does not eagerly read the body; closing the response closes the payload and disconnects the connection.",
+      "Invalid status codes, unhandled 3xx and invalid reason phrases cannot produce forbidden Android response metadata."
+    ],
+    "source_wiring_check": "Passed: both interceptor overloads use the helper, no return-null fallback, method/header and secure-context wiring present, SSL cancellation and fail-closed adapter present. This is text/source verification, not an Android execution test.",
+    "tdd_observations": [
+      "Initial runner failed compilation because the previous partial implementation did not provide the existing tests' openConnection/secureContext seam.",
+      "After completing the transport seam/timeouts, the original six fixture groups passed.",
+      "New invalid-status regression failed with -1 escaping unchanged, then passed after status validation.",
+      "New exclusion regression failed by following /live/channel.m3u8, then passed after resource-only removed-family filtering.",
+      "Full helper suite passed while integration check correctly failed on the old return-null interceptor; wiring was then replaced.",
+      "Invalid reason-phrase regression failed before sanitization; the final complete runner passed."
+    ],
+    "git_diff_check": "git diff --check exited 0"
+  },
+  "android_hardware": {
+    "executed": false,
+    "android_activity_compiled_in_this_task": false,
+    "full_apk_build_executed": false,
+    "remaining_checks": [
+      "Parent's native compilation/full APK integration.",
+      "Controlled Android WebView redirect-marker regression, actual media range seeking, TLS/access-denial rendering, fullscreen/back/file chooser and activity recreation.",
+      "Redirected HTML/CSS document effective-URL/base-relative-resource and cross-origin/CORS behavior on the actual WebView: the helper reports effectiveUrl but WebResourceResponse has no final-URL field, and these browser semantics were not established by the JVM HTTP tests.",
+      "Device TLS trust/hostname behavior: normal platform transport is retained, but the TLS failure regression uses an injected exception, not a real device TLS handshake."
+    ]
+  },
+  "scope_and_issues": [
+    "No MainActivity, Cast, service, Gradle, Dart, completed-media, manifest or NativeUrlPolicy edits were made by this task. No accounts, external credentials or real cookies were used.",
+    "No unsafe TLS workaround or access-denial bypass was introduced. POST/OPTIONS/authenticated embeds intentionally fail closed rather than offering account/CORS bypass support.",
+    "The runner now bounds compiler/test subprocess runtime and keeps its existing internal tooling lock.",
+    "Host free disk was 145 MB at final inspection; no full native build was attempted and no unrelated artifacts were deleted.",
+    "Optional web_extract backend could not retrieve Android documentation; the official Android WebResourceResponse API was retrieved directly over HTTPS to confirm valid status ranges and unsupported 3xx responses."
+  ],
+  "files_modified": [
+    "/root/reelbox/android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt",
+    "/root/reelbox/android/app/src/main/kotlin/org/reelbox/reelbox/RestrictedResourceFetcher.kt",
+    "/root/reelbox/android/app/src/test/kotlin/org/reelbox/reelbox/RestrictedResourceFetchTest.kt",
+    "/root/reelbox/tool/native_resource_fetch_test.py"
+  ],
+  "files_created": [
+    "/root/reelbox-planning/resume-webview-tests.log",
+    "/root/reelbox-planning/resume-webview-fix.json"
+  ]
+}

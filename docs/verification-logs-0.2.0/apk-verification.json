@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "apk": "/root/reelbox/build/app/outputs/flutter-apk/app-release.apk",
+  "bytes": 41149236,
+  "sha256": "2c224625b0492d04a3fb7ead1c71710e29d91f5ea6da0818846159e4407f15d0",
+  "package": "org.reelbox.app",
+  "version_code": 2,
+  "version_name": "0.2.0",
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "abis": [
+    "arm64-v8a"
+  ],
+  "release_signer": "CN=Reelbox Local Release",
+  "signer_sha256": "907cfd2ce8c0f96594660b2d92538e1037af6cbcab57c26817f9fcb628886e86",
+  "same_signer_as_delivered_beta": true,
+  "zip_integrity": true,
+  "core_native_libraries_present": true,
+  "debuggable": false,
+  "android_hardware_verified": false
+}

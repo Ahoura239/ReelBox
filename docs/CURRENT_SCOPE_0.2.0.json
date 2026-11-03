@@ -1,0 +1,881 @@
+{
+  "release": "0.2.0+2",
+  "full_original_parity_claimed": false,
+  "all_original_subbehaviors_verified": false,
+  "inventory_counts": {
+    "original": 229,
+    "retained_or_android_adapted": 164,
+    "excluded": 65,
+    "independent_grouped_static_review_including_adaptation_notes": 142,
+    "additional_core_source_mapping": 22
+  },
+  "interpretation": "Current source/evidence mapping, not device verification or unconditional independent approval. feature-parity.json preserves historical statuses and original provenance. VERIFICATION.md records executed release checks.",
+  "groups": [
+    {
+      "group": "Recoverable bootstrap, dismissible status, genuine first run",
+      "feature_ids": [
+        "F003",
+        "F005",
+        "F123"
+      ],
+      "code_evidence": [
+        "lib/main.dart:18-39::ReelboxBootstrap initializer guards MediaKit and local state initialization",
+        "lib/bootstrap.dart::_ReelboxBootstrapState._start/build, generation-guarded retry and progress",
+        "lib/ui/common.dart::toast, showCloseIcon",
+        "lib/app.dart:103-105::introCompleted root routing",
+        "lib/ui/library.dart::FirstRunIntroPage._finish"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/bootstrap_test.dart",
+          "evidence": "progress, recoverable failure, disposed completion",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "fresh app introduction, skip and finish persistence",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Home discovery and pre-search suggestions",
+      "feature_ids": [
+        "F006",
+        "F007",
+        "F009",
+        "F010",
+        "F028"
+      ],
+      "code_evidence": [
+        "lib/ui/catalog.dart:228-258::DiscoverPage server rails, _DiscoveryHomeShelves and _ContinueWatchingShelf",
+        "lib/ui/catalog_extras.dart:111-215::_DiscoveryHomeShelvesState, actors and country-chip navigation",
+        "lib/ui/catalog_extras.dart:759-857::_ContinueWatchingShelf / _continueCurrentHistory resolves fresh poster/seasons and selected episode",
+        "lib/ui/catalog.dart:1272-1294::_SearchPageState suggestion result",
+        "lib/data/catalog_discovery.dart::CatalogDiscovery.suggestions"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "home actor/country shelves, no live features; empty-search suggestions; fresh-source continuation",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_widget_test.dart",
+          "evidence": "Discover server rail remains stable on rebuild",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Directory families, miniseries, sitcom and observed year/shared routes",
+      "feature_ids": [
+        "F015",
+        "F019",
+        "F023",
+        "F043",
+        "F044",
+        "F045",
+        "F046",
+        "F086",
+        "F087",
+        "F124",
+        "F125",
+        "F128",
+        "F129",
+        "F130",
+        "F131",
+        "F132",
+        "F133",
+        "F134",
+        "F135",
+        "F136",
+        "F137",
+        "F138",
+        "F140",
+        "F141",
+        "F142",
+        "F144",
+        "F146",
+        "F150",
+        "F151"
+      ],
+      "code_evidence": [
+        "lib/ui/catalog_extras.dart::DiscoveryDirectoryPage presets and miniseries/sitcom SearchPage initialQuery",
+        "lib/ui/catalog_extras.dart::CountriesPage, ActorsPage, ActorTitlesPage with portrait/role/bio",
+        "lib/ui/catalog_extras.dart::SubjectDirectoryPage, SharedTitlesPage, CuratedPage/_CuratedContents",
+        "lib/data/catalog_discovery.dart::CatalogDiscovery.directory/sharedTitles, ActorFilmography.load and actorMetadata",
+        "lib/ui/catalog.dart::BrowsePage and RecommendationsPage"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_discovery_test.dart",
+          "evidence": "distinct theme/franchise routes; ordered shared-ID hydration; actor name fallback and nested metadata",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "directory shortcuts and removal of public playlists",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_discovery_regression_test.dart",
+          "evidence": "observed discovery preset route/order constants",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Search filters/help/history and resilient catalog pagination",
+      "feature_ids": [
+        "F020",
+        "F024",
+        "F025",
+        "F026",
+        "F027",
+        "F029",
+        "F030",
+        "F145",
+        "F147",
+        "F148",
+        "F149"
+      ],
+      "code_evidence": [
+        "lib/ui/catalog.dart::_SearchPageState.build, explicit help toggle and ExpansionTile filters",
+        "lib/data/catalog_discovery.dart::DiscoverySearchFilter / CatalogDiscovery.search retains unfiltered nextPage",
+        "lib/ui/catalog.dart::_PagedTitlesState._nearEnd/_load/_refresh, raw continuation, preserved failed cursor, loaded-count heading",
+        "lib/ui/common.dart::PosterGrid compact row preference",
+        "lib/state/app_state.dart::rememberSearch/removeSearch/clearSearchHistory"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_policy_ui_test.dart",
+          "evidence": "help/advanced filters in small viewport",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "individual history deletion, help, compact rows and counts",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_paging_regression_test.dart",
+          "evidence": "retry cursor, filter staleness, duplicate-only pages, opposite-kind country pages",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_discovery_test.dart",
+          "evidence": "local filters preserve server continuation",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Quality choice and external/internal/embed playback dispatch",
+      "feature_ids": [
+        "F036",
+        "F037",
+        "F038",
+        "F039",
+        "F040",
+        "F041",
+        "F052",
+        "F166",
+        "F177",
+        "F194",
+        "F195",
+        "F196"
+      ],
+      "code_evidence": [
+        "lib/ui/catalog.dart::_SourceList Play preferred source and cancellable source-quality dialog",
+        "lib/ui/catalog.dart:2053-2162::_play honors external preference/package, handles embeds via openEmbedded, otherwise opens PlayerPage",
+        "lib/ui/catalog.dart::_copy/_shareTitle/_share",
+        "lib/media/player_page.dart::_externalPlayer package/Android chooser with position and selected remote subtitle URL",
+        "lib/media/media_platform.dart::MediaPlatform.openExternal",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/NativeFileIntents.kt::openExternal/launch scoped grants and chooser fallback"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/catalog_playback_preferences_test.dart",
+          "evidence": "ask/cancel quality, preferred quality and real method-channel external dispatch",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_policy_ui_test.dart",
+          "evidence": "generic embed dispatch and plain independent title sharing",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_widget_test.dart",
+          "evidence": "movie/episode public sources",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Private local library, episode watched markers and fresh history continuation",
+      "feature_ids": [
+        "F035",
+        "F047",
+        "F048",
+        "F049",
+        "F050",
+        "F051",
+        "F152",
+        "F154",
+        "F155"
+      ],
+      "code_evidence": [
+        "lib/state/app_state.dart::recordWatch/resumeSeconds/removeHistory use library namespace plus episode",
+        "lib/state/app_state.dart:914-945::isEpisodeWatched/setEpisodeWatched independent persisted markers",
+        "lib/state/app_state.dart::createCollection/deleteCollection/toggleCollectionTitle/importLibrary/exportLibrary",
+        "lib/state/app_state.dart:966-1010::resolveHistory refetches poster/seasons and supplies playlist/alternatives",
+        "lib/ui/library.dart::LibraryPage counted tabs and Resume action",
+        "lib/ui/catalog.dart::_EpisodeTile watched action and progress",
+        "lib/media/player_page.dart::_open/_save use PlaybackCheckpoint and resumeRewindSeconds",
+        "lib/media/media_helpers.dart::resumePosition"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_library_state_test.dart",
+          "evidence": "independent watched markers, atomic migration/import and fresh-source history",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_catalog_ui_test.dart",
+          "evidence": "actual episode marker action and fresh home continuation",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "real engine resume, rewind and next episode",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/app_state_test.dart",
+          "evidence": "persistence, exact episode resume, private collections and import/export",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/library_identity_regression_test.dart",
+          "evidence": "namespace isolation and blocked legacy content",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Subtitle style persistence, reset, variants and decoding",
+      "feature_ids": [
+        "F093",
+        "F094",
+        "F095",
+        "F096",
+        "F097",
+        "F108",
+        "F110",
+        "F112",
+        "F113",
+        "F119",
+        "F120",
+        "F188",
+        "F189",
+        "F190",
+        "F191",
+        "F208"
+      ],
+      "code_evidence": [
+        "lib/state/app_state.dart::AppSettings persisted style fields and resetSubtitleStyle",
+        "lib/ui/library.dart::SettingsPage / _ColorDialog arbitrary ARGB/opacity and subtitle-only reset",
+        "lib/media/player_page.dart::build SubtitleViewConfiguration, _settings font/color controls, _reset, _remoteSubtitles/_loadRemoteSubtitle/_externalSubtitle",
+        "lib/media/media_helpers.dart::subtitleGroups/decodeSubtitle/resetSubtitleSettings/resetPlayerSettings",
+        "lib/media/media_helpers.dart:191-210::UTF-8/BOM, UTF-16 and Windows-1256 fallback"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "exact custom ARGB, opacity and subtitle-only reset",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_settings_test.dart",
+          "evidence": "font resolution and settings import/roundtrip",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_subtitle_encoding_test.dart",
+          "evidence": "Persian Windows-1256 fixture and BOM/UTF-16",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_controls_next_test.dart",
+          "evidence": "grouped variants and unsafe-source rejection",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_preferences_next_test.dart",
+          "evidence": "isolated reset and preserved non-subtitle options",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Player controls, sizing gestures, completion and system ownership",
+      "feature_ids": [
+        "F100",
+        "F101",
+        "F102",
+        "F103",
+        "F104",
+        "F105",
+        "F106",
+        "F107",
+        "F109",
+        "F111",
+        "F114",
+        "F115",
+        "F117",
+        "F118",
+        "F179",
+        "F180",
+        "F181",
+        "F182",
+        "F183",
+        "F184",
+        "F185",
+        "F186",
+        "F187"
+      ],
+      "code_evidence": [
+        "lib/media/player_page.dart::PlayerSurfaceGestures pinch fit/cover and double-tap fullscreen",
+        "lib/media/player_page.dart::PlayerInteraction keyboard/media shortcuts and hover/cursor control",
+        "lib/media/player_page.dart::_action/_setVolume/_toggleMute/_setFullscreen/_completed/_settings",
+        "lib/media/player_page.dart::build centered pause overlay, error/retry, subtitle and audio track selection",
+        "lib/media/media_platform.dart::PlayerSystemControls.capture/restore",
+        "lib/media/media_helpers.dart::PlaybackLifecycle and PlaybackCheckpoint",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt::getVolume/getEffectiveBrightness/setBrightness/setVolume"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_controls_next_test.dart",
+          "evidence": "keyboard dispatch, lock and double-click fullscreen",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "real injected engine controls and fit/subtitle persistence",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_preferences_next_test.dart",
+          "evidence": "rate/audio startup without unsolicited system-volume overwrite",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_brightness_handoff_test.dart",
+          "evidence": "pre-player brightness survives owner handoff",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_system_controls_test.dart",
+          "evidence": "mock native capture/restore",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_lifecycle_regression_test.dart",
+          "evidence": "ownership/lifecycle regression tests",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Audio-only and opt-in foreground media bridge",
+      "feature_ids": [
+        "F197",
+        "F198"
+      ],
+      "code_evidence": [
+        "lib/media/player_page.dart::_setAudioOnly/_syncBackground/_background; pause outside PiP unless backgroundAudio opt-in",
+        "lib/media/media_platform.dart::PlayerNativeSession.background/stopBackground and mediaAction dispatch",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/BackgroundPlaybackService.kt::start/onStartCommand/updateSession/updateFocus/notification, no second decoder",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt::backgroundPlayback methods",
+        "android/app/src/main/AndroidManifest.xml::mediaPlayback foreground service and permissions"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_native_session_test.dart",
+          "evidence": "media action dispatch, opt-in metadata bridge and notification stop without restart",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_preferences_next_test.dart",
+          "evidence": "audio-only engine dispatch",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Download queue, real multipart and bounded segmented offline packages",
+      "feature_ids": [
+        "F053",
+        "F054",
+        "F055",
+        "F056",
+        "F057",
+        "F058",
+        "F060",
+        "F061",
+        "F062",
+        "F201",
+        "F202",
+        "F203",
+        "F206"
+      ],
+      "code_evidence": [
+        "lib/media/download_service.dart::createDirectDownloadTask creates real ParallelDownloadTask with chunks/allowPause",
+        "lib/media/download_service.dart::enqueue/retry/pause/resume/cancel/remove/refresh and readDownloadEntries",
+        "lib/media/downloads_page.dart::DownloadsPage queue controls, refresh reads persistent service state",
+        "lib/media/segmented_download.dart::SegmentedDownload.prepare/run/recover/validate/stop/export, rewritten local HLS/static DASH packages",
+        "lib/media/segmented_download.dart::explicit DRM/live/dynamic/unsupported addressing refusal"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/download_queue_next_test.dart",
+          "evidence": "real multipart task metadata, excluded-task retirement and safe replacement retry",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/download_multipart_http_test.dart",
+          "evidence": "actual local-HTTP multipart exact bytes/hash and interrupted transfer regressions; read, not rerun",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/segmented_download_test.dart",
+          "evidence": "HLS ranges, separate audio, AES-128, static DASH, validated restart, redirects and denials",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/download_refresh_test.dart",
+          "evidence": "refresh waits for durable records",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/download_notifications_test.dart",
+          "evidence": "notification opt-out removes stale templates",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "External downloaders, scoped reveal/export and explicit Wi-Fi serving",
+      "feature_ids": [
+        "F059",
+        "F199",
+        "F200",
+        "F204",
+        "F205"
+      ],
+      "code_evidence": [
+        "lib/media/downloads_page.dart::ADM/IDM/Android chooser and reveal/export actions on queue entries",
+        "lib/media/download_service.dart::externalDownloader/reveal/offlinePath",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/NativeFileIntents.kt::openDownloader maps ADM/IDM, revealFile scoped ACTION_SEND content grants",
+        "lib/media/local_media_server.dart::LocalMediaServer.start/close, explicit registered files, session capability token, GET/HEAD/ranges",
+        "lib/media/player_page.dart::_prepareCastMedia/_revokeCastMedia integrates sharing lease"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/download_queue_next_test.dart",
+          "evidence": "queue/source metadata contracts",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/local_media_server_test.dart",
+          "evidence": "ranges/HEAD, explicit manifest allowlist, symlink swap, methods and close",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/cast_media_share_test.dart",
+          "evidence": "media lease/subtitle and package sharing cases",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Disposable cache, runtime About and guarded connection refresh",
+      "feature_ids": [
+        "F091",
+        "F098",
+        "F207"
+      ],
+      "code_evidence": [
+        "lib/state/cache_service.dart::CacheService.measure/clear restricts deletion to disposable regular files, no symlink traversal",
+        "lib/ui/library.dart::_CacheTile, _AboutReelboxPage PackageInfo/platform/runtime and licenses",
+        "lib/ui/library.dart::_CatalogConnectionTile._refresh explicitly says connectivity success was not verified",
+        "lib/data/api_service.dart::initialize retains trusted base on optional discovery failure"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_library_cache_test.dart",
+          "evidence": "measurement and clearing preserve completed downloads, library and symlink target",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "runtime About and no removed links",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/library_settings_regression_test.dart",
+          "evidence": "truthful retained-trust discovery message",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Restricted generic embed browser, fullscreen/file chooser/download confirmation",
+      "feature_ids": [
+        "F222",
+        "F223",
+        "F224"
+      ],
+      "code_evidence": [
+        "lib/ui/catalog.dart::_play routes embed/YouTube to native openEmbedded",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt::onCreate Back/Home/Refresh/Close, connectivity callback, error handling",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt::WebChromeClient.onShowCustomView/onHideCustomView/onShowFileChooser and onActivityResult",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/EmbeddedVideoActivity.kt::DownloadListener confirmation then ADM/IDM/chooser",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/RestrictedResourceFetcher.kt controlled redirect/resource transport wired through both interceptors"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/next_catalog_policy_ui_test.dart",
+          "evidence": "generic media embed native dispatch with title",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "android/app/src/test/kotlin/org/reelbox/reelbox/RestrictedResourceFetchTest.kt",
+          "evidence": "redirect/resource policy fixture coverage; this audit read existing companion report, not rerun",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "android/app/src/test/kotlin/org/reelbox/reelbox/NativePolicyTest.kt",
+          "evidence": "policy test source exists; current run not performed",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Cast capability exists, with externally owned unresolved logic findings",
+      "feature_ids": [
+        "F192",
+        "F193"
+      ],
+      "code_evidence": [
+        "lib/media/player_page.dart::_prepareCastMedia/_castControls",
+        "lib/media/media_platform.dart::PlayerNativeSession load/commands/state ownership",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/MainActivity.kt::cast* method dispatch",
+        "android/app/src/main/kotlin/org/reelbox/reelbox/ReelboxCast.kt referenced by inspected native dispatch",
+        "lib/media/cast_media_share.dart and lib/media/subtitle_webvtt.dart are prior-review evidence, not independently re-reviewed in this audit"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_native_session_test.dart",
+          "evidence": "local/remote dispatch and ownership test names inspected",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/native_cast_preparation_test.dart",
+          "evidence": "prior Cast audit test reference",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "actual page injected-engine lease integration",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Existing navigation, core catalog/details, read-only comments/replies and privacy",
+      "feature_ids": [
+        "F001",
+        "F002",
+        "F004",
+        "F011",
+        "F012",
+        "F013",
+        "F014",
+        "F016",
+        "F017",
+        "F018",
+        "F021",
+        "F022",
+        "F031",
+        "F032",
+        "F033",
+        "F034",
+        "F042",
+        "F088",
+        "F139",
+        "F143",
+        "F167",
+        "F209"
+      ],
+      "code_evidence": [
+        "lib/app.dart::MyApp/_AppShell locale, navigation and back stack",
+        "lib/ui/catalog.dart::BrowsePage/SearchPage/TitlePage/_Synopsis/_CommentTile/_RecommendationRail",
+        "lib/data/api_service.dart::catalog/comments and trusted request routing",
+        "lib/ui/library.dart::MorePage/_PrivacyPage"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/widget_test.dart",
+          "evidence": "core model, API, navigation and catalog regressions",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_widget_test.dart",
+          "evidence": "core model, API, navigation and catalog regressions",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/catalog_discovery_regression_test.dart",
+          "evidence": "core model, API, navigation and catalog regressions",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/api_service_test.dart",
+          "evidence": "core model, API, navigation and catalog regressions",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Completed independent app sharing and trusted configuration recovery",
+      "feature_ids": [
+        "F092",
+        "F126"
+      ],
+      "code_evidence": [
+        "lib/ui/library.dart::MorePage._shareApp",
+        "lib/data/api_service.dart::_restoreCachedBase/_discoverBase/_request"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/api_config_recovery_test.dart",
+          "evidence": "cache trust/persistence and bounded recovery",
+          "executed_by_this_audit": false
+        },
+        {
+          "path": "test/next_library_ui_test.dart",
+          "evidence": "localized explicit independent app share and safe failure",
+          "executed_by_this_audit": false
+        }
+      ]
+    },
+    {
+      "group": "Android adaptations, not desktop-helper or live-channel parity",
+      "feature_ids": [
+        "F099",
+        "F116",
+        "F121",
+        "F178"
+      ],
+      "code_evidence": [
+        "lib/media/player_page.dart::PlayerPage using media_kit, not the original ExoPlayer/desktop helper implementation",
+        "lib/data/content_policy.dart::live/channel exclusion; no original live mode reinstated"
+      ],
+      "test_evidence": [
+        {
+          "path": "test/player_engine_dispatch_next_test.dart",
+          "evidence": "injected real control dispatch, not current Android hardware decoding",
+          "executed_by_this_audit": false
+        }
+      ]
+    }
+  ],
+  "findings_addressed": [
+    {
+      "id": "CAST-FIX-01",
+      "fix": "Synchronous source/episode/subtitle invalidation rejects old pending leases; real page quality/episode/subtitle/stop/owner cases pass",
+      "tests": [
+        "test/player_engine_dispatch_next_test.dart",
+        "test/native_cast_preparation_test.dart"
+      ]
+    },
+    {
+      "id": "CAST-FIX-02",
+      "fix": "Disconnect during awaited pause restores latest intent, except after stop/release/new owner/new load; duplicate polling covered",
+      "tests": [
+        "test/player_native_session_test.dart"
+      ]
+    },
+    {
+      "id": "CAST-FIX-03",
+      "fix": "Rejected/throwing loads honor newer play/pause intent; stale failures cannot overwrite newer state",
+      "tests": [
+        "test/player_native_session_test.dart"
+      ]
+    },
+    {
+      "id": "CAST-FIX-04",
+      "fix": "One subtitle selection path clears stale external text for embedded/no tracks and retains corresponding decoded data; active Cast reload/unsupported notice covered",
+      "tests": [
+        "test/player_engine_dispatch_next_test.dart"
+      ]
+    },
+    {
+      "id": "SCOPE-01/F126",
+      "fix": "Explicit English/Persian independent app information sharing, no invented installer/vendor/Telegram URL, safe unavailable handling",
+      "tests": [
+        "test/next_library_ui_test.dart"
+      ]
+    },
+    {
+      "id": "SCOPE-02/F119",
+      "fix": "Persisted Stretch dispatches BoxFit.fill; cover/contain controls preserved",
+      "tests": [
+        "test/player_engine_dispatch_next_test.dart"
+      ]
+    },
+    {
+      "id": "SCOPE-03/F092",
+      "fix": "Only schema-verified trusted HTTPS config persisted; cached values validated; one eligible read-only GET transport replay; no denial/certificate/cancel/POST replay or guessed domains",
+      "tests": [
+        "test/api_config_recovery_test.dart",
+        "test/api_service_test.dart",
+        "test/api_content_policy_test.dart"
+      ]
+    }
+  ],
+  "focused_fix_evidence": {
+    "passed": 85,
+    "log": "continued-final-focused.log",
+    "final_suite": "Run tool/verify_host.py; final result recorded separately, not inferred from focused tests"
+  },
+  "platform_adaptations": [
+    {
+      "feature_ids": [
+        "F099",
+        "F121"
+      ],
+      "note": "Desktop helper windows/binaries and macOS/JavaFX/VLC/MPV helper-process packaging excluded by current contract. Existing Android integrated player/external chooser is the relevant platform adaptation; do not create desktop targets to clear historical partial strings."
+    },
+    {
+      "feature_ids": [
+        "F116"
+      ],
+      "note": "Live-channel-specific timeline semantics excluded with live channels; do not re-add live UI."
+    },
+    {
+      "feature_ids": [
+        "F126"
+      ],
+      "note": "Original community/vendor links excluded; independent app-information sharing is implemented and tested."
+    },
+    {
+      "feature_ids": [
+        "F154",
+        "F157",
+        "F159",
+        "F162",
+        "F163"
+      ],
+      "note": "Server/account playlist mutation is excluded. Explicit episode watched markers and private device-local collection membership remain retained; current local collection/state implementations were inspected. This is not server playlist parity."
+    },
+    {
+      "feature_ids": [
+        "F178"
+      ],
+      "note": "User-reported original delivered video playback is not current-build hardware verification. Current code uses media_kit/libmpv; exact ExoPlayer implementation is not claimed."
+    },
+    {
+      "feature_ids": [
+        "F059",
+        "F204"
+      ],
+      "note": "Scoped content-URI export/share is the required Android adaptation for app-private downloaded-file reveal."
+    },
+    {
+      "feature_ids": [
+        "F222",
+        "F223",
+        "F224"
+      ],
+      "note": "Only generic media embeds retained, not vendor shop/support/news/updater browser destinations."
+    }
+  ],
+  "unverified_boundaries": [
+    "Current Android installation/decoding/subtitle rendering",
+    "Receiver discovery, real codecs/manifests/remote subtitles",
+    "Background/audio focus/PiP/notifications/OS termination and process restart",
+    "Installed external player/downloader/file-provider behavior",
+    "WebView fullscreen/file chooser and redirected effective-base/CORS behavior",
+    "No fresh independent post-fix sign-off: the reviewer identified defects, subsequent fixes have deterministic regression evidence"
+  ],
+  "excluded_feature_ids": [
+    "F008",
+    "F063",
+    "F064",
+    "F065",
+    "F066",
+    "F067",
+    "F068",
+    "F069",
+    "F070",
+    "F071",
+    "F072",
+    "F073",
+    "F074",
+    "F075",
+    "F076",
+    "F077",
+    "F078",
+    "F079",
+    "F080",
+    "F081",
+    "F082",
+    "F083",
+    "F084",
+    "F085",
+    "F089",
+    "F090",
+    "F122",
+    "F127",
+    "F153",
+    "F156",
+    "F157",
+    "F158",
+    "F159",
+    "F160",
+    "F161",
+    "F162",
+    "F163",
+    "F164",
+    "F165",
+    "F168",
+    "F169",
+    "F170",
+    "F171",
+    "F172",
+    "F173",
+    "F174",
+    "F175",
+    "F176",
+    "F210",
+    "F211",
+    "F212",
+    "F213",
+    "F214",
+    "F215",
+    "F216",
+    "F217",
+    "F218",
+    "F219",
+    "F220",
+    "F221",
+    "F225",
+    "F226",
+    "F227",
+    "F228",
+    "F229"
+  ]
+}

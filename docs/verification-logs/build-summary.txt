@@ -1,0 +1,4 @@
+[   +2 ms] Running Gradle task 'assembleRelease'...
+[  +99 ms] BUILD SUCCESSFUL in 4m 16s
+[+2079 ms] Running Gradle task 'assembleRelease'... (completed in 258.9s)
+[+1180 ms] ✓ Built build/app/outputs/flutter-apk/app-release.apk (38.1MB)

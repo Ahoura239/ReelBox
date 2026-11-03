@@ -1,0 +1,28 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/player_native_session_test.dart
+00:00 +0: media actions dispatch actual local controls and reject unknown actions
+00:00 +1: Cast transfer pauses decoder and routes controls remotely until disconnect
+00:00 +2: failed Cast load restores local playback and leaves no remote mode
+00:00 +3: failed Cast load is not retried by repeated connected polls
+00:00 +4: old owner cannot clear new handler or dispatch pending action
+00:00 +5: disconnect during pending load cannot revive stale Cast mode
+00:00 +6: disconnect during awaited local pause restores latest intent true
+00:00 +7: disconnect during awaited local pause restores latest intent false
+00:00 +8: awaited pause cancellation cannot resume after stop
+00:00 +9: awaited pause cancellation cannot resume after release
+00:00 +10: awaited pause cancellation cannot resume after new owner
+00:00 +11: awaited pause cancellation cannot resume after new load
+00:00 +12: Cast rejection preserves newer pause intent
+00:00 +13: Cast throw preserves newer pause intent
+00:00 +14: Cast rejection preserves newer play intent
+00:00 +15: Cast throw preserves newer play intent
+00:00 +16: stale throwing Cast load cannot overwrite state after stop
+00:00 +17: stale throwing Cast load cannot overwrite state after release
+00:00 +18: stale throwing Cast load cannot overwrite state after new owner
+00:00 +19: stale throwing Cast load cannot overwrite state after new load
+00:00 +20: notification stop ends background session without automatic restart
+00:00 +21: background bridge starts only by opt-in and updates exact metadata
+00:00 +22: All tests passed!

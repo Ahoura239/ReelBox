@@ -1,0 +1,38 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+00:00 +0: loading /root/reelbox/test/download_multipart_http_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: uninterrupted real three-range transfer stitches exact bytes and SHA-256
+[multipart] FileDownloader FINER: Starting taskId multipart-uninterrupted
+[multipart] FileDownloader FINER: Starting taskId 1330513839
+[multipart] FileDownloader FINER: Starting taskId 544265604
+[multipart] FileDownloader FINER: Starting taskId 3663547148
+[multipart-result] multipart-uninterrupted: bytes=786432 sha256=222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695 ranges=[(262144, 524287), (0, 262143), (524288, 786431)] peak=3
+00:02 +1: resume after fast chunk completed preserves bytes/hash
+[multipart] FileDownloader FINER: Starting taskId multipart-resume
+[multipart] FileDownloader FINER: Starting taskId 933681506
+[multipart] FileDownloader FINER: Starting taskId 2859308991
+[multipart] FileDownloader FINER: Starting taskId 2259089043
+[multipart-paused] multipart-resume: completed=1 unfinished=2 completedResumeRecord=false resumeRanges={(270336, 524287), (532480, 786431)}
+[multipart] FileDownloader FINER: Resuming taskId multipart-resume
+[multipart] FileDownloader FINER: Resuming taskId 2859308991
+[multipart] FileDownloader FINER: Resuming taskId 2259089043
+[multipart] DesktopDownloader FINEST: Resume start=270336, end=524287 of total=786432 bytes, tempFile = 8192 bytes
+[multipart] DesktopDownloader FINEST: Resume start=532480, end=786431 of total=786432 bytes, tempFile = 8192 bytes
+[multipart-result] multipart-resume: bytes=786432 sha256=222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695 ranges=[(0, 262143), (262144, 524287), (524288, 786431), (270336, 524287), (532480, 786431)] peak=4
+00:07 +2: resume after fast chunk completed preserves bytes/hash with disk JSON rehydration
+[multipart] FileDownloader FINER: Starting taskId multipart-rehydrated
+[multipart] FileDownloader FINER: Starting taskId 2883471087
+[multipart] FileDownloader FINER: Starting taskId 2582799765
+[multipart] FileDownloader FINER: Starting taskId 94539042
+[multipart-paused] multipart-rehydrated: completed=1 unfinished=2 completedResumeRecord=false resumeRanges={(270336, 524287), (532480, 786431)}
+[multipart] FileDownloader FINER: Resuming taskId multipart-rehydrated
+[multipart] FileDownloader FINER: Resuming taskId 2582799765
+[multipart] FileDownloader FINER: Resuming taskId 94539042
+[multipart] DesktopDownloader FINEST: Resume start=532480, end=786431 of total=786432 bytes, tempFile = 8192 bytes
+[multipart] DesktopDownloader FINEST: Resume start=270336, end=524287 of total=786432 bytes, tempFile = 8192 bytes
+[multipart-result] multipart-rehydrated: bytes=786432 sha256=222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695 ranges=[(0, 262143), (524288, 786431), (262144, 524287), (532480, 786431), (270336, 524287)] peak=4
+00:11 +3: (tearDownAll)
+00:11 +3: All tests passed!

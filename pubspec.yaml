@@ -1,0 +1,46 @@
+name: reelbox
+description: An independent film and series client with a device-local library.
+publish_to: none
+version: 0.2.0+2
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  dio: 5.11.1
+  shared_preferences: 2.5.6
+  path_provider: 2.1.6
+  media_kit: 1.2.6
+  media_kit_video: 2.0.1
+  media_kit_libs_android_video: 1.3.8
+  background_downloader: 9.6.5
+  url_launcher: 6.3.3
+  share_plus: 13.3.1
+  file_picker: 13.3.1
+  wakelock_plus: 1.8.2
+  android_intent_plus: 6.1.0
+  package_info_plus: 10.2.2
+  xml: 7.1.0
+  crypto: 3.0.8
+  archive: 4.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: 6.0.0
+  logging: 1.3.0
+  # Host-only real-worker test registration; not an Android runtime dependency.
+  path_provider_linux: 2.2.2
+
+# Pinned 9.6.5 with narrowly scoped multipart resume corrections.
+dependency_overrides:
+  background_downloader:
+    path: third_party/background_downloader
+
+flutter:
+  uses-material-design: true

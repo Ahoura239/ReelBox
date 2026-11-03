@@ -1,0 +1,187 @@
+{
+  "passed": false,
+  "security_concerns": [
+    {
+      "id": "S001",
+      "severity": "medium",
+      "path": "/root/reelbox/android/app/src/main/AndroidManifest.xml",
+      "line": 11,
+      "title": "Legacy HTTP media remains observable and modifiable in transit",
+      "description": "The application permits cleartext traffic globally and media validation accepts HTTP URLs. Viewing requests and downloaded bytes over those links are not confidential or integrity-protected. This is an existing, explicitly documented compatibility tradeoff, not an API credential-exfiltration finding or a newly introduced signing defect.",
+      "evidence": [
+        {"path": "/root/reelbox/lib/media/media_helpers.dart", "line": 72, "end_line": 76},
+        {"path": "/root/reelbox/lib/ui/common.dart", "line": 137, "end_line": 138},
+        {"path": "/root/reelbox/lib/ui/library.dart", "line": 654, "end_line": 657}
+      ],
+      "recommendation": "Prefer HTTPS source/artwork variants and narrow any indispensable cleartext exceptions. Preserve the existing disclosure until this risk is removed.",
+      "baseline": "D011 remains present and is now explicitly disclosed.",
+      "confidence": "confirmed_static_transport_configuration"
+    }
+  ],
+  "logic_errors": [
+    {
+      "id": "L001",
+      "severity": "medium",
+      "path": "/root/reelbox/lib/media/download_service.dart",
+      "line": 426,
+      "end_line": 429,
+      "title": "Recovered downloads lose their task-scoped notification policy on resume",
+      "description": "Notification templates are supplied only when a new task is constructed. The pinned downloader does not serialize Task.notificationConfig; its per-task configuration registry is in memory. After a process restart, database records have notificationConfig=null, initialization only restores entries and a boolean preference, and resume passes the recovered task straight to the plugin. The native resume path then enqueues with a null notification configuration. A download originally created with notifications enabled therefore resumes without its running/completion/error templates. Existing OS workers retaining their original inputs are not affected until a Dart-side resume or re-enqueue occurs.",
+      "evidence": [
+        {"path": "/root/reelbox/lib/media/download_service.dart", "line": 228, "end_line": 235},
+        {"path": "/root/reelbox/lib/media/download_service.dart", "line": 264, "end_line": 265},
+        {"path": "/root/reelbox/lib/media/download_service.dart", "line": 385},
+        {"path": "/root/reelbox/lib/media/download_service.dart", "line": 393, "end_line": 400},
+        {"path": "/root/.pub-cache/hosted/pub.dev/background_downloader-9.6.5/lib/src/task.dart", "line": 635, "end_line": 656},
+        {"path": "/root/.pub-cache/hosted/pub.dev/background_downloader-9.6.5/lib/src/base_downloader.dart", "line": 339, "end_line": 362},
+        {"path": "/root/.pub-cache/hosted/pub.dev/background_downloader-9.6.5/lib/src/native_downloader.dart", "line": 361, "end_line": 377},
+        {"path": "/root/.pub-cache/hosted/pub.dev/background_downloader-9.6.5/android/src/main/kotlin/com/bbflight/background_downloader/BDPlugin.kt", "line": 735, "end_line": 769}
+      ],
+      "recommendation": "Persist each task's original notification-policy choice and re-register its templates before recovered-task resume/re-enqueue. Do not apply the current preference retroactively to tasks that were created with a different policy.",
+      "baseline": "D005's new-task opt-out bug is fixed; this is a remaining restart/resume integration defect.",
+      "confidence": "confirmed_app_and_pinned_dependency_control_flow",
+      "runtime_reproduced": false
+    },
+    {
+      "id": "L002",
+      "severity": "medium",
+      "path": "/root/reelbox/lib/media/downloads_page.dart",
+      "line": 322,
+      "end_line": 326,
+      "title": "Offline channel playback is reconstructed in the poster namespace",
+      "description": "Download enqueue accepts a channel with a supported direct-file source, but persistent task metadata and DownloadEntry discard the title's kind. Play offline reconstructs every non-episode title as a movie. PlayerPage consequently reads and writes poster:<id> history for that channel, potentially overwriting or resuming an unrelated poster with the same numeric ID; the resulting history entry also opens the poster detail endpoint. The retry path similarly reconstructs a default-movie title. This does not affect ordinary movie/episode downloads, but breaks the newly established namespace invariant for accepted channel downloads.",
+      "evidence": [
+        {"path": "/root/reelbox/lib/media/download_service.dart", "line": 344, "end_line": 353},
+        {"path": "/root/reelbox/lib/media/download_service.dart", "line": 393, "end_line": 400},
+        {"path": "/root/reelbox/lib/media/downloads_page.dart", "line": 229, "end_line": 233},
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 211, "end_line": 215},
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 255, "end_line": 261},
+        {"path": "/root/reelbox/lib/state/app_state.dart", "line": 12, "end_line": 18}
+      ],
+      "recommendation": "Persist and restore the original title kind/namespace in task metadata and offline/retry reconstruction, with a legacy-record fallback. Alternatively explicitly reject channel downloads if that product behavior is unsupported.",
+      "baseline": "D002 is fixed in state, catalog watchlist/progress consumers and ordinary PlayerPage identity matching; the download round trip still loses identity.",
+      "confidence": "confirmed_static_metadata_round_trip",
+      "runtime_reproduced": false
+    },
+    {
+      "id": "L003",
+      "severity": "medium",
+      "path": "/root/reelbox/lib/media/player_page.dart",
+      "line": 168,
+      "end_line": 172,
+      "title": "A disposed player's initialization can reapply immersive UI and orientation",
+      "description": "The last mounted check in initialization precedes the awaited setActive call. If the route is disposed while that call is pending, dispose restores edge-to-edge UI and unrestricted orientation, but the old initialization continuation still applies immersiveSticky and the saved player orientation afterwards. The disposed route has no further cleanup to reverse those later writes. Likewise _open does not check mounted or capture its generation before awaiting _save; a pending open can resume after dispose, increment a fresh generation, and call the disposed player. The generation check after Player.open is too late to prevent these side effects.",
+      "evidence": [
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 161, "end_line": 172},
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 199, "end_line": 209},
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 230, "end_line": 234},
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 332, "end_line": 350}
+      ],
+      "recommendation": "Capture a lifecycle/open token before the first await and validate it plus mounted after awaited setup/save operations, before global system changes and before Player.open. Ensure stale setup cannot overtake final restoration.",
+      "baseline": "The initial zero-checkpoint overwrite and ordinary brightness capture/restore were corrected; cancellation of pending initialization/open work remains incomplete.",
+      "confidence": "confirmed_async_control_flow_race",
+      "runtime_reproduced": false
+    },
+    {
+      "id": "L004",
+      "severity": "medium",
+      "path": "/root/reelbox/lib/ui/library.dart",
+      "line": 748,
+      "end_line": 771,
+      "title": "Autoplay and data-saver switches still have no behavior consumers",
+      "description": "Both switches persist their values, but no application code reads either preference outside settings/serialization. Player.open is invoked without a play argument, so the pinned media engine always uses its play=true default regardless of autoplay. MediaArtwork always issues the same Image.network request regardless of dataSaver; its decode cache size does not depend on that preference. The previously reported external-player and preferred-quality consumers are now wired, so those are not included in this finding.",
+      "evidence": [
+        {"path": "/root/reelbox/lib/media/player_page.dart", "line": 230},
+        {"path": "/root/.pub-cache/hosted/pub.dev/media_kit-1.2.6/lib/src/player/native/player/real.dart", "line": 137, "end_line": 140},
+        {"path": "/root/reelbox/lib/ui/common.dart", "line": 134, "end_line": 147},
+        {"path": "/root/reelbox/lib/state/app_state.dart", "line": 101, "end_line": 121}
+      ],
+      "recommendation": "Implement explicitly defined semantics for both preferences or remove/disable the switches with an accurate limitation. Test actual playback dispatch and artwork requests rather than only preference persistence.",
+      "baseline": "D004 remains partially unresolved, limited to these two preferences.",
+      "confidence": "confirmed_by_all_application_source_reference_search",
+      "runtime_reproduced": false
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "N001",
+      "path": "/root/reelbox/lib/media/downloads_page.dart",
+      "line": 85,
+      "end_line": 124,
+      "description": "Make refresh reachable for empty and short download libraries: the empty branch has no RefreshIndicator, and the nonempty ListView does not use AlwaysScrollableScrollPhysics. The service now performs a genuine awaited database reload, so the old no-op-refresh defect should not be repeated. Keep the empty-state/short-list UX limitation separate from that fixed service behavior."
+    },
+    {
+      "id": "N002",
+      "path": "/root/reelbox/test/playback_checkpoint_test.dart",
+      "line": 5,
+      "end_line": 44,
+      "description": "Extend the focused helper tests with a controllable player/platform integration seam for route disposal during initialization, pending persistence, failed open and source switching. The current tests verify the checkpoint object, not PlayerPage's asynchronous orchestration. This is a coverage recommendation, not a claim that lack of device testing is a logic defect."
+    },
+    {
+      "id": "N003",
+      "path": "/root/reelbox/test/download_notifications_test.dart",
+      "line": 6,
+      "end_line": 23,
+      "description": "Add a serialization/fresh-service recovery test before task resume, including original on/off policy choices. The existing test only checks two freshly constructed in-memory tasks and cannot catch L001."
+    }
+  ],
+  "summary": "Not passed: four confirmed source/integration defects remain, alongside a disclosed legacy-HTTP transport risk; the main namespace, initial-checkpoint, pagination, new-task notification and release-signing configuration corrections are present, but full parity and native success remain unclaimed.",
+  "critical_findings": "No critical-severity defect identified in this source review. The reported logic defects are medium severity; no personal credential leak, account-flow requirement or debug-signing fallback was found.",
+  "verification": {
+    "method": "Independent read-only static review of all application Dart source, relevant tests, Android manifest/activity/signing configuration, and exact installed media/downloader dependency source.",
+    "repository_state": "The repository has no commits and application files are untracked; there is no historical git diff to isolate, so current application source was reviewed directly.",
+    "production_edits": false,
+    "flutter_dart_gradle_commands_run": false,
+    "tests_run": false,
+    "device_or_app_execution": false,
+    "network_requests": false,
+    "private_signing_material_read": false,
+    "only_output_file_created": "/root/reelbox-planning/final-risk-review.json",
+    "limitations": [
+      "No compiler, analyzer, test runner, emulator, installation or native playback/download exercise was launched, as requested.",
+      "Dependency and application control-flow findings are static evidence, not fabricated device reproductions.",
+      "No APK existed under build/app/outputs at the final artifact check, so final APK signature/certificate correctness was not verified. This is a release-verification limitation, not a signing-configuration defect.",
+      "Concurrent formatting changes were observed during inspection; the affected source sections were re-read before report assembly."
+    ]
+  },
+  "release_signing": {
+    "path": "/root/reelbox/android/app/build.gradle.kts",
+    "line": 9,
+    "end_line": 24,
+    "status": "Dedicated release configuration reads private external properties; no debug fallback remains.",
+    "release_binding": {"path": "/root/reelbox/android/app/build.gradle.kts", "line": 50, "end_line": 57},
+    "artifact_signer_verified": false,
+    "secret_files_opened": false,
+    "note": "The configuration change resolves baseline D007 at source level. Missing-key failure behavior and the signer of a final produced artifact were not exercised. No signing values or identity material are included."
+  },
+  "positive_controls": [
+    {"path": "/root/reelbox/lib/state/app_state.dart", "line": 12, "end_line": 18, "description": "Poster/channel namespaces are distinct while movie/series aliases share poster identity; state saved/history/collection mutations and import validation use that identity."},
+    {"path": "/root/reelbox/lib/ui/catalog.dart", "line": 1372, "end_line": 1378, "description": "Episode progress matches namespace plus episode, and catalog watchlist consumers pass the title kind."},
+    {"path": "/root/reelbox/lib/media/player_page.dart", "line": 248, "end_line": 262, "description": "PlaybackCheckpoint now prevents first-open/failed-open zero state from replacing durable resume history; ordinary resume lookup matches namespace plus episode."},
+    {"path": "/root/reelbox/lib/data/api_service.dart", "line": 359, "end_line": 365, "description": "Catalog continuation depends on the raw server page rather than locally filtered visible items."},
+    {"path": "/root/reelbox/lib/ui/catalog.dart", "line": 461, "end_line": 467, "description": "Duplicate-only/filtered-empty pages no longer imply exhaustion; failed loads retain their cursor and prior results."},
+    {"path": "/root/reelbox/lib/data/api_service.dart", "line": 99, "end_line": 118, "description": "API base validation restricts production routing to trusted HTTPS destinations; loopback is retained for local tests."},
+    {"path": "/root/reelbox/lib/data/api_service.dart", "line": 160, "end_line": 209, "description": "API route validation rejects external destinations, userinfo, ambiguous paths and downgrade routing; legacy public links are rewritten to the current trusted origin."},
+    {"path": "/root/reelbox/lib/data/api_service.dart", "line": 415, "end_line": 453, "description": "Requests disable redirects and present sanitized network/JSON failures instead of raw request URLs."},
+    {"path": "/root/reelbox/lib/media/download_service.dart", "line": 239, "end_line": 265, "description": "Fresh downloads use task-scoped notification templates and opt-out supplies no template; existing-worker policy limitations are accurately disclosed in settings."},
+    {"path": "/root/reelbox/lib/media/download_service.dart", "line": 268, "end_line": 290, "description": "Refresh awaits durable records and file paths and avoids replacing entries overtaken by callbacks."}
+  ],
+  "baseline_reconciliation": {
+    "source": "/root/reelbox-planning/parity-review.json",
+    "reason": "docs/parity-review-baseline does not exist.",
+    "defects": {
+      "D001": "Corrected at source level by checkpoint readiness/positive-position gating; pending lifecycle orchestration remains L003, not the old initial-zero overwrite.",
+      "D002": "Corrected across local state and catalog/player identity consumers; the offline download reconstruction exception is L002.",
+      "D003": "Corrected by raw-page continuation and updated paged UI.",
+      "D004": "Partially corrected: external player and preferred quality are wired; autoplay/dataSaver remain L004.",
+      "D005": "Corrected for new-task opt-out and accurately relabeled; recovered-task notification policy remains L001.",
+      "D006": "Service refresh is implemented and awaited; empty/short-list refresh reachability remains N001.",
+      "D007": "Debug release signing replaced by dedicated external release configuration; final artifact signer not verified.",
+      "D008": "Native control capture/brightness restoration are implemented; pending initialization disposal race remains L003.",
+      "D009": "Settings dropdowns now include valid custom imported values.",
+      "D010": "Discovery UI no longer falsely claims verified success.",
+      "D011": "Legacy cleartext transport remains, with explicit privacy/README disclosure; S001."
+    },
+    "parity_scope_note": "The older feature inventory is not current implementation proof. Discovery shortcuts and a privacy explanation have since been added; absent Cast, offline HLS/DASH packaging, background audio service and embedded-browser families remain parity gaps rather than alleged regressions. This review does not claim full parity or recompute feature-completion totals. Independent branding and the intentional absence of login, registration, billing, subscriptions, posting and private server lists are not defects."
+  }
+}

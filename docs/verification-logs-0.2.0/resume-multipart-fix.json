@@ -1,0 +1,474 @@
+{
+  "issue": "RM003",
+  "status": "verified_fix_on_real_Linux_workers",
+  "summary": "Pinned 9.6.5 fork skips completed chunks on shared resume; desktop additionally retains the parent snapshot before enqueue consumes it. App task construction, real HTTP range workers, pause/resume, stitching, exact bytes and SHA-256 pass.",
+  "scope": {
+    "repository": "/root/reelbox",
+    "modified_application_source": false,
+    "modified_native_application_source": false,
+    "modified_package_cache": false,
+    "commits_created": false,
+    "signing_material_accessed": false
+  },
+  "root_causes": [
+    {
+      "location": "lib/src/chunk.dart:resumeChunkTasks",
+      "finding": "9.6.5 resumes every serialized chunk. A completed chunk has a final file but no resume record, so its resume returns false and cancels the entire parent.",
+      "fix": "Filter only TaskStatus.complete out of resume calls; retain the full chunk snapshot and existing stitch behavior."
+    },
+    {
+      "location": "lib/src/desktop/desktop_downloader.dart:resume",
+      "finding": "enqueue starts a real parent worker that consumes/deletes its resume record before resume reads it again.",
+      "fix": "Read the parent snapshot before enqueue, then pass that retained snapshot to resumeChunkTasks. No native changes."
+    },
+    {
+      "location": "test/download_multipart_http_test.dart:_PluginRegistrant",
+      "finding": "Previous registrar comments had no actual registrar; default headless isolate fallback failed with Callbacks into Dart VM prohibited. Full Linux registration also attempted unavailable NetworkManager.",
+      "fix": "Actual engine entry-point registrar selects the real PathProviderLinux. Connectivity and persistence only are host fixtures."
+    }
+  ],
+  "red_evidence": [
+    {
+      "log": "/root/reelbox-planning/resume-multipart-red-rm003.log",
+      "exit_code": 1,
+      "passed": 1,
+      "failed": 2,
+      "finding": "Unmodified pinned package: uninterrupted transfer passed; both completed-fast-chunk resumes returned false after proving one completed chunk/no resume record and two nonempty partial chunks."
+    },
+    {
+      "log": "/root/reelbox-planning/resume-multipart-red-completed-chunk.log",
+      "exit_code": 1,
+      "finding": "After desktop ordering correction only, unfinished chunk workers actually resumed but parent resume still returned false. This isolates the shared completed-chunk defect. These early runs additionally hit fixture cleanup timeouts."
+    }
+  ],
+  "verification_command": "flock /root/reelbox/.tooling.lock /root/developer-tools/flutter/bin/flutter test --no-pub --concurrency=1 --reporter=expanded --dart-define=flutter.dart_plugin_registrant=file:///root/reelbox/test/download_multipart_http_test.dart test/download_multipart_http_test.dart",
+  "verification": [
+    {
+      "log": "/root/reelbox-planning/resume-multipart-green-final.log",
+      "exit_code": 0,
+      "passed_test_count": 3,
+      "multipart_transfers": [
+        {
+          "task_id": "multipart-uninterrupted",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              262144,
+              524287
+            ],
+            [
+              0,
+              262143
+            ],
+            [
+              524288,
+              786431
+            ]
+          ],
+          "range_get_count": 3,
+          "server_handler_peak": 3
+        },
+        {
+          "task_id": "multipart-resume",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              0,
+              262143
+            ],
+            [
+              262144,
+              524287
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              532480,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        },
+        {
+          "task_id": "multipart-rehydrated",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              262144,
+              524287
+            ],
+            [
+              0,
+              262143
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ],
+            [
+              532480,
+              786431
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        }
+      ]
+    },
+    {
+      "log": "/root/reelbox-planning/resume-multipart-repeat-1.log",
+      "exit_code": 0,
+      "passed_test_count": 3,
+      "multipart_transfers": [
+        {
+          "task_id": "multipart-uninterrupted",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              524288,
+              786431
+            ],
+            [
+              262144,
+              524287
+            ],
+            [
+              0,
+              262143
+            ]
+          ],
+          "range_get_count": 3,
+          "server_handler_peak": 3
+        },
+        {
+          "task_id": "multipart-resume",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              262144,
+              524287
+            ],
+            [
+              0,
+              262143
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              532480,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        },
+        {
+          "task_id": "multipart-rehydrated",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              0,
+              262143
+            ],
+            [
+              262144,
+              524287
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ],
+            [
+              532480,
+              786431
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        }
+      ]
+    },
+    {
+      "log": "/root/reelbox-planning/resume-multipart-repeat-2.log",
+      "exit_code": 0,
+      "passed_test_count": 3,
+      "multipart_transfers": [
+        {
+          "task_id": "multipart-uninterrupted",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              0,
+              262143
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              262144,
+              524287
+            ]
+          ],
+          "range_get_count": 3,
+          "server_handler_peak": 3
+        },
+        {
+          "task_id": "multipart-resume",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              0,
+              262143
+            ],
+            [
+              262144,
+              524287
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              532480,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        },
+        {
+          "task_id": "multipart-rehydrated",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              524288,
+              786431
+            ],
+            [
+              262144,
+              524287
+            ],
+            [
+              0,
+              262143
+            ],
+            [
+              532480,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        }
+      ]
+    },
+    {
+      "log": "/root/reelbox-planning/resume-multipart-queue-regression.log",
+      "exit_code": 0,
+      "passed_test_count": 6,
+      "multipart_transfers": [
+        {
+          "task_id": "multipart-uninterrupted",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              262144,
+              524287
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              0,
+              262143
+            ]
+          ],
+          "range_get_count": 3,
+          "server_handler_peak": 3
+        },
+        {
+          "task_id": "multipart-resume",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              262144,
+              524287
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              0,
+              262143
+            ],
+            [
+              270336,
+              524287
+            ],
+            [
+              532480,
+              786431
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        },
+        {
+          "task_id": "multipart-rehydrated",
+          "bytes": 786432,
+          "sha256": "222428124c1fa78d62a874b1ada312b25e22ca1135f3e3ebe4a73f0490977695",
+          "ranges": [
+            [
+              262144,
+              524287
+            ],
+            [
+              0,
+              262143
+            ],
+            [
+              524288,
+              786431
+            ],
+            [
+              270336,
+              524287
+            ],
+            [
+              532480,
+              786431
+            ]
+          ],
+          "range_get_count": 5,
+          "server_handler_peak": 4
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "green_batches": 4,
+    "successful_real_multipart_transfers": 12,
+    "successful_test_executions": 15,
+    "distinct_multipart_tests": 3,
+    "adjacent_download_queue_tests": 3
+  },
+  "analysis": [
+    {
+      "log": "/root/reelbox-planning/resume-multipart-analyze-final.log",
+      "exit_code": 0,
+      "outcome": "No issues found"
+    },
+    {
+      "log": "/root/reelbox-planning/resume-multipart-vendor-analyze.log",
+      "exit_code": 0,
+      "outcome": "No issues found"
+    }
+  ],
+  "assertions": [
+    "App createDirectDownloadTask selects ParallelDownloadTask with parallelDownloads=3.",
+    "Uninterrupted exactly three distinct expected GET ranges, simultaneous server handling peak=3, complete byte/hash equality.",
+    "Fast first range has its final on-disk file and its worker is no longer active before pause.",
+    "Both slow chunks have nonempty partial files before pause.",
+    "Actual parent resume JSON contains one completed chunk; completed chunk has no resume record; two unfinished chunks retain a strong ETag and nonzero offsets.",
+    "Parent resume returns true; final callback is complete after running/paused/running transitions.",
+    "Exactly five total GET ranges after resume: three originals and exactly two saved-offset continuations, no completed-range re-download.",
+    "Disk-JSON variant reconstitutes fresh paused Task/ResumeData objects before actual resume."
+  ],
+  "vendor": {
+    "version": "9.6.5",
+    "path": "/root/reelbox/third_party/background_downloader",
+    "archive_sha256": "4df9b2a2d5b78b883ebd4b6338cbc1b541ea3482da24112339468a66a7492b43",
+    "archive_hash_source": "Original tracked application pubspec.lock and pub cache hosted hash agree.",
+    "runtime_source_files_copied": 112,
+    "runtime_source_bytes": 1233219,
+    "changed_runtime_source_files": [
+      "lib/src/chunk.dart",
+      "lib/src/desktop/desktop_downloader.dart"
+    ],
+    "native_files_copied_unchanged": 63,
+    "license_retained_verbatim": true,
+    "license_sha256": "1436a440db343fe8af42524d3201b694748f2ae4c32487513b6858c85e219a4b",
+    "patches": {
+      "lib/src/chunk.dart": "--- upstream/lib/src/chunk.dart\n+++ vendored/lib/src/chunk.dart\n@@ -103,7 +103,11 @@\n     jsonDecode(resumeData.data, reviver: Chunk.listReviver),\n   );\n   final results = await Future.wait(\n-    chunks.map((chunk) => FileDownloader().resume(chunk.task)),\n+    // Completed chunks retain their final file/status but have no resume data.\n+    // Resuming them returns false and incorrectly cancels the whole parent.\n+    chunks\n+        .where((chunk) => chunk.status != TaskStatus.complete)\n+        .map((chunk) => FileDownloader().resume(chunk.task)),\n   );\n   if (results.any((result) => result == false)) {\n     // cancel [ParallelDownloadTask] if any resume did not succeed.\n",
+      "lib/src/desktop/desktop_downloader.dart": "--- upstream/lib/src/desktop/desktop_downloader.dart\n+++ vendored/lib/src/desktop/desktop_downloader.dart\n@@ -479,10 +479,14 @@\n               (awaitTask) => awaitTask.taskId == task.taskId,\n             )\n           : task;\n+      // Enqueue starts _executeTask, which consumes the persisted resume data.\n+      // Retain the parent snapshot before that worker can remove it.\n+      final resumeData = task is ParallelDownloadTask\n+          ? await getResumeData(task.taskId)\n+          : null;\n       _resume.add(task);\n       if (await enqueue(task)) {\n         if (task is ParallelDownloadTask) {\n-          final resumeData = await getResumeData(task.taskId);\n           if (resumeData == null) {\n             return false;\n           }\n"
+    }
+  },
+  "files_created_or_modified": [
+    "test/download_multipart_http_test.dart",
+    "pubspec.yaml (path dependency override; prior logging diagnostic dev dependency retained)",
+    "pubspec.lock (resolved pinned path dependency)",
+    "third_party/background_downloader/{lib,android,ios,pubspec.yaml,LICENSE,VENDORED.md}",
+    "/root/reelbox-planning/resume-multipart-fix.json"
+  ],
+  "file_sha256": {
+    "test/download_multipart_http_test.dart": "f817c37baa9bcd49269721efa693d813b730938e85b9487a01f34f9696cf7136",
+    "pubspec.yaml": "72d3f1dee651cffd819f369307b62a748e7faa78ffa4653029197c16f3f3ec6d",
+    "pubspec.lock": "5b8ca0ef8d9e077a51fdecc66a0ddeb58eaa235dfd0d5949f2c29edbe8d30ed4",
+    "third_party/background_downloader/lib/src/chunk.dart": "d31df92c7731627cd881224c4f278af518b3394054278a1a96802918c0a68310",
+    "third_party/background_downloader/lib/src/desktop/desktop_downloader.dart": "92338fefa3f37960bcfe55c9ed834184281a003f9cfe67186cd18906ddee316f"
+  },
+  "issues_encountered": [
+    "Prior partial test had no actual registrar; repaired without isolated harness.",
+    "A separate deterministic desktop consume-before-read race required the second small Dart change.",
+    "Initial slow-worker pause was too early and captured zero bytes; synchronization now observes two nonempty actual partial files.",
+    "Paused HTTP consumers can strand server flush futures during fixture teardown; explicit shutdown cancellation now settles fixture handlers after assertions, without changing downloader behavior.",
+    "Earlier analyzer info diagnostics in test code were corrected; intentional fixture print evidence is locally documented.",
+    "Low disk space remains; this report does not remove any parent build artifacts."
+  ],
+  "limitations": [
+    "No Android hardware, WorkManager transfer, native plugin compilation, release APK build or device pause/process restart was performed by this worker.",
+    "Disk JSON rehydration is not a process kill/restart test.",
+    "Full application test suite was not run; parent owns concurrent Cast/player and WebView changes. Adjacent queue tests and the entire vendored Dart lib analyzer passed.",
+    "The headless real-worker suite requires the documented flutter.dart_plugin_registrant dart-define. Do not run it without that define and misattribute Flutter host registration errors to HTTP behavior.",
+    "Server handler peak=4 during resume includes old paused response handlers; uninterrupted peak=3 independently proves actual parallel ranges."
+  ],
+  "disk_available_bytes_at_report": 301367296,
+  "optional_reclaimable_prior_worker_artifacts": [
+    "/root/reelbox-planning/multipart-harness/build (previously measured 165 MiB)",
+    "/root/reelbox-planning/multipart-harness/.dart_tool (previously measured 69 MiB)"
+  ],
+  "skill_updated": "flutter-media-client-verification: real multipart worker registration, completed chunk/desktop ordering regressions, and fixture teardown cancellation"
+}

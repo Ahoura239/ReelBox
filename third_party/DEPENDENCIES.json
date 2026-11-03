@@ -1,0 +1,671 @@
+{
+  "scope": "Resolved Dart/Flutter packages from the verified lockfile; native Android components are separately described in THIRD_PARTY_NOTICES.md",
+  "packages": [
+    {
+      "name": "android_file_picker",
+      "version": "2.1.2",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker_android",
+      "license_file": "third_party/licenses/dart/android_file_picker.txt"
+    },
+    {
+      "name": "android_intent_plus",
+      "version": "6.1.0",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/android_intent_plus",
+      "license_file": "third_party/licenses/dart/android_intent_plus.txt"
+    },
+    {
+      "name": "archive",
+      "version": "4.6.0",
+      "upstream": "https://github.com/brendan-duncan/archive",
+      "license_file": "third_party/licenses/dart/archive.txt"
+    },
+    {
+      "name": "args",
+      "version": "2.7.0",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/args",
+      "license_file": "third_party/licenses/dart/args.txt"
+    },
+    {
+      "name": "async",
+      "version": "2.13.1",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/async",
+      "license_file": "third_party/licenses/dart/async.txt"
+    },
+    {
+      "name": "background_downloader",
+      "version": "9.6.5",
+      "upstream": "https://github.com/781flyingdutchman/background_downloader",
+      "license_file": "third_party/licenses/dart/background_downloader.txt"
+    },
+    {
+      "name": "boolean_selector",
+      "version": "2.1.2",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/boolean_selector",
+      "license_file": "third_party/licenses/dart/boolean_selector.txt"
+    },
+    {
+      "name": "characters",
+      "version": "1.4.1",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/characters",
+      "license_file": "third_party/licenses/dart/characters.txt"
+    },
+    {
+      "name": "clock",
+      "version": "1.1.3",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/clock",
+      "license_file": "third_party/licenses/dart/clock.txt"
+    },
+    {
+      "name": "code_assets",
+      "version": "1.2.1",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/code_assets",
+      "license_file": "third_party/licenses/dart/code_assets.txt"
+    },
+    {
+      "name": "collection",
+      "version": "1.19.1",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/collection",
+      "license_file": "third_party/licenses/dart/collection.txt"
+    },
+    {
+      "name": "connectivity_plus",
+      "version": "7.3.2",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/connectivity_plus/connectivity_plus",
+      "license_file": "third_party/licenses/dart/connectivity_plus.txt"
+    },
+    {
+      "name": "connectivity_plus_platform_interface",
+      "version": "2.1.0",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/",
+      "license_file": "third_party/licenses/dart/connectivity_plus_platform_interface.txt"
+    },
+    {
+      "name": "cross_file",
+      "version": "0.3.5+5",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/cross_file",
+      "license_file": "third_party/licenses/dart/cross_file.txt"
+    },
+    {
+      "name": "crypto",
+      "version": "3.0.8",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/crypto",
+      "license_file": "third_party/licenses/dart/crypto.txt"
+    },
+    {
+      "name": "dbus",
+      "version": "0.8.0",
+      "upstream": "https://github.com/canonical/dbus.dart",
+      "license_file": "third_party/licenses/dart/dbus.txt"
+    },
+    {
+      "name": "dio",
+      "version": "5.11.1",
+      "upstream": "https://github.com/cfug/dio/blob/main/dio",
+      "license_file": "third_party/licenses/dart/dio.txt"
+    },
+    {
+      "name": "dio_web_adapter",
+      "version": "2.2.2",
+      "upstream": "https://github.com/cfug/dio/blob/main/plugins/web_adapter",
+      "license_file": "third_party/licenses/dart/dio_web_adapter.txt"
+    },
+    {
+      "name": "fake_async",
+      "version": "1.3.3",
+      "upstream": "https://github.com/dart-lang/test/tree/master/pkgs/fake_async",
+      "license_file": "third_party/licenses/dart/fake_async.txt"
+    },
+    {
+      "name": "ffi",
+      "version": "2.2.0",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/ffi",
+      "license_file": "third_party/licenses/dart/ffi.txt"
+    },
+    {
+      "name": "ffi_leak_tracker",
+      "version": "0.1.2",
+      "upstream": "https://github.com/halildurmus/win32/tree/main/packages/ffi_leak_tracker",
+      "license_file": "third_party/licenses/dart/ffi_leak_tracker.txt"
+    },
+    {
+      "name": "file",
+      "version": "7.0.1",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/file",
+      "license_file": "third_party/licenses/dart/file.txt"
+    },
+    {
+      "name": "file_picker",
+      "version": "13.3.1",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker",
+      "license_file": "third_party/licenses/dart/file_picker.txt"
+    },
+    {
+      "name": "file_picker_darwin",
+      "version": "2.4.1",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker_darwin",
+      "license_file": "third_party/licenses/dart/file_picker_darwin.txt"
+    },
+    {
+      "name": "file_picker_linux",
+      "version": "2.0.2",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker_linux",
+      "license_file": "third_party/licenses/dart/file_picker_linux.txt"
+    },
+    {
+      "name": "file_picker_platform_interface",
+      "version": "4.2.0",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker_platform_interface",
+      "license_file": "third_party/licenses/dart/file_picker_platform_interface.txt"
+    },
+    {
+      "name": "file_picker_web",
+      "version": "4.2.0",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker_web",
+      "license_file": "third_party/licenses/dart/file_picker_web.txt"
+    },
+    {
+      "name": "fixnum",
+      "version": "1.1.1",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/fixnum",
+      "license_file": "third_party/licenses/dart/fixnum.txt"
+    },
+    {
+      "name": "flutter",
+      "version": "Flutter SDK 3.47.9",
+      "upstream": "https://flutter.dev",
+      "license_file": "third_party/licenses/dart/flutter.txt"
+    },
+    {
+      "name": "flutter_lints",
+      "version": "6.0.0",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/flutter_lints",
+      "license_file": "third_party/licenses/dart/flutter_lints.txt"
+    },
+    {
+      "name": "flutter_localizations",
+      "version": "Flutter SDK 3.47.9",
+      "upstream": "https://github.com/flutter/flutter",
+      "license_file": "third_party/licenses/dart/flutter_localizations.txt"
+    },
+    {
+      "name": "flutter_test",
+      "version": "Flutter SDK 3.47.9",
+      "upstream": "https://github.com/flutter/flutter",
+      "license_file": "third_party/licenses/dart/flutter_test.txt"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "version": "Flutter SDK 3.47.9",
+      "upstream": "https://flutter.dev",
+      "license_file": "third_party/licenses/dart/flutter_web_plugins.txt"
+    },
+    {
+      "name": "hooks",
+      "version": "2.0.2",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/hooks",
+      "license_file": "third_party/licenses/dart/hooks.txt"
+    },
+    {
+      "name": "http",
+      "version": "1.6.0",
+      "upstream": "https://github.com/dart-lang/http/tree/master/pkgs/http",
+      "license_file": "third_party/licenses/dart/http.txt"
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "upstream": "https://github.com/dart-lang/http/tree/master/pkgs/http_parser",
+      "license_file": "third_party/licenses/dart/http_parser.txt"
+    },
+    {
+      "name": "image",
+      "version": "4.12.0",
+      "upstream": "https://github.com/brendan-duncan/image",
+      "license_file": "third_party/licenses/dart/image.txt"
+    },
+    {
+      "name": "intl",
+      "version": "0.20.3 # This should follow semver to not break Flutter, where it is unpinned, see https://github.com/flutter/flutter/blob/main/pubspec.yaml",
+      "upstream": "https://github.com/dart-lang/i18n/tree/main/pkgs/intl",
+      "license_file": "third_party/licenses/dart/intl.txt"
+    },
+    {
+      "name": "jni",
+      "version": "1.1.1",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/jni",
+      "license_file": "third_party/licenses/dart/jni.txt"
+    },
+    {
+      "name": "jni_flutter",
+      "version": "1.0.4+1",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/jni_flutter",
+      "license_file": "third_party/licenses/dart/jni_flutter.txt"
+    },
+    {
+      "name": "jni_util",
+      "version": "1.0.0",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/jni_util",
+      "license_file": "third_party/licenses/dart/jni_util.txt"
+    },
+    {
+      "name": "leak_tracker",
+      "version": "11.0.2",
+      "upstream": "https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker",
+      "license_file": "third_party/licenses/dart/leak_tracker.txt"
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "version": "3.0.10",
+      "upstream": "https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker_flutter_testing",
+      "license_file": "third_party/licenses/dart/leak_tracker_flutter_testing.txt"
+    },
+    {
+      "name": "leak_tracker_testing",
+      "version": "3.0.2",
+      "upstream": "https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker_testing",
+      "license_file": "third_party/licenses/dart/leak_tracker_testing.txt"
+    },
+    {
+      "name": "lints",
+      "version": "6.1.0",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/lints",
+      "license_file": "third_party/licenses/dart/lints.txt"
+    },
+    {
+      "name": "logging",
+      "version": "1.3.0",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/logging",
+      "license_file": "third_party/licenses/dart/logging.txt"
+    },
+    {
+      "name": "matcher",
+      "version": "0.12.20",
+      "upstream": "https://github.com/dart-lang/test/tree/master/pkgs/matcher",
+      "license_file": "third_party/licenses/dart/matcher.txt"
+    },
+    {
+      "name": "material_color_utilities",
+      "version": "0.13.0",
+      "upstream": "https://github.com/material-foundation/material-color-utilities/tree/main/dart",
+      "license_file": "third_party/licenses/dart/material_color_utilities.txt"
+    },
+    {
+      "name": "media_kit",
+      "version": "1.2.6",
+      "upstream": "https://github.com/media-kit/media-kit",
+      "license_file": "third_party/licenses/dart/media_kit.txt"
+    },
+    {
+      "name": "media_kit_libs_android_video",
+      "version": "1.3.8",
+      "upstream": "https://github.com/media-kit/media-kit.git",
+      "license_file": "third_party/licenses/dart/media_kit_libs_android_video.txt"
+    },
+    {
+      "name": "media_kit_video",
+      "version": "2.0.1",
+      "upstream": "https://github.com/media-kit/media-kit",
+      "license_file": "third_party/licenses/dart/media_kit_video.txt"
+    },
+    {
+      "name": "meta",
+      "version": "1.19.0",
+      "upstream": "https://github.com/dart-lang/sdk/tree/main/pkg/meta",
+      "license_file": "third_party/licenses/dart/meta.txt"
+    },
+    {
+      "name": "mime",
+      "version": "2.1.0",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/mime",
+      "license_file": "third_party/licenses/dart/mime.txt"
+    },
+    {
+      "name": "nm",
+      "version": "0.6.0",
+      "upstream": "https://github.com/canonical/nm.dart",
+      "license_file": "third_party/licenses/dart/nm.txt"
+    },
+    {
+      "name": "objective_c",
+      "version": "9.5.0",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/objective_c",
+      "license_file": "third_party/licenses/dart/objective_c.txt"
+    },
+    {
+      "name": "package_config",
+      "version": "3.0.0",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/package_config",
+      "license_file": "third_party/licenses/dart/package_config.txt"
+    },
+    {
+      "name": "package_info_plus",
+      "version": "10.2.2",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/package_info_plus/package_info_plus",
+      "license_file": "third_party/licenses/dart/package_info_plus.txt"
+    },
+    {
+      "name": "package_info_plus_platform_interface",
+      "version": "4.1.0",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/",
+      "license_file": "third_party/licenses/dart/package_info_plus_platform_interface.txt"
+    },
+    {
+      "name": "path",
+      "version": "1.9.1",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/path",
+      "license_file": "third_party/licenses/dart/path.txt"
+    },
+    {
+      "name": "path_provider",
+      "version": "2.1.6",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider",
+      "license_file": "third_party/licenses/dart/path_provider.txt"
+    },
+    {
+      "name": "path_provider_android",
+      "version": "2.3.1",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_android",
+      "license_file": "third_party/licenses/dart/path_provider_android.txt"
+    },
+    {
+      "name": "path_provider_foundation",
+      "version": "2.6.0",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation",
+      "license_file": "third_party/licenses/dart/path_provider_foundation.txt"
+    },
+    {
+      "name": "path_provider_linux",
+      "version": "2.2.2",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_linux",
+      "license_file": "third_party/licenses/dart/path_provider_linux.txt"
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "version": "2.1.3",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_platform_interface",
+      "license_file": "third_party/licenses/dart/path_provider_platform_interface.txt"
+    },
+    {
+      "name": "path_provider_windows",
+      "version": "2.3.0",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_windows",
+      "license_file": "third_party/licenses/dart/path_provider_windows.txt"
+    },
+    {
+      "name": "petitparser",
+      "version": "7.1.0",
+      "upstream": "https://github.com/petitparser/dart-petitparser",
+      "license_file": "third_party/licenses/dart/petitparser.txt"
+    },
+    {
+      "name": "platform",
+      "version": "3.2.0",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/platform",
+      "license_file": "third_party/licenses/dart/platform.txt"
+    },
+    {
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/plugin_platform_interface",
+      "license_file": "third_party/licenses/dart/plugin_platform_interface.txt"
+    },
+    {
+      "name": "posix",
+      "version": "6.5.4",
+      "upstream": "https://github.com/onepub-dev/dart_posix",
+      "license_file": "third_party/licenses/dart/posix.txt"
+    },
+    {
+      "name": "pub_semver",
+      "version": "2.2.1",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/pub_semver",
+      "license_file": "third_party/licenses/dart/pub_semver.txt"
+    },
+    {
+      "name": "record_use",
+      "version": "0.6.0",
+      "upstream": "https://github.com/dart-lang/native/tree/main/pkgs/record_use",
+      "license_file": "third_party/licenses/dart/record_use.txt"
+    },
+    {
+      "name": "safe_local_storage",
+      "version": "2.0.7",
+      "upstream": "https://github.com/alexmercerind/safe_local_storage.git",
+      "license_file": "third_party/licenses/dart/safe_local_storage.txt"
+    },
+    {
+      "name": "share_plus",
+      "version": "13.3.1",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/share_plus/share_plus",
+      "license_file": "third_party/licenses/dart/share_plus.txt"
+    },
+    {
+      "name": "share_plus_platform_interface",
+      "version": "7.2.0",
+      "upstream": "https://github.com/fluttercommunity/plus_plugins/tree/main/packages/",
+      "license_file": "third_party/licenses/dart/share_plus_platform_interface.txt"
+    },
+    {
+      "name": "shared_preferences",
+      "version": "2.5.6",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences",
+      "license_file": "third_party/licenses/dart/shared_preferences.txt"
+    },
+    {
+      "name": "shared_preferences_android",
+      "version": "2.5.4",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences_android",
+      "license_file": "third_party/licenses/dart/shared_preferences_android.txt"
+    },
+    {
+      "name": "shared_preferences_foundation",
+      "version": "2.5.7",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences_foundation",
+      "license_file": "third_party/licenses/dart/shared_preferences_foundation.txt"
+    },
+    {
+      "name": "shared_preferences_linux",
+      "version": "2.4.1",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences_linux",
+      "license_file": "third_party/licenses/dart/shared_preferences_linux.txt"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "version": "2.4.2",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences_platform_interface",
+      "license_file": "third_party/licenses/dart/shared_preferences_platform_interface.txt"
+    },
+    {
+      "name": "shared_preferences_web",
+      "version": "2.4.3",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences_web",
+      "license_file": "third_party/licenses/dart/shared_preferences_web.txt"
+    },
+    {
+      "name": "shared_preferences_windows",
+      "version": "2.4.1",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/shared_preferences/shared_preferences_windows",
+      "license_file": "third_party/licenses/dart/shared_preferences_windows.txt"
+    },
+    {
+      "name": "sky_engine",
+      "version": "Flutter SDK 3.47.9",
+      "upstream": "https://github.com/flutter/flutter",
+      "license_file": "third_party/licenses/dart/sky_engine.txt"
+    },
+    {
+      "name": "source_span",
+      "version": "1.10.2",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/source_span",
+      "license_file": "third_party/licenses/dart/source_span.txt"
+    },
+    {
+      "name": "stack_trace",
+      "version": "1.12.2",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/stack_trace",
+      "license_file": "third_party/licenses/dart/stack_trace.txt"
+    },
+    {
+      "name": "stream_channel",
+      "version": "2.1.4",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/stream_channel",
+      "license_file": "third_party/licenses/dart/stream_channel.txt"
+    },
+    {
+      "name": "string_scanner",
+      "version": "1.4.1",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/string_scanner",
+      "license_file": "third_party/licenses/dart/string_scanner.txt"
+    },
+    {
+      "name": "synchronized",
+      "version": "3.5.0",
+      "upstream": "https://github.com/tekartik/synchronized.dart/tree/master/synchronized",
+      "license_file": "third_party/licenses/dart/synchronized.txt"
+    },
+    {
+      "name": "term_glyph",
+      "version": "1.2.2",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/term_glyph",
+      "license_file": "third_party/licenses/dart/term_glyph.txt"
+    },
+    {
+      "name": "test_api",
+      "version": "0.7.12",
+      "upstream": "https://github.com/dart-lang/test/tree/master/pkgs/test_api",
+      "license_file": "third_party/licenses/dart/test_api.txt"
+    },
+    {
+      "name": "typed_data",
+      "version": "1.4.0",
+      "upstream": "https://github.com/dart-lang/core/tree/main/pkgs/typed_data",
+      "license_file": "third_party/licenses/dart/typed_data.txt"
+    },
+    {
+      "name": "universal_platform",
+      "version": "1.1.0",
+      "upstream": "https://github.com/gskinnerTeam/flutter-universal-platform",
+      "license_file": "third_party/licenses/dart/universal_platform.txt"
+    },
+    {
+      "name": "uri_parser",
+      "version": "3.0.2",
+      "upstream": "https://github.com/alexmercerind/uri_parser",
+      "license_file": "third_party/licenses/dart/uri_parser.txt"
+    },
+    {
+      "name": "url_launcher",
+      "version": "6.3.3",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher",
+      "license_file": "third_party/licenses/dart/url_launcher.txt"
+    },
+    {
+      "name": "url_launcher_android",
+      "version": "6.3.33",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_android",
+      "license_file": "third_party/licenses/dart/url_launcher_android.txt"
+    },
+    {
+      "name": "url_launcher_ios",
+      "version": "6.4.2",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_ios",
+      "license_file": "third_party/licenses/dart/url_launcher_ios.txt"
+    },
+    {
+      "name": "url_launcher_linux",
+      "version": "3.2.3",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_linux",
+      "license_file": "third_party/licenses/dart/url_launcher_linux.txt"
+    },
+    {
+      "name": "url_launcher_macos",
+      "version": "3.2.6",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_macos",
+      "license_file": "third_party/licenses/dart/url_launcher_macos.txt"
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "version": "2.3.2",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_platform_interface",
+      "license_file": "third_party/licenses/dart/url_launcher_platform_interface.txt"
+    },
+    {
+      "name": "url_launcher_web",
+      "version": "2.4.3",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_web",
+      "license_file": "third_party/licenses/dart/url_launcher_web.txt"
+    },
+    {
+      "name": "url_launcher_windows",
+      "version": "3.1.6",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_windows",
+      "license_file": "third_party/licenses/dart/url_launcher_windows.txt"
+    },
+    {
+      "name": "uuid",
+      "version": "4.6.0",
+      "upstream": "https://github.com/Daegalus/dart-uuid",
+      "license_file": "third_party/licenses/dart/uuid.txt"
+    },
+    {
+      "name": "vector_math",
+      "version": "2.4.0",
+      "upstream": "https://github.com/flutter/core-packages/tree/main/packages/vector_math",
+      "license_file": "third_party/licenses/dart/vector_math.txt"
+    },
+    {
+      "name": "vm_service",
+      "version": "15.4.0",
+      "upstream": "https://github.com/dart-lang/sdk/tree/main/pkg/vm_service",
+      "license_file": "third_party/licenses/dart/vm_service.txt"
+    },
+    {
+      "name": "wakelock_plus",
+      "version": "1.8.2",
+      "upstream": "https://github.com/fluttercommunity/wakelock_plus/tree/main/wakelock_plus",
+      "license_file": "third_party/licenses/dart/wakelock_plus.txt"
+    },
+    {
+      "name": "wakelock_plus_platform_interface",
+      "version": "1.7.0",
+      "upstream": ">-2",
+      "license_file": "third_party/licenses/dart/wakelock_plus_platform_interface.txt"
+    },
+    {
+      "name": "web",
+      "version": "1.1.2",
+      "upstream": "https://github.com/dart-lang/web",
+      "license_file": "third_party/licenses/dart/web.txt"
+    },
+    {
+      "name": "win32",
+      "version": "6.4.0",
+      "upstream": "https://github.com/halildurmus/win32",
+      "license_file": "third_party/licenses/dart/win32.txt"
+    },
+    {
+      "name": "windows_file_picker",
+      "version": "2.0.1",
+      "upstream": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker_windows",
+      "license_file": "third_party/licenses/dart/windows_file_picker.txt"
+    },
+    {
+      "name": "xdg_directories",
+      "version": "1.1.0",
+      "upstream": "https://github.com/flutter/packages/tree/main/packages/xdg_directories",
+      "license_file": "third_party/licenses/dart/xdg_directories.txt"
+    },
+    {
+      "name": "xml",
+      "version": "7.1.0",
+      "upstream": "https://github.com/renggli/dart-xml",
+      "license_file": "third_party/licenses/dart/xml.txt"
+    },
+    {
+      "name": "yaml",
+      "version": "3.1.4",
+      "upstream": "https://github.com/dart-lang/tools/tree/main/pkgs/yaml",
+      "license_file": "third_party/licenses/dart/yaml.txt"
+    }
+  ]
+}

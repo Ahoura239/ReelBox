@@ -1,0 +1,134 @@
+{
+  "passed": false,
+  "security_concerns": [],
+  "logic_errors": [
+    {
+      "id": "CAST-FIX-01",
+      "severity": "high",
+      "title": "An initial pending Cast preparation survives a source change and loads the old source",
+      "locations": [
+        "lib/media/player_page.dart:93-111",
+        "lib/media/player_page.dart:291-339",
+        "lib/media/player_page.dart:876-896",
+        "lib/media/media_platform.dart:213-243"
+      ],
+      "failure_path": "_prepareCastMedia snapshots the old payload and subtitle text before awaiting the factory. During this initial preparation casting is still false. _open changes _source/_episode but neither revokes the pending share nor increments the native Cast revision; its loadCast call is guarded by _casting. When the old factory completes, mounted/ownsSystem/shareGeneration still pass, so its lease is retained and the old payload is sent to castLoad. The decoder for the newly selected source is paused and the receiver loads the previous source. The equivalent stale snapshot occurs if subtitles are disabled during initial preparation: _setSubtitles does not invalidate/reload while _casting is false.",
+      "minimal_repro": [
+        "Extend the real PlayerPage injected-engine test with two remote alternatives A and B, an already-connected receiver, and a castShareFactory whose first return is gated by a Completer<CastMediaLease>.",
+        "Choose Cast this video while A is selected; let preparation enter the factory without completing it.",
+        "Select quality/source B and allow the injected engine open for B to finish. Alternatively dispatch Next for a two-episode playlist.",
+        "Complete the old factory with a lease carrying the captured A payload. The present code calls castLoad with A and does not close that lease as stale. Expected: no A load, stale lease closed, and only a deliberate/current-source replacement may proceed."
+      ],
+      "minimal_fix": "Invalidate pending Cast work at the start of source/episode and subtitle-selection changes, including before casting becomes true. Couple the preparation snapshot to a source/subtitle generation, not just route ownership and subsequent prepare/revoke calls.",
+      "verification": "Confirmed by static control-flow tracing of the actual PlayerPage callsites; reproduction described for the parent to execute, not run here. The existing newer-request test explicitly calls session.loadCast and therefore does not exercise this missing PlayerPage invalidation."
+    },
+    {
+      "id": "CAST-FIX-02",
+      "severity": "medium",
+      "title": "Disconnect while the local pause is pending leaves previously playing local media paused",
+      "locations": [
+        "lib/media/media_platform.dart:165-175",
+        "lib/media/media_platform.dart:226-230",
+        "lib/media/media_platform.dart:234-239",
+        "lib/media/player_page.dart:955-963"
+      ],
+      "failure_path": "After preparation, _runCastLoad awaits local('pause'). A disconnect during that await increments _castRevision and revokes, but does not resume because casting has not yet become true. When pause completes, the stale-revision branch at lines 228-230 revokes and returns without restoring local playback. The disconnect restoration later in the post-castLoad branch is never reached. No castLoad needs to be sent for this failure.",
+      "minimal_repro": [
+        "Create and claim PlayerNativeSession with isPlaying true, immediate preparation, invoke returning true, and local('pause') blocked on a completer while logging actions.",
+        "Start an explicitly requested connected load and wait until local pause is entered.",
+        "Handle castChanged connected=false and await that handler; then complete the pause and await the original load.",
+        "Current actions contain pause but no play and casting remains false. Expected: restore play after the stale local pause, provided the same owner is current and no stop/new intent superseded it."
+      ],
+      "minimal_fix": "Unify cancellation restoration for every branch after a local pause, checking ownership, cancellation reason, and latest play/pause intent. Do not restore after a stop or over a newer media request.",
+      "verification": "Confirmed by static interleaving of the awaited local pause and disconnect handler. The existing disconnect-during-load test gates castLoad instead, so it covers a different branch. No test or compiler run here."
+    },
+    {
+      "id": "CAST-FIX-03",
+      "severity": "medium",
+      "title": "A failed asynchronous Cast load overrides a newer user pause",
+      "locations": [
+        "lib/media/media_platform.dart:216-217",
+        "lib/media/media_platform.dart:254-263",
+        "lib/media/media_platform.dart:280-283",
+        "lib/media/media_platform.dart:301-310"
+      ],
+      "failure_path": "The load captures wasPlaying before preparation and native loading. A user pause during the pending load correctly updates _loadPlayState=false and pauses the local decoder because casting is not true yet. If castLoad then rejects or throws, the catch path restores from the old wasPlaying value instead of _loadPlayState, issuing local play against the user's newer pause. The inverse case also discards a newer play request when the attempt began paused.",
+      "minimal_repro": [
+        "Create a claimed connected session starting with isPlaying true. Make preparation immediate and gate invoke('castLoad') on a Completer<bool>; log local commands.",
+        "Start loadCast, wait until castLoad is pending, then await session.command('pause').",
+        "Complete castLoad with false and await the load.",
+        "Current local actions end with play despite the newer pause. Expected: remain paused. Repeat with initially paused plus command('play') to verify the inverse."
+      ],
+      "minimal_fix": "Restore using the most recent pending playback intent, guarded by the same owner/revision and stop/source-cancellation semantics, rather than the original wasPlaying snapshot.",
+      "verification": "Confirmed from the distinct state variables used by command and the failure handler; deterministic fake-channel reproduction described, not executed."
+    },
+    {
+      "id": "CAST-FIX-04",
+      "severity": "medium",
+      "title": "Selecting an existing subtitle track leaves the previous external text selected for Cast",
+      "locations": [
+        "lib/media/player_page.dart:93-96",
+        "lib/media/player_page.dart:1258-1274",
+        "lib/media/player_page.dart:1568-1575",
+        "lib/media/player_page.dart:1814-1824"
+      ],
+      "failure_path": "File/service subtitle loaders record their decoded text in _subtitleText. The actual existing-track selection handler only calls _player.setSubtitleTrack(track); it neither updates/clears _subtitleText and _subtitleUrl nor refreshes Cast. Selecting an embedded/different/no track therefore leaves the old external subtitle text in the Cast payload. On a subsequent Cast request, _prepareCastMedia converts and shares that old text even though it is no longer the selected local track. During an active Cast session, the selection does not alter remote subtitles at all.",
+      "minimal_repro": [
+        "Open media with an existing subtitle track B (or an exposed No track). Load an external/service subtitle A through the current loader, establishing _subtitleText=A.",
+        "In Player settings select B from the existing subtitle-track list without toggling the Show subtitles switch.",
+        "Request Cast using a capturing castShareFactory. Its subtitleText argument is still A, so the prepared payload carries A rather than the user's current selection. If already casting, observe that no loadCast is requested by the track-selection handler."
+      ],
+      "minimal_fix": "Centralize subtitle selection state for every picker path. Clear old external text on embedded/no selection, preserve the corresponding decoded data for selectable external tracks, and explicitly reload or report unsupported selection for Cast; do not silently cast a previously selected text track.",
+      "verification": "Confirmed at the real settings callback and preparation snapshot; this is a stale-selection/payload finding, not a claim about hardware support for embedded tracks. No hardware or test execution performed."
+    }
+  ],
+  "suggestions": [
+    {
+      "title": "Extend regression coverage at the actual asynchronous integration boundaries",
+      "details": "Add gated factory/engine/channel cases for pending source and subtitle changes, pause-before-disconnect cancellation, user play/pause followed by rejection, and actual subtitle-list selection. Existing tests cover explicit subsequent session.loadCast supersession, disconnect after entering castLoad, successful page lease disposal, and ordinary same-connection failure polling, but not these paths."
+    }
+  ],
+  "verified_by_inspection": [
+    "Opening PlayerPage and ordinary connected polls cannot initiate preparation when no explicit Cast request has been made: the production constructor does not pre-enable _castRequested, and castChanged gates loadCast on it.",
+    "A rejected load leaves _castAttempted latched, preventing ordinary connected polls from automatically retrying in that connection; explicit requests or an actual disconnect/reconnect can retry.",
+    "Same-session explicit loads are serialized through _loadTail; revision checks prevent a queued superseded preparation from being sent to native Cast.",
+    "Route disposal calls native release, invalidates revisions and revokes the route's stored lease; a preparation returning after route loss closes its own newly returned lease. Old release cannot clear a newer method-channel owner.",
+    "Local source selection requires an absolute, existing, nonempty file with an allowed direct extension, or a validated indexed package. Package resource names are constrained, canonical parents are checked, and the HTTP handler only resolves registered names rather than request-derived filesystem paths.",
+    "Selected subtitle text is converted into new UTF-8 WEBVTT bytes in a disposable .vtt file and served as text/vtt. A preexisting SRT subtitle URL is stripped rather than merely relabelled. Lease close revokes the server and removes generated subtitle files without deleting selected media."
+  ],
+  "review_scope": {
+    "mode": "Read-only source/test inspection; no source changes, compilers, tests, native decoders, or receiver/hardware execution.",
+    "primary_files": [
+      "lib/media/cast_media_share.dart",
+      "lib/media/subtitle_webvtt.dart",
+      "lib/media/media_platform.dart",
+      "lib/media/player_page.dart"
+    ],
+    "tests_read_not_run": [
+      "test/native_cast_preparation_test.dart",
+      "test/cast_media_share_test.dart",
+      "test/player_engine_dispatch_next_test.dart",
+      "test/player_native_session_test.dart",
+      "test/subtitle_webvtt_test.dart"
+    ],
+    "supporting_files_read": [
+      "lib/media/local_media_server.dart",
+      "lib/media/media_helpers.dart:PlaybackLifecycle",
+      "lib/media/segmented_download.dart:load/validate/resource-name checks only",
+      "android/app/src/main/kotlin/org/reelbox/reelbox/ReelboxCast.kt"
+    ],
+    "out_of_scope": "Multipart download and WebView worker files; signing/private files; speculative hardware compatibility."
+  },
+  "reviewed_sha256": {
+    "lib/media/cast_media_share.dart": "9c8584be9c2c84e9077ac0b01925300f769b378c53c1b50b8f4b9f25486c8a04",
+    "lib/media/subtitle_webvtt.dart": "ca743764078554541e6d3500968b03fd84f401b08b06010d999e618193dc0752",
+    "lib/media/media_platform.dart": "ed1cabfb4a27c42743fff2c106baee08ff1158d8fd6a9d512cd67af5351e6f03",
+    "lib/media/player_page.dart": "ce7e5b3501c47a33de1cd207b0ca559d40e14e280f1d41138d4954d0c102b679",
+    "test/native_cast_preparation_test.dart": "87973194b3f9cd69790d6285cc03a22180ef7829f29e448d5b3eadac89c49894",
+    "test/cast_media_share_test.dart": "e98966a84155d7f23f863fe28356db21434ca92287a635ffdd0f135b98f49e70",
+    "test/player_engine_dispatch_next_test.dart": "268eed6ca339befa343f97c249cf860725dfeb07d001d193368116712fc459a8",
+    "test/player_native_session_test.dart": "cfd16d92bf241a6f9f6469c6fba8f820446ee64dafe306bc59f9136577101ca0",
+    "test/subtitle_webvtt_test.dart": "08dda85c1e91d4965e7ad455b1b1dbdd3b9a0c55f1520c194581137bd23edc76"
+  },
+  "summary": "Static review found four concrete asynchronous integration/selection logic defects; no additional confirmed file-exposure or subtitle-byte relabelling security defect in this bounded scope."
+}
